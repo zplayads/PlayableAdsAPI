@@ -1,0 +1,44 @@
+{
+    "version": "1.0",
+    "developer_token": "D0C85086-DC66-433E-9304-49EAB171D008",
+    "need_https": 1,
+    "support_function": 2,
+    "app": {
+        "app_id": "A650AB0D-7BFC-2A81-3066-D3170947C3DA",
+        "app_name": "iOS-demo",
+        "bundle_id": "com.playableads.demo",
+        "version": "1.0",
+        "cat": ""
+    },
+    "device": {
+        "model": "x86_64",
+        "manufacturer": "Apple",
+        "brand": "Apple",
+        "plmn": "46001",
+        "device_type": "phone",
+        "connection_type": "cell_unknown",
+        "carrier": "unknown",
+        "orientation": 1,
+        "idfa": "5FF71D13-B291-4A2E-9009-4AC318F61C8B",
+        "language": "en",
+        "os_type": "iOS",
+        "os_version": "11.4",
+        "screen": {
+            "width": 750,
+            "height": 1334
+        },
+        "geo": {
+            "lat": 33.5429,
+            "lon": -117.7813
+        }
+    },
+    "user": {
+        "id": "5FF71D13-B291-4A2E-9009-4AC318F61C8B",
+        "gender": "O",
+        "keywords": ["mwadslot:1"]
+    },
+    "ads": [{
+        "unit_type": 1,
+        "ad_unit_id": "0868EBC0-7768-40CA-4226-F9924221C8EB"
+    }]
+}
