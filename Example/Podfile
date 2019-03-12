@@ -1,13 +1,16 @@
 use_frameworks!
-
-platform :ios, '8.0'
+platform :ios, '9.0'
 
 target 'PlayableAdsAPI_Example' do
   pod 'PlayableAdsAPI', :path => '../'
-
+  pod 'Masonry'
+  pod 'SDWebImage'
+  pod 'AFNetworking'
+  pod 'MJRefresh'
+  pod 'YYModel'
+  pod 'SVProgressHUD'
   target 'PlayableAdsAPI_Tests' do
     inherit! :search_paths
 
-    
   end
 end
