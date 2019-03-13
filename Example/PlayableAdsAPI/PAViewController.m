@@ -26,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (IBAction)supportFunction1:(id)sender {
@@ -98,7 +97,6 @@
         vc.isPreRender = self.prerender.on;
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {
