@@ -69,6 +69,10 @@
 }
 
 - (IBAction)presentAd:(id)sender {
+    if (!self.renderVc) {
+        return;
+    }
+    [self presentViewController:self.renderVc animated:YES completion:nil];
 }
 
 - (void)loadHtml:(PAAdsModel *)adModel {
