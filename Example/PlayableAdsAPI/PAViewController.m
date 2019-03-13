@@ -9,6 +9,9 @@
 #import "PAViewController.h"
 
 @interface PAViewController ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *supportMraid;
+@property (weak, nonatomic) IBOutlet UISwitch *useWebView;
+@property (weak, nonatomic) IBOutlet UISwitch *prerender;
 
 @end
 
@@ -18,6 +21,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+- (IBAction)supportFunction1:(id)sender {
+}
+- (IBAction)supportFunction2:(id)sender {
+}
+- (IBAction)presentAd:(id)sender {
 }
 
 - (void)didReceiveMemoryWarning

@@ -11,7 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PARenderViewController : UIViewController
-
+@property (nonatomic, assign) BOOL isSupportMraid;
+@property (nonatomic, assign) BOOL isUseUIWebView;
+@property (nonatomic, assign) BOOL isPreRender;
 @end
 
 NS_ASSUME_NONNULL_END

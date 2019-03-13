@@ -9,6 +9,7 @@
 #import "PALoadHtmlOrUrlViewController.h"
 
 @interface PALoadHtmlOrUrlViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *htmlTextView;
 
 @end
 
@@ -20,6 +21,8 @@
 }
 - (IBAction)backToMainView:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (IBAction)loadHtmlOrUrl:(id)sender {
 }
 
 /*
