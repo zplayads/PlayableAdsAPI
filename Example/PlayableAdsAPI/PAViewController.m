@@ -11,6 +11,7 @@
 #import "PARenderViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UIView+Toast.h"
+#import "PALoadHtmlOrUrlViewController.h"
 
 @interface PAViewController ()
 @property (weak, nonatomic) IBOutlet UISwitch *useWebView;
@@ -88,6 +89,16 @@
         [renderVc setLoadUrl:adModel.playable_ads_html];
     }
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"loadAdWithHtmlOrUrl"]) {
+        PALoadHtmlOrUrlViewController *vc = segue.destinationViewController;
+        vc.isSupportMraid = self.supportMraid.on;
+        vc.isUseUIWebView = self.useWebView.on;
+        vc.isPreRender = self.prerender.on;
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

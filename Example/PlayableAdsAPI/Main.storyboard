@@ -98,7 +98,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="BiC-jg-FPM" kind="presentation" id="kWR-vD-UZY"/>
+                                    <segue destination="BiC-jg-FPM" kind="presentation" identifier="loadAdWithHtmlOrUrl" id="kWR-vD-UZY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ecg-dv-inG">
