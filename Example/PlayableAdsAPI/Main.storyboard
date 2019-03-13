@@ -37,6 +37,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="supportFunction1:" destination="whP-gf-Uak" eventType="touchUpInside" id="ERi-Id-Gpt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hKn-I4-lfO">
                                 <rect key="frame" x="65" y="120" width="245" height="30"/>
@@ -54,6 +57,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="supportFunction2:" destination="whP-gf-Uak" eventType="touchUpInside" id="ijT-Id-C8q"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXI-mY-Ccc">
                                 <rect key="frame" x="65" y="160" width="245" height="30"/>
@@ -71,6 +77,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="presentAd:" destination="whP-gf-Uak" eventType="touchUpInside" id="LvR-lU-Cv3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6g-61-AVc">
                                 <rect key="frame" x="65" y="200" width="245" height="30"/>
@@ -183,6 +192,11 @@
                             <constraint firstItem="k0c-tc-QNL" firstAttribute="height" secondItem="o5r-uN-jS4" secondAttribute="height" id="wLp-Hk-q5F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="prerender" destination="k0c-tc-QNL" id="Yvh-fg-U0j"/>
+                        <outlet property="supportMraid" destination="ViJ-Bz-uHi" id="iDn-sV-Jb6"/>
+                        <outlet property="useWebView" destination="o5r-uN-jS4" id="LTI-br-04l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -227,6 +241,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="loadHtmlOrUrl:" destination="BiC-jg-FPM" eventType="touchUpInside" id="15S-L4-RZk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please input the html or url" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MV7-xd-2vL">
                                 <rect key="frame" x="27.5" y="440" width="320" height="30"/>
@@ -272,6 +289,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Html" id="zzT-Y3-mMU"/>
+                    <connections>
+                        <outlet property="htmlTextView" destination="qHC-6E-j5g" id="cZ1-OC-1oX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CGB-xX-xXs" sceneMemberID="firstResponder"/>
             </objects>

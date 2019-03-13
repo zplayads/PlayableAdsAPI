@@ -16,6 +16,8 @@
 		5B7D29982237CB1E0033C00A /* supportFunction2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5B7D29942237CB1E0033C00A /* supportFunction2.json */; };
 		5B7D299D2237CB8D0033C00A /* PAAPIModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D29992237CB8D0033C00A /* PAAPIModel.m */; };
 		5B7D299E2237CB8D0033C00A /* PANetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D299C2237CB8D0033C00A /* PANetworkManager.m */; };
+		5B7D29A12237CD4F0033C00A /* ZplayAppStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D29A02237CD4F0033C00A /* ZplayAppStore.m */; };
+		5B7D29A42237CDC50033C00A /* PARenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B7D29A32237CDC50033C00A /* PARenderViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -59,6 +61,10 @@
 		5B7D299A2237CB8D0033C00A /* PAAPIModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAAPIModel.h; sourceTree = "<group>"; };
 		5B7D299B2237CB8D0033C00A /* PANetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PANetworkManager.h; sourceTree = "<group>"; };
 		5B7D299C2237CB8D0033C00A /* PANetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PANetworkManager.m; sourceTree = "<group>"; };
+		5B7D299F2237CD4F0033C00A /* ZplayAppStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZplayAppStore.h; sourceTree = "<group>"; };
+		5B7D29A02237CD4F0033C00A /* ZplayAppStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZplayAppStore.m; sourceTree = "<group>"; };
+		5B7D29A22237CDC50033C00A /* PARenderViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PARenderViewController.h; sourceTree = "<group>"; };
+		5B7D29A32237CDC50033C00A /* PARenderViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PARenderViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* PlayableAdsAPI_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayableAdsAPI_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -80,7 +86,7 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		62F323085BD2C86CA040E9A9 /* PlayableAdsAPI.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PlayableAdsAPI.podspec; path = ../PlayableAdsAPI.podspec; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8791B0CEABE867A161B7044D /* Pods_PlayableAdsAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayableAdsAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB564A7872D2615C923CC9A /* Pods-PlayableAdsAPI_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayableAdsAPI_Example.debug.xcconfig"; path = "Target Support Files/Pods-PlayableAdsAPI_Example/Pods-PlayableAdsAPI_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E50191CF17EDA2BF7D74E5B7 /* Pods-PlayableAdsAPI_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayableAdsAPI_Tests.release.xcconfig"; path = "Target Support Files/Pods-PlayableAdsAPI_Tests/Pods-PlayableAdsAPI_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +133,8 @@
 		5B7D298F2237CB1E0033C00A /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				5B7D299F2237CD4F0033C00A /* ZplayAppStore.h */,
+				5B7D29A02237CD4F0033C00A /* ZplayAppStore.m */,
 				5B7D299A2237CB8D0033C00A /* PAAPIModel.h */,
 				5B7D29992237CB8D0033C00A /* PAAPIModel.m */,
 				5B7D299B2237CB8D0033C00A /* PANetworkManager.h */,
@@ -178,13 +186,14 @@
 			isa = PBXGroup;
 			children = (
 				5B7D298F2237CB1E0033C00A /* Tools */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F59C195388D20070C39A /* PAAppDelegate.h */,
 				6003F59D195388D20070C39A /* PAAppDelegate.m */,
 				6003F5A5195388D20070C39A /* PAViewController.h */,
 				6003F5A6195388D20070C39A /* PAViewController.m */,
 				5B7D298C2237C59F0033C00A /* PALoadHtmlOrUrlViewController.h */,
 				5B7D298D2237C59F0033C00A /* PALoadHtmlOrUrlViewController.m */,
+				5B7D29A22237CDC50033C00A /* PARenderViewController.h */,
+				5B7D29A32237CDC50033C00A /* PARenderViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for PlayableAdsAPI";
@@ -194,6 +203,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F595195388D20070C39A /* PlayableAdsAPI-Info.plist */,
@@ -422,8 +432,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5B7D29A12237CD4F0033C00A /* ZplayAppStore.m in Sources */,
 				5B7D29952237CB1E0033C00A /* NSString+YumiURLEncodedString.m in Sources */,
 				5B7D299D2237CB8D0033C00A /* PAAPIModel.m in Sources */,
+				5B7D29A42237CDC50033C00A /* PARenderViewController.m in Sources */,
 				6003F59E195388D20070C39A /* PAAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* PAViewController.m in Sources */,
 				5B7D299E2237CB8D0033C00A /* PANetworkManager.m in Sources */,
