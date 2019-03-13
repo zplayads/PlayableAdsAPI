@@ -194,7 +194,7 @@
                     </view>
                     <connections>
                         <outlet property="prerender" destination="k0c-tc-QNL" id="Yvh-fg-U0j"/>
-                        <outlet property="supportMraid" destination="ViJ-Bz-uHi" id="iDn-sV-Jb6"/>
+                        <outlet property="supportMraid" destination="en2-bT-Hci" id="1Fc-Di-JVB"/>
                         <outlet property="useWebView" destination="o5r-uN-jS4" id="LTI-br-04l"/>
                     </connections>
                 </viewController>
