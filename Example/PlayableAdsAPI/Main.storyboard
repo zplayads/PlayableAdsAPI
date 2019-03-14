@@ -255,7 +255,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzP-If-VcQ">
-                                <rect key="frame" x="67.5" y="520" width="240" height="30"/>
+                                <rect key="frame" x="67.5" y="560" width="240" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="5Ug-9Z-702"/>
@@ -274,18 +274,40 @@
                                     <action selector="backToMainView:" destination="BiC-jg-FPM" eventType="touchUpInside" id="HLd-Yp-FJS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kh-BP-mDD">
+                                <rect key="frame" x="67.5" y="520" width="240" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="lRF-dv-5TP"/>
+                                    <constraint firstAttribute="height" constant="30" id="yUp-gQ-UBU"/>
+                                </constraints>
+                                <state key="normal" title="PresentAd">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="presentAd:" destination="BiC-jg-FPM" eventType="touchUpInside" id="uvd-K1-akS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OzP-If-VcQ" firstAttribute="top" secondItem="Yck-HQ-dzg" secondAttribute="bottom" constant="10" id="590-fV-8hT"/>
                             <constraint firstItem="MV7-xd-2vL" firstAttribute="centerX" secondItem="qHC-6E-j5g" secondAttribute="centerX" id="6fz-wb-CMc"/>
                             <constraint firstItem="Yck-HQ-dzg" firstAttribute="centerX" secondItem="MV7-xd-2vL" secondAttribute="centerX" id="Bad-Ob-9BZ"/>
                             <constraint firstItem="qHC-6E-j5g" firstAttribute="centerX" secondItem="tGU-tY-Jap" secondAttribute="centerX" id="HOH-Jb-cSr"/>
                             <constraint firstItem="Yck-HQ-dzg" firstAttribute="top" secondItem="MV7-xd-2vL" secondAttribute="bottom" constant="10" id="Iak-Gh-6vK"/>
+                            <constraint firstItem="7kh-BP-mDD" firstAttribute="top" secondItem="Yck-HQ-dzg" secondAttribute="bottom" constant="10" id="W7J-Kk-Kp2"/>
                             <constraint firstItem="MV7-xd-2vL" firstAttribute="width" secondItem="qHC-6E-j5g" secondAttribute="width" id="YyN-kc-Kt7"/>
+                            <constraint firstItem="OzP-If-VcQ" firstAttribute="top" secondItem="7kh-BP-mDD" secondAttribute="bottom" constant="10" id="bd6-Bu-yTh"/>
                             <constraint firstItem="qHC-6E-j5g" firstAttribute="top" secondItem="fGE-T0-nSc" secondAttribute="bottom" constant="10" id="fsO-Fs-09i"/>
                             <constraint firstItem="OzP-If-VcQ" firstAttribute="centerX" secondItem="Yck-HQ-dzg" secondAttribute="centerX" id="pGO-4v-qid"/>
                             <constraint firstItem="MV7-xd-2vL" firstAttribute="top" secondItem="qHC-6E-j5g" secondAttribute="bottom" constant="10" id="sKq-qQ-0HA"/>
+                            <constraint firstItem="7kh-BP-mDD" firstAttribute="centerX" secondItem="Yck-HQ-dzg" secondAttribute="centerX" id="wLB-r3-tUr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Html" id="zzT-Y3-mMU"/>
