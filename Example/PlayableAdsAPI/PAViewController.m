@@ -80,7 +80,6 @@
     renderVc.adModel = adModel;
     renderVc.isSupportMraid = self.supportMraid.on;
     renderVc.isUseUIWebView = self.useWebView.on;
-    renderVc.isPreRender = self.prerender.on;
     self.renderVc = renderVc;
     if (![adModel.playable_ads_html hasPrefix:@"http://"] && ![adModel.playable_ads_html hasPrefix:@"https://"]) {
         [renderVc loadHTMLString:adModel.playable_ads_html isReplace:NO];

@@ -80,12 +80,17 @@
             [self openAppstore:openUrl];
         }
     } else if ([msg isEqualToString:@"close_playable_ads"]) {
-        [self dismissViewControllerAnimated:YES completion:^{
+        if (self.isPreRender) {
+            self.view.hidden = YES;
             self.wkAdRender = nil;
-            [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
             self.uiAdRender = nil;
-            // TODO:
-        }];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:^{
+                self.wkAdRender = nil;
+                [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
+                self.uiAdRender = nil;
+            }];
+        }
     }
 }
 

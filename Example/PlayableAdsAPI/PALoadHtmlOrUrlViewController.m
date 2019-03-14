@@ -33,6 +33,7 @@
     self.detailVc = [[PARenderViewController alloc] init];
     self.detailVc.isSupportMraid = self.isSupportMraid;
     self.detailVc.isUseUIWebView = self.isUseUIWebView;
+    self.detailVc.isPreRender = self.isPreRender;
     if (self.isPreRender) {
         self.detailVc.view.hidden = YES;
         [self.view addSubview:self.detailVc.view];
