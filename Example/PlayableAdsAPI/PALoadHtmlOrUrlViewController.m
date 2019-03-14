@@ -7,9 +7,11 @@
 //
 
 #import "PALoadHtmlOrUrlViewController.h"
+#import "PARenderViewController.h"
 
 @interface PALoadHtmlOrUrlViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *htmlTextView;
+@property (nonatomic) PARenderViewController *detailVc;
 
 @end
 
@@ -23,16 +25,33 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)loadHtmlOrUrl:(id)sender {
+    [self.htmlTextView resignFirstResponder];
+    NSString *text =  [NSString stringWithFormat:@"%@",self.htmlTextView.text];
+    if (text.length == 0) {
+        return;
+    }
+    self.detailVc = [[PARenderViewController alloc] init];
+    self.detailVc.isSupportMraid = self.isSupportMraid;
+    self.detailVc.isUseUIWebView = self.isUseUIWebView;
+    if (self.isPreRender) {
+        self.detailVc.view.hidden = YES;
+        [self.view addSubview:self.detailVc.view];
+    }
+    PAAdsModel *model = [[PAAdsModel alloc] init];
+    model.support_function = 3;
+    self.detailVc.adModel = model;
+    if (![text hasPrefix:@"http://"] && ![text hasPrefix:@"https://"]) {
+        [self.detailVc loadHTMLString:text isReplace:YES];
+    }else{
+        [self.detailVc setLoadUrl:text];
+    }
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)presentAd:(id)sender {
+    if (self.isPreRender) {
+        self.detailVc.view.hidden = NO;
+    } else {
+        [self presentViewController:self.detailVc animated:YES completion:nil];
+    }
 }
-*/
-
 @end
