@@ -1,6 +1,0 @@
-framework module PlayableAdsAPI {
-  umbrella header "PlayableAdsAPI-umbrella.h"
-
-  export *
-  module * { export * }
-}
