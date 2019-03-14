@@ -26,11 +26,26 @@
                       initWithItunesID:itunesId
                       itunesLink:@"https://itunes.apple.com/cn/app/"
                       @"%E5%B0%8F%E7%8B%90%E7%8B%B8-%E5%BE%8B%E5%8A%A8%E8%B7%B3%E8%B7%83/id1167885749"];
+    // add tap
+    UITapGestureRecognizer *tap =
+    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickViewTapped:)];
+    tap.numberOfTapsRequired = 5;
+    tap.delegate = self;
     if (self.isUseUIWebView) {
         [self.view addSubview:self.uiAdRender];
+        [self.uiAdRender addGestureRecognizer:tap];
     } else {
         [self.view addSubview:self.wkAdRender];
+        [self.wkAdRender addGestureRecognizer:tap];
     }
+}
+
+- (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {
+    [self dismissAd];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
+    return YES;
 }
 
 - (void)setLoadUrl:(NSString *)urlString{
@@ -85,20 +100,20 @@
 }
 
 - (void)dismissAd {
-        if (self.isPreRender) {
+    if (self.isPreRender) {
         [self.wkAdRender removeFromSuperview];
         [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
-            self.view.hidden = YES;
+        self.view.hidden = YES;
+        self.wkAdRender = nil;
+        self.uiAdRender = nil;
+    } else {
+        [self dismissViewControllerAnimated:YES completion:^{
+            [self.wkAdRender removeFromSuperview];
+            [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
             self.wkAdRender = nil;
             self.uiAdRender = nil;
-        } else {
-            [self dismissViewControllerAnimated:YES completion:^{
-            [self.wkAdRender removeFromSuperview];
-                [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
-            self.wkAdRender = nil;
-                self.uiAdRender = nil;
-            }];
-        }
+        }];
+    }
     [self.delegate PARenderVcDidClosed];
 }
 

@@ -158,12 +158,30 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k0c-tc-QNL">
                                 <rect key="frame" x="238.5" y="320" width="51" height="30"/>
                             </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="If the close button does not appear, click five times on the screen" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbG-hh-fPJ">
+                                <rect key="frame" x="37.5" y="597" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kmZ-z2-RvS"/>
+                                    <constraint firstAttribute="width" constant="300" id="uXp-jt-sBD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="w6g-61-AVc" firstAttribute="centerX" secondItem="OXI-mY-Ccc" secondAttribute="centerX" id="7Y7-C4-3ML"/>
                             <constraint firstItem="pVt-3U-Gd5" firstAttribute="top" secondItem="v6X-9J-KdR" secondAttribute="bottom" constant="10" id="Big-6o-lNs"/>
                             <constraint firstItem="ecg-dv-inG" firstAttribute="width" secondItem="w6g-61-AVc" secondAttribute="width" multiplier="0.6" id="Cx9-5F-6bd"/>
+                            <constraint firstItem="EbG-hh-fPJ" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="DPW-KC-aas"/>
                             <constraint firstItem="OXI-mY-Ccc" firstAttribute="centerX" secondItem="hKn-I4-lfO" secondAttribute="centerX" id="Dva-uW-qfl"/>
                             <constraint firstItem="o5r-uN-jS4" firstAttribute="width" secondItem="en2-bT-Hci" secondAttribute="width" id="HPV-ow-bwL"/>
                             <constraint firstItem="en2-bT-Hci" firstAttribute="leading" secondItem="ecg-dv-inG" secondAttribute="trailing" constant="26.5" id="Jj2-zh-MQx"/>
@@ -190,6 +208,7 @@
                             <constraint firstItem="o5r-uN-jS4" firstAttribute="centerY" secondItem="v6X-9J-KdR" secondAttribute="centerY" id="vb7-Z3-zFG"/>
                             <constraint firstItem="wPg-Lm-Si9" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="60" id="vmG-Ei-QjN"/>
                             <constraint firstItem="k0c-tc-QNL" firstAttribute="height" secondItem="o5r-uN-jS4" secondAttribute="height" id="wLp-Hk-q5F"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="EbG-hh-fPJ" secondAttribute="bottom" constant="10" id="yb9-z8-qCX"/>
                         </constraints>
                     </view>
                     <connections>
