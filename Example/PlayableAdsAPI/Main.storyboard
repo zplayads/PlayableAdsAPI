@@ -755,8 +755,7 @@
         &lt;/div&gt;
       &lt;/div&gt;
     &lt;/div&gt;
-    &lt;script src="https://adcdn.zplayads.com/engine/prod/3.1.0/atmos-logger.min.js"&gt;&lt;/script&gt;
-    &lt;script src="https://adcdn.zplayads.com/engine/dev/3.1.0-mute-logs2/atmos.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://adcdn.zplayads.com/engine/dev/3.1.0-mute-logs-3/atmos.min.js"&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
