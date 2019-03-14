@@ -9,7 +9,7 @@
 #import "PALoadHtmlOrUrlViewController.h"
 #import "PARenderViewController.h"
 
-@interface PALoadHtmlOrUrlViewController ()
+@interface PALoadHtmlOrUrlViewController () <PARenderVcDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *htmlTextView;
 @property (nonatomic) PARenderViewController *detailVc;
 
@@ -31,6 +31,7 @@
         return;
     }
     self.detailVc = [[PARenderViewController alloc] init];
+    self.detailVc.delegate = self;
     self.detailVc.isSupportMraid = self.isSupportMraid;
     self.detailVc.isUseUIWebView = self.isUseUIWebView;
     self.detailVc.isPreRender = self.isPreRender;
@@ -49,10 +50,19 @@
 }
 
 - (IBAction)presentAd:(id)sender {
+    if (!self.detailVc) {
+        return;
+    }
     if (self.isPreRender) {
         self.detailVc.view.hidden = NO;
     } else {
         [self presentViewController:self.detailVc animated:YES completion:nil];
     }
+}
+
+#pragma mark - PARenderVcDelegate
+- (void)PARenderVcDidClosed{
+    self.detailVc.delegate = nil;
+    self.detailVc = nil;
 }
 @end

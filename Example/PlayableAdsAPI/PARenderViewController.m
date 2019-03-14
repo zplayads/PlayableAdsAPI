@@ -11,7 +11,7 @@
 #import "ZplayAppStore.h"
 #import "NSString+YumiURLEncodedString.h"
 
-@interface PARenderViewController () <WKScriptMessageHandler, WKNavigationDelegate>
+@interface PARenderViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
 @property (nonatomic) UIWebView *uiAdRender;
 @property (nonatomic) ZplayAppStore  *appStore;
@@ -80,18 +80,26 @@
             [self openAppstore:openUrl];
         }
     } else if ([msg isEqualToString:@"close_playable_ads"]) {
+        [self dismissAd];
+    }
+}
+
+- (void)dismissAd {
         if (self.isPreRender) {
+        [self.wkAdRender removeFromSuperview];
+        [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
             self.view.hidden = YES;
             self.wkAdRender = nil;
             self.uiAdRender = nil;
         } else {
             [self dismissViewControllerAnimated:YES completion:^{
-                self.wkAdRender = nil;
+            [self.wkAdRender removeFromSuperview];
                 [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
+            self.wkAdRender = nil;
                 self.uiAdRender = nil;
             }];
         }
-    }
+    [self.delegate PARenderVcDidClosed];
 }
 
 #pragma mark - WKScriptMessageHandler

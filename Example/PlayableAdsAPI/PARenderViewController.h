@@ -10,8 +10,13 @@
 #import "PAAPIModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
+@protocol PARenderVcDelegate <NSObject>
+- (void)PARenderVcDidClosed;
+
+@end
 
 @interface PARenderViewController : UIViewController
+@property (nonatomic, weak) id<PARenderVcDelegate> delegate;
 @property (nonatomic, assign) BOOL isSupportMraid;
 @property (nonatomic, assign) BOOL isUseUIWebView;
 @property (nonatomic, assign) BOOL isPreRender;

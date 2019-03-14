@@ -13,7 +13,7 @@
 #import "UIView+Toast.h"
 #import "PALoadHtmlOrUrlViewController.h"
 
-@interface PAViewController ()
+@interface PAViewController () <PARenderVcDelegate>
 @property (weak, nonatomic) IBOutlet UISwitch *useWebView;
 @property (weak, nonatomic) IBOutlet UISwitch *prerender;
 @property (weak, nonatomic) IBOutlet UISwitch *supportMraid;
@@ -77,6 +77,7 @@
 
 - (void)loadHtml:(PAAdsModel *)adModel {
     PARenderViewController *renderVc = [[PARenderViewController alloc] init];
+    renderVc.delegate = self;
     renderVc.adModel = adModel;
     renderVc.isSupportMraid = self.supportMraid.on;
     renderVc.isUseUIWebView = self.useWebView.on;
@@ -96,6 +97,12 @@
         // don't support preRender when request api server directly
         vc.isPreRender = self.prerender.on;
     }
+}
+
+#pragma mark - PARenderVcDelegate
+- (void)PARenderVcDidClosed {
+    self.renderVc.delegate = nil;
+    self.renderVc = nil;
 }
 
 - (void)didReceiveMemoryWarning
