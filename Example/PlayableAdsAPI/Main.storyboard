@@ -221,7 +221,525 @@
                                     <constraint firstAttribute="width" constant="320" id="XYb-Zp-C4n"/>
                                     <constraint firstAttribute="height" constant="400" id="wr7-bS-biY"/>
                                 </constraints>
-                                <string key="text">&lt;!DOCTYPE html&gt;&lt;html&gt;  &lt;head&gt;    &lt;meta name=\"viewport\" content=\"user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1\"&gt;    &lt;title&gt;Atmosplayer&lt;/title&gt;    &lt;meta charset=\"utf-8\"/&gt;    &lt;script&gt;      window.gestures = [  [    {      \"id\": 0,      \"type\": \"tap\",      \"attack\": 0,      \"target\": 1999,      \"fullscreen\": true,      \"shapes\": [        {          \"type\": \"circle\",          \"x\": 0.42328042328042326,          \"y\": 0.23809523809523808,          \"radius\": 0.08465608465608465        }      ],      \"mandatory\": false,      \"tapDirection\": 1,      \"tapCount\": 1    }  ],  [    {      \"id\": 1,      \"type\": \"tap\",      \"attack\": 3269,      \"loopStart\": 4368,      \"target\": 6519,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.5544973544973544,          \"y\": 0.5595238095238095,          \"width\": 0.33015873015873015,          \"height\": 0.15        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 2,      \"type\": \"tap\",      \"attack\": 7458,      \"loopStart\": 8355,      \"target\": 10357,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.6476190476190475,          \"y\": 0.5952380952380952,          \"width\": 0.3386243386243386,          \"height\": 0.20714285714285716        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 3,      \"type\": \"tap\",      \"attack\": 11913,      \"loopStart\": 12863,      \"target\": 14913,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.45291005291005293,          \"y\": 0.5880952380952381,          \"width\": 0.182010582010582,          \"height\": 0.20952380952380953        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 4,      \"type\": \"tap\",      \"attack\": 15849,      \"loopStart\": 16643,      \"target\": 18849,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.30052910052910053,          \"y\": 0.5904761904761905,          \"width\": 0.2455026455026455,          \"height\": 0.19047619047619047        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 5,      \"type\": \"tap\",      \"attack\": 19786,      \"loopStart\": 20736,      \"target\": 22736,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.35555555555555557,          \"y\": 0.5952380952380952,          \"width\": 0.16507936507936508,          \"height\": 0.20952380952380953        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 6,      \"type\": \"tap\",      \"attack\": 23722,      \"loopStart\": 24472,      \"target\": 26572,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.09312169312169312,          \"y\": 0.4976190476190476,          \"width\": 0.30052910052910053,          \"height\": 0.14523809523809525        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 7,      \"type\": \"tap\",      \"attack\": 27348,      \"loopStart\": 28448,      \"target\": 30398,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.10158730158730159,          \"y\": 0.530952380952381,          \"width\": 0.31322751322751324,          \"height\": 0.1        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 8,      \"type\": \"tap\",      \"attack\": 31284,      \"loopStart\": 32134,      \"target\": 34129,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.15661375661375662,          \"y\": 0.6238095238095238,          \"width\": 0.1693121693121693,          \"height\": 0.16666666666666666        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 9,      \"type\": \"tap\",      \"attack\": 34776,      \"loopStart\": 35676,      \"target\": 37876,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.2074074074074074,          \"y\": 0.6261904761904762,          \"width\": 0.25396825396825395,          \"height\": 0.16666666666666666        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 10,      \"type\": \"tap\",      \"attack\": 38847,      \"loopStart\": 39647,      \"target\": 41747,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.9523809523809523,          \"y\": 0.4666666666666667,          \"width\": 0.16084656084656085,          \"height\": 0.23333333333333334        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 11,      \"type\": \"tap\",      \"attack\": 42576,      \"loopStart\": 43276,      \"target\": 45526,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.5037037037037037,          \"y\": 0.6833333333333333,          \"width\": 0.2582010582010582,          \"height\": 0.14761904761904762        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 12,      \"type\": \"tap\",      \"attack\": 46513,      \"loopStart\": 47363,      \"target\": 49413,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.5037037037037037,          \"y\": 0.7452380952380953,          \"width\": 0.23703703703703702,          \"height\": 0.14761904761904762        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 13,      \"type\": \"tap\",      \"attack\": 50242,      \"loopStart\": 50942,      \"target\": 53192,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.10582010582010581,          \"y\": 0.8119047619047619,          \"width\": 0.26666666666666666,          \"height\": 0.1619047619047619        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 14,      \"type\": \"tap\",      \"attack\": 54075,      \"loopStart\": 54725,      \"target\": 57025,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.7068783068783069,          \"y\": 0.7690476190476191,          \"width\": 0.2751322751322751,          \"height\": 0.1        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 15,      \"type\": \"tap\",      \"attack\": 57701,      \"loopStart\": 58751,      \"target\": 60751,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.656084656084656,          \"y\": 0.8738095238095238,          \"width\": 0.17354497354497356,          \"height\": 0.1619047619047619        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 16,      \"type\": \"tap\",      \"attack\": 61534,      \"loopStart\": 62184,      \"target\": 64531,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.9566137566137566,          \"y\": 0.8928571428571429,          \"width\": 0.3216931216931217,          \"height\": 0.29523809523809524        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 17,      \"type\": \"tap\",      \"attack\": 65574,      \"loopStart\": 66220,      \"target\": 68473,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.9396825396825397,          \"y\": 0.9476190476190476,          \"width\": 0.30052910052910053,          \"height\": 0.16428571428571428        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 18,      \"type\": \"tap\",      \"attack\": 69407,      \"loopStart\": 70307,      \"target\": 72307,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.8,          \"y\": 0.8714285714285714,          \"width\": 0.2582010582010582,          \"height\": 0.15        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 19,      \"type\": \"tap\",      \"attack\": 73186,      \"loopStart\": 73786,      \"target\": 76136,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.9396825396825397,          \"y\": 0.9428571428571428,          \"width\": 0.30476190476190484,          \"height\": 0.14285714285714285        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 20,      \"type\": \"tap\",      \"attack\": 77283,      \"loopStart\": 77933,      \"target\": 80083,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.656084656084656,          \"y\": 0.930952380952381,          \"width\": 0.5417989417989418,          \"height\": 0.15        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 21,      \"type\": \"tap\",      \"attack\": 81734,      \"loopStart\": 82484,      \"target\": 84684,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.7576719576719577,          \"y\": 0.8666666666666667,          \"width\": 0.19894179894179895,          \"height\": 0.1619047619047619        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 22,      \"type\": \"tap\",      \"attack\": 85567,      \"loopStart\": 86417,      \"target\": 88517,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.8465608465608465,          \"y\": 0.8738095238095238,          \"width\": 0.1693121693121693,          \"height\": 0.1738095238095238        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 23,      \"type\": \"tap\",      \"attack\": 89296,      \"loopStart\": 90246,      \"target\": 92296,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.28359788359788357,          \"y\": 0.9714285714285714,          \"width\": 0.42328042328042326,          \"height\": 0.11666666666666667        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 24,      \"type\": \"tap\",      \"attack\": 93233,      \"loopStart\": 94183,      \"target\": 96183,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.7576719576719577,          \"y\": 0.9619047619047619,          \"width\": 0.3682539682539683,          \"height\": 0.10238095238095238        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 25,      \"type\": \"tap\",      \"attack\": 97066,      \"loopStart\": 97916,      \"target\": 100016,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.5502645502645502,          \"y\": 0.9428571428571428,          \"width\": 0.18624338624338624,          \"height\": 0.19047619047619047        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 26,      \"type\": \"tap\",      \"attack\": 100849,      \"loopStart\": 101499,      \"target\": 103699,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.050793650793650794,          \"y\": 0.8785714285714286,          \"width\": 0.18624338624338624,          \"height\": 0.17142857142857143        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ],  [    {      \"id\": 27,      \"type\": \"tap\",      \"attack\": 104524,      \"loopStart\": 105124,      \"target\": 107424,      \"fullscreen\": false,      \"shapes\": [        {          \"type\": \"square\",          \"x\": 0.09312169312169312,          \"y\": 0.9642857142857143,          \"width\": 0.2920634920634921,          \"height\": 0.10714285714285714        }      ],      \"mandatory\": true,      \"tapDirection\": 2,      \"loop\": true,      \"tapCount\": 1    }  ]];      window.showUserGuide = false;      window.userGuideUrl = 'undefined';      window.userGuidePosition = {};      window.installAttributes = {\"x\":0.269510177064372,\"y\":0.007142857142857143,\"width\":0.4821611782227371,\"percentage\":true};      window.showFloatingMenu = false;      window.videoOrientation = 0;      window.disableUserFeedback = false;      window.sdk = '{\"is_landscape\":false,\"video\":{\"url\":\"https://adcdn.zplayads.com/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/1546763142611.html\",\"video_start_playing_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_start_playing&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\",\"https://impression.appsflyer.com/id1224527412?advertising_id=&amp;af_ad=%7Bcreative_id%7D&amp;af_c_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;af_cost_currency=CNY&amp;af_cost_model=cpi&amp;af_cost_value=50&amp;af_siteid=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;af_sub_siteid=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;af_viewthrough_lookback=1d&amp;android_id=&amp;c=53581992-E37F-D40B-2847-BD69E51D803F&amp;click_lookback=%7Baf_click_lookback%7D&amp;clickid=bh3tsdsrs364ek71d870&amp;country-code=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;imei=&amp;pid=zplay_int&amp;promote_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;secret=bh3tsdsrs364ek71d870&amp;viewthrough_lookback=%7Bviewthrough_lookback%7D\"],\"video_ended_playing_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_ended_playing&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"],\"video_did_fail_loading_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_did_fail_loading&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"],\"present_sdk_trackers\":null,\"click_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid1224527412%3Fc%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_c_id%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_ad%3D%7Bcreative_id%7D%26af_siteid%3DBFAFC83A-8F12-D4AB-B888-999FAE8BAF68%26af_sub_siteid%3DDE80BEC4-E84D-7C82-6067-B1980F2382A0%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D50%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbh3tsdsrs364ek71d870%26promote_app_id%3D92103109-9F4D-A5F7-6243-86898B0434F6%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3DB7904707-AEFC-495D-B262-10C912F7C6DC%26secret%3Dbh3tsdsrs364ek71d870%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D%26country-code%3D%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_video_page&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"],\"show_install_button_countdown\":1,\"show_close_button_countdown\":-1,\"force_close_button\":-1},\"landing_page\":{\"url\":\"https://pa-cloud.zplayads.com/alfred/static/2018/09/25/7CDB09BE-792C-60D3-D75C-C70751D0969B.html\",\"show_replay_button\":0,\"landing_page_presented_trackers\":[\"https://impression.appsflyer.com/id1224527412?advertising_id=&amp;af_ad=%7Bcreative_id%7D&amp;af_c_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;af_cost_currency=CNY&amp;af_cost_model=cpi&amp;af_cost_value=50&amp;af_siteid=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;af_sub_siteid=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;af_viewthrough_lookback=1d&amp;android_id=&amp;c=53581992-E37F-D40B-2847-BD69E51D803F&amp;click_lookback=%7Baf_click_lookback%7D&amp;clickid=bh3tsdsrs364ek71d870&amp;country-code=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;imei=&amp;pid=zplay_int&amp;promote_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;secret=bh3tsdsrs364ek71d870&amp;viewthrough_lookback=%7Bviewthrough_lookback%7D\",\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=landing_page_presented&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"],\"landing_page_dismissed_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=landing_page_dismissed&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"],\"click_to_action\":{\"action\":\"\",\"url\":\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid1224527412%3Fc%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_c_id%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_ad%3D%7Bcreative_id%7D%26af_siteid%3DBFAFC83A-8F12-D4AB-B888-999FAE8BAF68%26af_sub_siteid%3DDE80BEC4-E84D-7C82-6067-B1980F2382A0%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D50%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbh3tsdsrs364ek71d870%26promote_app_id%3D92103109-9F4D-A5F7-6243-86898B0434F6%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3DB7904707-AEFC-495D-B262-10C912F7C6DC%26secret%3Dbh3tsdsrs364ek71d870%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D%26country-code%3D%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_landing_page&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\",\"itunes_id\":1088720922,\"target_url\":\"https://itunes.apple.com/cn/app/bb%E5%BC%B9-%E5%85%A8%E6%B0%91%E8%A1%97%E6%9C%BA%E6%89%93%E7%A0%96%E5%9D%97/id1088720922?mt=8\",\"click_trackers\":[\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid1224527412%3Fc%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_c_id%3D53581992-E37F-D40B-2847-BD69E51D803F%26af_ad%3D%7Bcreative_id%7D%26af_siteid%3DBFAFC83A-8F12-D4AB-B888-999FAE8BAF68%26af_sub_siteid%3DDE80BEC4-E84D-7C82-6067-B1980F2382A0%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D50%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbh3tsdsrs364ek71d870%26promote_app_id%3D92103109-9F4D-A5F7-6243-86898B0434F6%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3DB7904707-AEFC-495D-B262-10C912F7C6DC%26secret%3Dbh3tsdsrs364ek71d870%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D%26country-code%3D%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_landing_page&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"]}},\"interval\":{\"default\":30,\"no_content\":60},\"tracker\":{\"download_start\":\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=download_start&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\",\"download_end\":\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=download_end&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\",\"force_close\":\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=force_close&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\",\"behavior_trajectory\":\"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=53581992-E37F-D40B-2847-BD69E51D803F&amp;ad_unit_id=DE80BEC4-E84D-7C82-6067-B1980F2382A0&amp;app_id=BFAFC83A-8F12-D4AB-B888-999FAE8BAF68&amp;brand=&amp;bundle_id=com.zplay.test1&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=79F36B9B-29C1-247E-FE54-5577D63917C7&amp;country=%E4%B8%AD%E5%9B%BD%E5%A4%A7%E9%99%86&amp;creatives_id=95E2444C-30D8-F9D5-E4A8-4D87EC0943A6&amp;developer_share_rate=70&amp;device_model=iPhone8%2C4&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=B7904707-AEFC-495D-B262-10C912F7C6DC&amp;idfv=5F361B99-EC21-42A8-BA8F-1554B6B6CAD0&amp;industry_id=&amp;last_status=0&amp;network_connection_type=wifi&amp;order_id=DD57ECF4-8FE3-E1DC-8F1B-0D76D57A7A66&amp;os=iOS&amp;os_version=11.3&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=b0b723600a789b0c&amp;predictive_cpm_usd_cipher=376891aa4f47812334816fa4&amp;predictive_cpms=9fdd54b9bb9166314dd94f9a35e67af5d6cdd13e808d7c0121dcf5dc74c25e70ccfb569dc051007b44e948c1904bcf92589d3505918d3931068563d29ccec5508da8d5b806cb30f6&amp;promotion_app_id=92103109-9F4D-A5F7-6243-86898B0434F6&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bh3tsdsrs364ek71d870&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=behavior_trajectory&amp;unit_price_cny=b1955406abb37bfc6763abb9&amp;unit_price_usd=42cfa6c1d2622cd1943a03b2&amp;unit_prices=909104263d2351fe481e2477ae09f715684c5e44704354821cf47bde80ca1e4d467494865890ccf4738156abf2d4e36657b87da5216146d6017de08b6540817141c67fb075b2e54b690889db13f34d03&amp;width=0\"}}';      window.detached_install_url = 'https://itunes.apple.com/cn/app/bb%E5%BC%B9-%E5%85%A8%E6%B0%91%E8%A1%97%E6%9C%BA%E6%89%93%E7%A0%96%E5%9D%97/id1088720922?mt=8';      window.hasEndCard = false;      window.endCardSettings = undefined;                &lt;/script&gt;    &lt;style&gt;      body {        background: black;      }      #rotatedContainer, #loadingImage {        display: none;      }      #loadingImage {        width: 100%;        height: 100%;        position: absolute;        top: 0;        left: 0;        right: 0;        bottom: 0;        filter: blur(4px);        z-index: 1;        pointer-events: none;      }      #loader-blur {        filter: blur(1.5rem);      }      #loader {        width: 50px;        height: 50px;        border-radius: 100%;        position: fixed;        top: 50%;        left: 50%;        z-index: 99;      }      #loader:before, #loader:after {        content: \"\";        position: absolute;        top: -35px;        left: -35px;        width: 100%;        height: 100%;        border-radius: 100%;        border: 10px solid transparent;        border-top-color: #6f9dec;      }      #loader:before {        z-index: 100;        animation: spin 1s infinite;      }      #loader:after {        border: 10px solid #ccc;      }      @keyframes spin {        0% {          -webkit-transform: rotate(0deg);          -ms-transform: rotate(0deg);          -o-transform: rotate(0deg);          transform: rotate(0deg);        }        100% {          -webkit-transform: rotate(360deg);          -ms-transform: rotate(360deg);          -o-transform: rotate(360deg);          transform: rotate(360deg);        }      }    &lt;/style&gt;  &lt;/head&gt;  &lt;body&gt;    &lt;div id=\"mainContainer\"&gt;      &lt;div id=\"loader\"&gt;&lt;/div&gt;      &lt;img id=\"loadingImage\" src=\"https://adcdn.zplayads.com/assets/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/load.jpg\" /&gt;      &lt;div id=\"rotatedContainer\"&gt;        &lt;img id=\"closeButton\" src=\"https://adcdn.zplayads.com/assets/images/x_button.png\"/&gt;        &lt;img id=\"restartButton\" src=\"https://adcdn.zplayads.com/assets/images/restart.png\"/&gt;        &lt;img id=\"muteButton\" src=\"\" /&gt;        &lt;img id=\"installButton\" src=\"https://adcdn.zplayads.com/assets/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/downloadImage.png?key=468\" /&gt;        &lt;video id=\"atmosPlayer\" webkit-playsinline playsinline muted preload=\"auto\" src=\"https://adcdn.zplayads.com/assets/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/transcoded_video_1500kbps.mp4\" poster=\"https://adcdn.zplayads.com/assets/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/load.jpg\" autoplay&gt;&lt;/video&gt;        &lt;audio id=\"bgMusicPlayer\" src=\"https://adcdn.zplayads.com/assets/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/bgMusic.mp3?key=744\" type=\"audio/mpeg\" loop&gt;&lt;/audio&gt;        &lt;video id=\"atmosPlayerEndCard\" webkit-playsinline playsinline muted preload=\"auto\"   style=\"z-index: -10;\"&gt;&lt;/video&gt;        &lt;canvas id=\"gestureDetector\"&gt;&lt;/canvas&gt;        &lt;canvas id=\"userFeedback\"&gt;&lt;/canvas&gt;        &lt;div id=\"floatingMenu\" class=\"simple\"&gt;          &lt;span class=\"title\"&gt;¿ÉÍæµÄÃÔÄãÓÎÏ·&lt;/span&gt;&lt;img alt=\"gamebox\" class=\"logo\" src=\"https://adcdn.zplayads.com/assets/images/zplayads_logo.png\"/&gt;        &lt;/div&gt;      &lt;/div&gt;    &lt;/div&gt;        &lt;script src=\"https://adcdn.zplayads.com/engine/dev/3.1.0-api-video-end/atmos.min.js\"&gt;&lt;/script&gt;      &lt;/body&gt;&lt;/html&gt;</string>
+                                <mutableString key="text">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"&gt;
+    &lt;title&gt;Atmosplayer&lt;/title&gt;
+    &lt;meta charset="utf-8"/&gt;
+    &lt;script&gt;
+      window.gestures = [
+  [
+    {
+      "id": 1,
+      "type": "tap",
+      "attack": 2500,
+      "loop": true,
+      "loopStart": 2700,
+      "target": 4149,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5775757575757575,
+          "y": 0.54960101010101,
+          "radius": 0.2006060606060606
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 3,
+      "type": "tap",
+      "attack": 9199,
+      "loop": true,
+      "loopStart": 9699,
+      "target": 10299,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "square",
+          "x": 0.5012121212121212,
+          "y": 0.5323484848484848,
+          "width": 0.22848484848484849,
+          "height": 0.46685353535353535
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 2,
+      "tapCount": 1
+    },
+    {
+      "id": 4,
+      "type": "tap",
+      "attack": 9199,
+      "loop": true,
+      "loopStart": 9699,
+      "target": 10299,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "square",
+          "x": 0.8509453361512538,
+          "y": 0.5707317073170732,
+          "width": 0.23968127034900322,
+          "height": 0.5097560975609756
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 2,
+      "jump": true,
+      "jumpTo": 39346,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 7,
+      "type": "drag",
+      "attack": 11698,
+      "loop": true,
+      "loopStart": 11898,
+      "target": 13548,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5,
+          "y": 0.31463414634146336,
+          "radius": 0.1286399725823956
+        },
+        {
+          "type": "circle",
+          "x": 0.41226366596218655,
+          "y": 0.7609756097560976,
+          "radius": 0.1217855714856914
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 9,
+      "type": "tap",
+      "attack": 16604,
+      "loop": true,
+      "loopStart": 16754,
+      "target": 19554,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.34920317587250815,
+          "y": 0.7975609756097561,
+          "radius": 0.13412349345975894
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 8,
+      "jump": true,
+      "jumpTo": 29304,
+      "tapCount": 1
+    },
+    {
+      "id": 10,
+      "type": "tap",
+      "attack": 16604,
+      "loop": true,
+      "loopStart": 16754,
+      "target": 19554,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.6425715428114469,
+          "y": 0.8121951219512196,
+          "radius": 0.13823613411778143
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 8,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 11,
+      "type": "tap",
+      "attack": 20504,
+      "loop": true,
+      "loopStart": 22304,
+      "target": 26054,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.3574284571885531,
+          "y": 0.7902439024390244,
+          "radius": 0.14783229565316727
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 6,
+      "type": "end",
+      "attack": 29217,
+      "loop": true,
+      "loopStart": 29217,
+      "target": 29217,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5,
+          "y": 0.5,
+          "radius": 0.3
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 12,
+      "type": "tap",
+      "attack": 30279,
+      "loop": true,
+      "loopStart": 32273,
+      "target": 35376,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.6370880219340835,
+          "y": 0.8048780487804879,
+          "radius": 0.13960701433712228
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 20,
+      "type": "jump",
+      "attack": 36828,
+      "loop": true,
+      "loopStart": 37778,
+      "target": 38328,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5,
+          "y": 0.5,
+          "radius": 0.3
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 5,
+      "type": "end",
+      "attack": 39198,
+      "loop": true,
+      "loopStart": 39198,
+      "target": 39198,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5,
+          "y": 0.5,
+          "radius": 0.3
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 13,
+      "type": "drag",
+      "attack": 40772,
+      "loop": true,
+      "loopStart": 40922,
+      "target": 42572,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.3354943736790998,
+          "y": 0.35365853658536583,
+          "radius": 0.11493117038898723
+        },
+        {
+          "type": "circle",
+          "x": 0.5041126406580225,
+          "y": 0.7585365853658538,
+          "radius": 0.12863997258239557
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 15,
+      "type": "tap",
+      "attack": 46394,
+      "loop": true,
+      "loopStart": 46494,
+      "target": 49644,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.3560575769692123,
+          "y": 0.8,
+          "radius": 0.13549437367909975
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 14,
+      "jump": true,
+      "jumpTo": 59544,
+      "tapCount": 1
+    },
+    {
+      "id": 17,
+      "type": "tap",
+      "attack": 46394,
+      "loop": true,
+      "loopStart": 46494,
+      "target": 49644,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.6412006625921061,
+          "y": 0.8121951219512196,
+          "radius": 0.1368652538984406
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "forkId": 14,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 18,
+      "type": "tap",
+      "attack": 50593,
+      "loop": true,
+      "loopStart": 52243,
+      "target": 55493,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.36291197806591646,
+          "y": 0.802439024390244,
+          "radius": 0.15331581653053064
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "tapCount": 1
+    }
+  ],
+  [
+    {
+      "id": 16,
+      "type": "end",
+      "attack": 59394,
+      "loop": true,
+      "loopStart": 59394,
+      "target": 59394,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.5,
+          "y": 0.5,
+          "radius": 0.3
+        }
+      ],
+      "mandatory": true
+    }
+  ],
+  [
+    {
+      "id": 19,
+      "type": "tap",
+      "attack": 60548,
+      "loop": true,
+      "loopStart": 62648,
+      "target": 65792,
+      "fullscreen": false,
+      "shapes": [
+        {
+          "type": "circle",
+          "x": 0.6370880219340835,
+          "y": 0.7878048780487805,
+          "radius": 0.14509053521448562
+        }
+      ],
+      "mandatory": true,
+      "tapDirection": 1,
+      "tapCount": 1
+    }
+  ]
+];
+      window.showUserGuide = false;
+      window.userGuideUrl = 'undefined';
+      window.userGuidePosition = {};
+      window.installAttributes = {"x":0.0048484848484848485,"y":0.006464646464646465,"width":0.32787878787878794};
+      window.showFloatingMenu = true;
+      window.videoOrientation = 1;
+      window.disableUserFeedback = false;
+      window.sdk = '{"is_landscape":false,"video":{"url":"https://adcdn.zplayads.com/prod/6ea73ab0-3cc4-11e8-a313-55140a049e95/1546763142611.html","video_start_playing_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_start_playing&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"video_ended_playing_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_ended_playing&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"video_did_fail_loading_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=video_did_fail_loading&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"present_sdk_trackers":[],"click_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid834878585%3Fc%3D6E4ADB48-6674-B91F-AE85-12E8CD21A847%26af_siteid%3DA650AB0D-7BFC-2A81-3066-D3170947C3DA%26af_sub_siteid%3D0868EBC0-7768-40CA-4226-F9924221C8EB%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D2%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbi4diomtfilg7f4kgfl0%26promote_app_id%3D8B6BC1BB-368A-6C77-735A-929E38E20D9F%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3D5FF71D13-B291-4A2E-9009-4AC318F61C8B%26secret%3Dbi4diomtfilg7f4kgfl0%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_video_page&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"show_install_button_countdown":1,"show_close_button_countdown":5,"force_close_button":-1},"landing_page":{"url":"https://pa-cloud.zplayads.com/alfred/static/2018/11/29/059B2C08-95AE-51B0-DA71-B6636D2BF9AC.html","show_replay_button":0,"landing_page_presented_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=landing_page_presented&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"landing_page_dismissed_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=landing_page_dismissed&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"click_to_action":{"action":"","url":"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid834878585%3Fc%3D6E4ADB48-6674-B91F-AE85-12E8CD21A847%26af_siteid%3DA650AB0D-7BFC-2A81-3066-D3170947C3DA%26af_sub_siteid%3D0868EBC0-7768-40CA-4226-F9924221C8EB%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D2%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbi4diomtfilg7f4kgfl0%26promote_app_id%3D8B6BC1BB-368A-6C77-735A-929E38E20D9F%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3D5FF71D13-B291-4A2E-9009-4AC318F61C8B%26secret%3Dbi4diomtfilg7f4kgfl0%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_landing_page&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0","itunes_id":834878585,"target_url":"https://itunes.apple.com/app/id834878585?mt=8","click_trackers":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;redirect_to=https%3A%2F%2Fapp.appsflyer.com%2Fid834878585%3Fc%3D6E4ADB48-6674-B91F-AE85-12E8CD21A847%26af_siteid%3DA650AB0D-7BFC-2A81-3066-D3170947C3DA%26af_sub_siteid%3D0868EBC0-7768-40CA-4226-F9924221C8EB%26af_cost_model%3Dcpi%26af_cost_currency%3DCNY%26af_cost_value%3D2%26pid%3Dzplay_int%26af_click_lookback%3D7d%26clickid%3Dbi4diomtfilg7f4kgfl0%26promote_app_id%3D8B6BC1BB-368A-6C77-735A-929E38E20D9F%26android_id%3D%26advertising_id%3D%26imei%3D%26idfa%3D5FF71D13-B291-4A2E-9009-4AC318F61C8B%26secret%3Dbi4diomtfilg7f4kgfl0%26click_lookback%3D%7Baf_click_lookback%7D%26viewthrough_lookback%3D%7Bviewthrough_lookback%7D&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=click_from_landing_page&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"]}},"interval":{"default":30,"no_content":60},"tracker":{"download_start":"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=download_start&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0","download_end":"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=download_end&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0","force_close":["https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=force_close&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"],"close_url":"","behavior_trajectory":"https://pa-engine.zplayads.com/v1/tracking?ab_test_id=A011A3BB-9316-08D6-06DD-3DADFA6B73C1&amp;ab_test_object_group_id=default&amp;ad_id=6E4ADB48-6674-B91F-AE85-12E8CD21A847&amp;ad_unit_id=0868EBC0-7768-40CA-4226-F9924221C8EB&amp;app_id=A650AB0D-7BFC-2A81-3066-D3170947C3DA&amp;brand=Apple&amp;bundle_id=com.playableads.demo&amp;channel_id=&amp;channel_share_rate=0&amp;city=%E5%8D%97%E4%BA%AC%E5%B8%82&amp;client_id=73AB1CDF-009E-130C-4A15-94901D3470DE&amp;country=CN&amp;creatives_id=C0EB1023-8170-E612-5ABA-B437C26CC709&amp;developer_share_rate=70&amp;device_model=x86_64&amp;device_type=phone&amp;engine_events=&amp;height=0&amp;idfa=5FF71D13-B291-4A2E-9009-4AC318F61C8B&amp;industry_id=&amp;last_status=0&amp;network_connection_type=cell_unknown&amp;order_id=8D42D892-AF3D-FA88-76F2-461A5B6E427E&amp;os=iOS&amp;os_version=11.4&amp;pay_by=cpi&amp;pay_event=install&amp;predictive_cpm_cipher=351d6fbfdfc8bb29&amp;predictive_cpm_usd_cipher=213ee1d6dd84207c&amp;predictive_cpms=2c3e8d08ad73a635&amp;promotion_app_id=8B6BC1BB-368A-6C77-735A-929E38E20D9F&amp;region=%E6%B1%9F%E8%8B%8F%E7%9C%81&amp;request_id=bi4diomtfilg7f4kgfl0&amp;settlement_price_cny=213ee1d6dd84207c&amp;settlement_price_usd=213ee1d6dd84207c&amp;tracking_type=behavior_trajectory&amp;unit_price_cny=fdf3d2a3b2e6380d77e13edb&amp;unit_price_usd=8d51501f9df268a79aada254&amp;unit_prices=9712d410ddd8d2ddde96dff6831ed67772615f2720e45e2d163c08282017245a7d94fadc973aa059960942221ec148c7f4e454b03e22964861ad2dddc16139232ed6e593e2ca644c&amp;width=0"}}';    
+        window.atmosLogger = {
+			endpoint: 'https://editor.atmosplay.com/api/log',
+			sendXhr: true,
+			campaignId: 1061,
+			showLogLayer: true
+		  };	
+      window.detached_install_url = '{{install_url}}';
+      window.hasEndCard = true;
+      window.endCardSettings = {
+  "endCardType": "atmos",
+  "customEndCardUrl": null,
+  "loopStart": 0,
+  "hasRestartButton": true,
+  "hasCustomRestartShape": true,
+  "restartShape": {
+    "type": "square",
+    "x": 0.3133333333333333,
+    "y": 0.6831649831649833,
+    "width": 0.21393939393939393,
+    "height": 0.17932659932659933
+  },
+  "restartTapDirection": "1",
+  "installTapDirection": "1",
+  "installShape": {
+    "type": "square",
+    "x": 0.5036363636363638,
+    "y": 0.9115824915824916,
+    "width": 0.5218181818181818,
+    "height": 0.18363636363636365
+  }
+};
+    &lt;/script&gt;
+    &lt;style&gt;
+      body {
+        background: black;
+      }
+      #rotatedContainer, #loadingImage {
+        display: none;
+      }
+      #loadingImage {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        filter: blur(4px);
+        z-index: 1;
+        pointer-events: none;
+      }
+      #loader-blur {
+        filter: blur(1.5rem);
+      }
+      #loader {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        z-index: 99;
+      }
+      #loader:before, #loader:after {
+        content: "";
+        position: absolute;
+        top: -35px;
+        left: -35px;
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        border: 10px solid transparent;
+        border-top-color: #6f9dec;
+      }
+      #loader:before {
+        z-index: 100;
+        animation: spin 1s infinite;
+      }
+      #loader:after {
+        border: 10px solid #ccc;
+      }
+      @keyframes spin {
+        0% {
+          -webkit-transform: rotate(0deg);
+          -ms-transform: rotate(0deg);
+          -o-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+          -o-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="mainContainer"&gt;
+      &lt;div id="loader"&gt;&lt;/div&gt;
+      &lt;img id="loadingImage" src="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/load.jpg" /&gt;
+      &lt;div id="rotatedContainer"&gt;
+        &lt;img id="closeButton" src="https://adcdn.zplayads.com/assets/images/x_button.png"/&gt;
+        &lt;img id="restartButton" src="https://adcdn.zplayads.com/assets/images/restart.png"/&gt;
+        &lt;img id="muteButton" src="" /&gt;
+        &lt;img id="installButton" src="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/downloadImage.png?key=405" /&gt;
+        &lt;video id="atmosPlayer" webkit-playsinline playsinline muted preload="auto" src="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/transcoded_video_1000kbps.mp4" poster="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/load.jpg" autoplay&gt;&lt;/video&gt;
+        &lt;audio id="bgMusicPlayer" src="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/bgMusic.mp3?key=601" type="audio/mpeg" loop&gt;&lt;/audio&gt;
+        &lt;video id="atmosPlayerEndCard" webkit-playsinline playsinline muted preload="auto" src="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/transcoded_end_card_video_1000kbps.mp4" poster="https://adcdn.zplayads.com/assets/prod/1f89efd0-437c-11e9-a188-93ca6e347373/end_card_load.jpg" style="z-index: -10;"&gt;&lt;/video&gt;
+        &lt;canvas id="gestureDetector"&gt;&lt;/canvas&gt;
+        &lt;canvas id="userFeedback"&gt;&lt;/canvas&gt;
+        &lt;div id="floatingMenu" class="simple"&gt;
+          &lt;span class="title"&gt;undefined&lt;/span&gt;&lt;img alt="gamebox" class="logo" src="https://adcdn.zplayads.com/assets/images/zplayads_logo.png"/&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src="https://adcdn.zplayads.com/engine/prod/3.1.0/atmos-logger.min.js"&gt;&lt;/script&gt;
+    &lt;script src="https://adcdn.zplayads.com/engine/prod/3.1.0/atmos.min.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
                             </textView>
