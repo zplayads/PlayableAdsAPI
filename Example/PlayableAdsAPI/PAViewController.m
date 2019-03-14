@@ -94,6 +94,7 @@
         PALoadHtmlOrUrlViewController *vc = segue.destinationViewController;
         vc.isSupportMraid = self.supportMraid.on;
         vc.isUseUIWebView = self.useWebView.on;
+        // don't support preRender when request api server directly
         vc.isPreRender = self.prerender.on;
     }
 }
