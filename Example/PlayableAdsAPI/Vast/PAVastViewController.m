@@ -12,13 +12,17 @@
 #import <WMPlayer/WMPlayer.h>
 #import <Masonry/Masonry.h>
 #import "PAStatisticsReportManager.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "PANetworkManager.h"
 
 @interface PAVastViewController ()<WMPlayerDelegate>
 
+@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (nonatomic)WMPlayer * wmPlayer;
 @property (nonatomic , assign) BOOL isFullScreen;
 @property (nonatomic , assign) BOOL isPlaying;
 @property (nonatomic) PAVastAdModel *vastModel;
+
 
 @end
 
@@ -38,20 +42,54 @@
 - (IBAction)parseVastAction:(UIButton *)sender {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"localVast" ofType:@"xml"];
     NSData *xmlData = [[NSData alloc] initWithContentsOfFile:filePath];
-    NSError *error;
-    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:xmlData error:&error];
+   
+    [self showText:@"parse vast xml from local"];
+    
+    [self handleVastData:xmlData];
+}
 
+- (IBAction)handleNetworkVast:(UIButton *)sender {
+    [SVProgressHUD show];
+    [self showText:@"Request vast from server"];
+    __weak typeof(self) weakSelf = self;
+    [[PANetworkManager sharedManager] requestVastDataCompleted:^(NSData * _Nonnull vastData) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            NSError *error;
+            NSDictionary *dictFromData = [NSJSONSerialization JSONObjectWithData:vastData
+                                                                         options:NSJSONReadingAllowFragments
+                                                                           error:&error];
+            if ([dictFromData[@"ads"] isKindOfClass:[NSArray class]]) {
+                NSDictionary *ad = ((NSArray *)dictFromData[@"ads"]).firstObject;
+                NSData *vastData = [ad[@"adm"] dataUsingEncoding:NSUTF8StringEncoding];
+                [weakSelf handleVastData:vastData];
+            }
+            
+        });
+        
+    }];
+}
+
+- (void)handleVastData:(NSData *)vastData{
+    if (!vastData) {
+        [self showText:@"Vast response fail"];
+        return;
+    }
+  
+    NSError *error;
+    GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:vastData error:&error];
+    
     if (doc == nil) {
-        NSLog(@" doc is nil");
+        [self showText:@"doc is nil"];
         self.vastModel = nil;
         return;
     }
-
+    
     NSArray *ads = [doc.rootElement elementsForName:@"Ad"];
-   
+    
     if (ads.count == 0) {
         self.vastModel = nil;
-        NSLog(@"No ad element");
+        [self showText:@"No ad element"];
         return;
     }
     
@@ -59,15 +97,27 @@
     self.vastModel = [self convertToAdModelWithXMLAdTag:element];
     
     [self playVideo:self.vastModel.mediaUrl];
+    
 }
 
+- (void)showText:(NSString *)logText{
+    __weak typeof(self) weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.tipLabel.text = logText;
+    });
+}
 - (void)playVideo:(NSString *)videoUrl{
     if (videoUrl.length == 0) {
+        [self showText:@"videoUrl is nil"];
         return;
     }
     WMPlayerModel *playerModel = [[WMPlayerModel alloc] init];
     playerModel.title = @"Ad Video";
     playerModel.videoURL = [NSURL URLWithString:videoUrl];
+    if (self.wmPlayer) {
+        [self.wmPlayer resetWMPlayer];
+        [self.wmPlayer removeFromSuperview];
+    }
     self.wmPlayer = [[WMPlayer alloc]initPlayerModel:playerModel];
     self.wmPlayer.delegate = self;
     self.wmPlayer.enableVolumeGesture = YES;
@@ -80,6 +130,8 @@
     
     // impressionTracking
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.impressionTracking];
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
+    [self showText:@"play start video"];
     
 }
 
@@ -256,18 +308,21 @@
     self.isPlaying = !self.isPlaying;
     if (self.isPlaying) { // resumeTracking
         [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.resumeTracking];
+        [self showText:@"resume video"];
         return;
     }
     //pause
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.pauseTracking];
+    [self showText:@"pause video"];
 }
 //点击关闭按钮代理方法
 -(void)wmplayer:(WMPlayer *)wmplayer clickedCloseButton:(UIButton *)backBtn{
+    [self.wmPlayer pause];
     [self.wmPlayer removeFromSuperview];
     self.wmPlayer = nil;
     self.view.backgroundColor = [UIColor whiteColor];
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
-    
+    [self showText:@"close video"];
 }
 //点击全屏按钮代理方法
 -(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
@@ -278,8 +333,10 @@
     
     if (self.isFullScreen) {
         self.view.backgroundColor = [UIColor blackColor];
+        [self showText:@"video input full screen"];
     }else{
         self.view.backgroundColor = [UIColor whiteColor];
+        [self showText:@"video exit full screen"];
     }
     
 }
@@ -295,7 +352,7 @@
 -(void)wmplayer:(WMPlayer *)wmplayer doubleTaped:(UITapGestureRecognizer *)doubleTap{
     NSURL *targetUrl = [NSURL URLWithString:self.vastModel.targetUrl];
     if (!targetUrl) {
-        NSLog(@"targetUrl is nil");
+        [self showText:@"targetUrl is nil"];
         return;
     }
     
@@ -304,6 +361,8 @@
     [[UIApplication sharedApplication] openURL:targetUrl options:nil completionHandler:^(BOOL success) {
         
     }];
+    
+    [self showText:@"double click open App Store"];
 }
 //WMPlayer的的操作栏隐藏和显示
 -(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL )isHidden{
@@ -311,11 +370,11 @@
 }
 //播放失败的代理方法
 -(void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    
+    [self showText:@"video play fail"];
 }
 //准备播放的代理方法
 -(void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
+    
 }
 //播放器已经拿到视频的尺寸大小
 -(void)wmplayerGotVideoSize:(WMPlayer *)wmplayer videoSize:(CGSize )presentationSize{
@@ -325,6 +384,7 @@
 -(void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
     self.isPlaying = NO;
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.completeTracking];
+    [self showText:@"video play finished"];
 }
 
 @end
