@@ -8,7 +8,7 @@
 
 #import "PANetworkManager.h"
 #import <AFNetworking/AFNetworking.h>
-#import <NSObject+YYModel.h>
+#import "NSObject+YYModel.h"
 #import "PAAPIModel.h"
 
 @interface PANetworkManager ()

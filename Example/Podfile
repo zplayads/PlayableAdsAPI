@@ -9,6 +9,8 @@ target 'PlayableAdsAPI_Example' do
   pod 'MJRefresh'
   pod 'YYModel'
   pod 'SVProgressHUD'
+  pod 'GDataXML-HTML', '~> 1.4.1'
+  
   target 'PlayableAdsAPI_Tests' do
     inherit! :search_paths
 
