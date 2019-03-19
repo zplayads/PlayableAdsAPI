@@ -10,6 +10,7 @@ target 'PlayableAdsAPI_Example' do
   pod 'YYModel'
   pod 'SVProgressHUD'
   pod 'GDataXML-HTML', '~> 1.4.1'
+  pod 'WMPlayer'
   
   target 'PlayableAdsAPI_Tests' do
     inherit! :search_paths
