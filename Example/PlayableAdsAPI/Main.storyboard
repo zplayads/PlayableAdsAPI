@@ -913,7 +913,7 @@
                                     <constraint firstAttribute="height" constant="30" id="dJq-vJ-tM1"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="245" id="zvr-0k-DWV"/>
                                 </constraints>
-                                <state key="normal" title="Parse Vast">
+                                <state key="normal" title="Parse Local Vast">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -926,15 +926,49 @@
                                     <action selector="parseVastAction:" destination="tNp-YV-fMh" eventType="touchUpInside" id="ulg-tN-7vr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0c-wr-umq">
+                                <rect key="frame" x="65" y="547" width="245" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Parse Network Vast">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handleNetworkVast:" destination="tNp-YV-fMh" eventType="touchUpInside" id="9xX-4h-qK0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8tj-Uy-sXo">
+                                <rect key="frame" x="187.5" y="120" width="0.0" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Z21-T8-ogP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.21922338390000001" blue="0.33555019180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="F0c-wr-umq" firstAttribute="top" secondItem="1HM-qv-DeM" secondAttribute="bottom" constant="30" id="3kK-46-L9c"/>
+                            <constraint firstItem="F0c-wr-umq" firstAttribute="height" secondItem="1HM-qv-DeM" secondAttribute="height" id="DoS-Mj-vtj"/>
+                            <constraint firstItem="F0c-wr-umq" firstAttribute="leading" secondItem="1HM-qv-DeM" secondAttribute="leading" id="F7R-AU-Tpr"/>
                             <constraint firstItem="NF9-9k-UH6" firstAttribute="leading" secondItem="MLb-Wv-vGh" secondAttribute="leading" constant="16" id="P1m-6s-cOL"/>
+                            <constraint firstItem="8tj-Uy-sXo" firstAttribute="centerX" secondItem="MLb-Wv-vGh" secondAttribute="centerX" id="X5p-ZU-xlg"/>
+                            <constraint firstItem="8tj-Uy-sXo" firstAttribute="top" secondItem="rpm-Q6-FLk" secondAttribute="bottom" constant="100" id="Yik-6V-Y2C"/>
+                            <constraint firstItem="F0c-wr-umq" firstAttribute="width" secondItem="1HM-qv-DeM" secondAttribute="width" id="c4M-GS-jak"/>
                             <constraint firstItem="FX8-rr-hud" firstAttribute="top" secondItem="1HM-qv-DeM" secondAttribute="bottom" constant="150" id="k2g-FR-0g6"/>
                             <constraint firstItem="1HM-qv-DeM" firstAttribute="centerX" secondItem="MLb-Wv-vGh" secondAttribute="centerX" id="lYC-bD-qnc"/>
                             <constraint firstItem="NF9-9k-UH6" firstAttribute="top" secondItem="rpm-Q6-FLk" secondAttribute="bottom" constant="10" id="o8L-3T-Bfa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tipLabel" destination="8tj-Uy-sXo" id="abL-oW-VK6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jw2-vl-DvB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
