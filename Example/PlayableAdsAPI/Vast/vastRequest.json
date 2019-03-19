@@ -1,0 +1,61 @@
+{
+  "version": "1.0",
+  "developer_token": "989BBE25-9621-1181-1239-0FBB68F7B5FF",
+  "need_https": 0,
+  "support_function":1,
+  "app": {
+    "app_id": "8AEEE8AE-6FD6-F67A-7F3E-8FA241756A74",
+    "app_name": "愤怒的小鸟2",
+    "bundle_id": "com.rovio.baba",
+    "version": "5.1.8",
+    "cat": ""
+  },
+  "device": {
+    "model": "iPhone8,4",
+    "manufacturer": "Apple",
+    "brand": "apple",
+    "plmn": "46001",
+    "device_type": "phone",
+    "dnt": 0,
+    "connection_type": "wifi",
+    "carrier": "",
+    "orientation": 1,
+    "mac": "d41d8cd98f00b204e9800998ecf8427e",
+    "imei": "",
+    "android_id": "",
+    "android_adid": "",
+    "idfa": "B7904707-AEFC-495D-B262-10C912F7C6DC",
+    "idfv": "5F361B99-EC21-42A8-BA8F-1554B6B6CAD0",
+    "openudid": "",
+    "language": "zh-Hans-CN",
+    "os_type": "iOS",
+    "os_version": "12.0",
+    "screen": {
+      "width": 1242,
+      "height": 2208,
+      "dpi": 0,
+      "pxratio": 0
+    },
+    "geo": {
+      "lat": 0,
+      "lon": 0,
+      "horizontal_accu": 0,
+      "vertical_accu": 0
+    }
+  },
+  "ads": [{
+    "video":{
+    "mimes":["mp4"],
+    "minduration":["1"],
+    "maxduration":["10000"],
+    "protocols":[3],
+    "startdelay":1,
+    "linearity":1,
+    "minbitrate":1,
+    "maxbitrate":10000,
+    "pos":1
+  },
+    "unit_type": 4,
+    "ad_unit_id": "4B8AE0D5-D508-7348-7F40-B3566305DA3A"
+  }]
+}
