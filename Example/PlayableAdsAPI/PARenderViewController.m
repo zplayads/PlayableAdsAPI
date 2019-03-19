@@ -151,9 +151,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
         NSURL *openUrl = [NSURL URLWithString:rUrl];
-        if (self.adModel.support_function == 1 || self.adModel.support_function == 3) {
-            [self openAppstore:openUrl];
-        }
+        [self openAppstore:openUrl];
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"mraid://open"]){
