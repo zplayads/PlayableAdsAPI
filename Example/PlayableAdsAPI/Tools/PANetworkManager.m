@@ -13,8 +13,6 @@
 
 @interface PANetworkManager ()
 
-@property (nonatomic)AFHTTPSessionManager *httpManager;
-
 @end
 
 @implementation PANetworkManager
@@ -116,13 +114,6 @@
           }
          
       }] resume];
-}
-- (AFHTTPSessionManager *)httpManager{
-    if(!_httpManager){
-        _httpManager = [AFHTTPSessionManager manager];
-         [_httpManager.requestSerializer setValue:@"Mozilla/5.0 (iPhone; CPU iPhone OS 12_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16B91" forHTTPHeaderField:@"User-Agent"];
-    }
-    return _httpManager;
 }
 
 @end
