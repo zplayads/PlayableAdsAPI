@@ -22,7 +22,7 @@
 @property (nonatomic , assign) BOOL isFullScreen;
 @property (nonatomic , assign) BOOL isPlaying;
 @property (nonatomic) PAVastAdModel *vastModel;
-
+@property (nonatomic) UILabel  *videoTipLabel;
 
 @end
 
@@ -112,7 +112,7 @@
         return;
     }
     WMPlayerModel *playerModel = [[WMPlayerModel alloc] init];
-    playerModel.title = @"Ad Video";
+    playerModel.title = self.vastModel.adSystem;
     playerModel.videoURL = [NSURL URLWithString:videoUrl];
     if (self.wmPlayer) {
         [self.wmPlayer resetWMPlayer];
@@ -144,7 +144,7 @@
         [self.wmPlayer mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self.wmPlayer.superview);
             make.top.equalTo(self.view.mas_top).offset(44);
-            make.bottom.equalTo(self.view.mas_bottom).offset(-34);
+            make.bottom.equalTo(self.view.mas_bottom).offset(-64);
         }];
         return;
     }
@@ -152,6 +152,15 @@
         make.leading.trailing.equalTo(self.view);
         make.centerY.equalTo(self.view.mas_centerY);
         make.height.mas_equalTo(self.wmPlayer.mas_width).multipliedBy(9.0/16);
+    }];
+    if (!self.videoTipLabel.superview) {
+        [self.view addSubview:self.videoTipLabel];
+       
+    }
+    [self.videoTipLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(20);
+        make.left.right.equalTo(self.view);
+        make.top.equalTo(self.wmPlayer.mas_bottom).offset(10);
     }];
 }
 
@@ -385,6 +394,17 @@
     self.isPlaying = NO;
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.completeTracking];
     [self showText:@"video play finished"];
+}
+
+- (UILabel *)videoTipLabel{
+    if (!_videoTipLabel) {
+        _videoTipLabel = [[UILabel alloc] init];
+        _videoTipLabel.text = @"double click video screen open App Store";
+        _videoTipLabel.textColor = [UIColor grayColor];
+        _videoTipLabel.textAlignment = NSTextAlignmentCenter;
+        _videoTipLabel.font = [UIFont systemFontOfSize:15.0];
+    }
+    return _videoTipLabel;
 }
 
 @end
