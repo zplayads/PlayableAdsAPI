@@ -3,5 +3,4 @@
 source "https://rubygems.org"
 
 gem "cocoapods"
-
-# gem "rails"
+gem "fastlane"

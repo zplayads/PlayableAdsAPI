@@ -1,0 +1,47 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Description of what the lane does"
+  lane :custom_lane do
+    # add actions here: https://docs.fastlane.tools/actions
+  end
+
+  # pushToHockeyApp in local
+  lane :pushToHockeyApp do
+    # Build
+    gym(
+      workspace: "Example/PlayableAdsAPI.xcworkspace",
+      scheme: "PlayableAdsAPI-Example",
+      configuration: "Release",
+      clean: true,
+      include_bitcode: false,
+      include_symbols: true,
+      export_method: "enterprise"
+    )
+
+    # Push to HockeyApp
+    hockey(
+      api_token: "b23874100f5346cdb613ca63c57393eb",
+      public_identifier: '1facfe6272284465b41b5455ecc31584',
+      notify: "1",
+      status: "2",
+      commit_sha: ENV["TRAVIS_COMMIT"],
+      notes: ENV["TRAVIS_COMMIT_MESSAGE"],
+    )
+  end
+end
