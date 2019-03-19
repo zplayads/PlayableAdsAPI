@@ -16,5 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
                      success:(void (^)(PAAPIModel *apiModel))success
                      failure:(void (^)(NSError *error))failure;
 
+// request vast
+- (void)requestVastDataCompleted:(void (^)(NSData *vastData))completed;
+
 @end
 NS_ASSUME_NONNULL_END
