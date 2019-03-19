@@ -11,6 +11,7 @@
 
 @interface PALoadHtmlOrUrlViewController () <PARenderVcDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *htmlTextView;
+@property (weak, nonatomic) IBOutlet UISwitch *supportFunction1;
 @property (nonatomic) PARenderViewController *detailVc;
 
 @end
@@ -35,6 +36,11 @@
     self.detailVc.isSupportMraid = self.isSupportMraid;
     self.detailVc.isUseUIWebView = self.isUseUIWebView;
     self.detailVc.isPreRender = self.isPreRender;
+    if (self.supportFunction1.on) {
+        self.detailVc.adModel.support_function = 1;
+    } else {
+        self.detailVc.adModel.support_function = 2;
+    }
     if (self.isPreRender) {
         self.detailVc.view.hidden = YES;
         [self.view addSubview:self.detailVc.view];
@@ -64,5 +70,9 @@
 - (void)PARenderVcDidClosed{
     self.detailVc.delegate = nil;
     self.detailVc = nil;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self.view endEditing:YES];
 }
 @end

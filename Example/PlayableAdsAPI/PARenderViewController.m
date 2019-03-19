@@ -90,10 +90,7 @@
 - (void)handlePlayablePageMessage:(NSString *)msg {
     if ([msg isEqualToString:@"user_did_tap_install"]) {
         NSURL  *openUrl = [NSURL URLWithString:self.adModel.target_url];
-        // 2的时候只支持user_did_tap_install
-        if (self.adModel.support_function == 2) {
-            [self openAppstore:openUrl];
-        }
+        [self openAppstore:openUrl];
     } else if ([msg isEqualToString:@"close_playable_ads"]) {
         [self dismissAd];
     }
@@ -154,9 +151,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
         NSURL *openUrl = [NSURL URLWithString:rUrl];
-        if (self.adModel.support_function == 1 || self.adModel.support_function == 3) {
-            [self openAppstore:openUrl];
-        }
+        [self openAppstore:openUrl];
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"mraid://open"]){
@@ -182,7 +177,9 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         WKUserScript *script = [[WKUserScript alloc] initWithSource:mraidJs injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
         [config.userContentController addUserScript:script];
-        [config.userContentController addScriptMessageHandler:self name:@"zplayads"];
+        if (self.adModel.support_function == 2) {
+            [config.userContentController addScriptMessageHandler:self name:@"zplayads"];
+        }
         config.allowsInlineMediaPlayback = YES;
 
         CGRect frame =
