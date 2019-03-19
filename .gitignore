@@ -18,6 +18,7 @@ profile
 DerivedData
 *.hmap
 *.ipa
+*.zip
 
 # Bundler
 .bundle
@@ -35,3 +36,5 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 Pods/
+fastlane/README.md
+fastlane/report.xml
