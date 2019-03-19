@@ -35,6 +35,7 @@
 		6D383876223F8DE600521972 /* PAVastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D383875223F8DE600521972 /* PAVastViewController.m */; };
 		6D383878223F915300521972 /* localVast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6D383877223F915300521972 /* localVast.xml */; };
 		6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387B223F96DC00521972 /* PAVastAdModel.m */; };
+		6D383880224094B300521972 /* PAStatisticsReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387F224094B300521972 /* PAStatisticsReportManager.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,8 @@
 		6D383877223F915300521972 /* localVast.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = localVast.xml; sourceTree = SOURCE_ROOT; };
 		6D38387A223F96DC00521972 /* PAVastAdModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAVastAdModel.h; sourceTree = "<group>"; };
 		6D38387B223F96DC00521972 /* PAVastAdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAVastAdModel.m; sourceTree = "<group>"; };
+		6D38387E224094B300521972 /* PAStatisticsReportManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAStatisticsReportManager.h; sourceTree = "<group>"; };
+		6D38387F224094B300521972 /* PAStatisticsReportManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAStatisticsReportManager.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8791B0CEABE867A161B7044D /* Pods_PlayableAdsAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayableAdsAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +272,7 @@
 		6D383873223F8D6400521972 /* Vast */ = {
 			isa = PBXGroup;
 			children = (
+				6D38387D2240946D00521972 /* NetWork */,
 				6D383879223F95E300521972 /* Model */,
 				6D383874223F8DE600521972 /* PAVastViewController.h */,
 				6D383875223F8DE600521972 /* PAVastViewController.m */,
@@ -283,6 +287,15 @@
 				6D38387B223F96DC00521972 /* PAVastAdModel.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		6D38387D2240946D00521972 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				6D38387E224094B300521972 /* PAStatisticsReportManager.h */,
+				6D38387F224094B300521972 /* PAStatisticsReportManager.m */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -407,6 +420,7 @@
 				"${BUILT_PRODUCTS_DIR}/PlayableAdsAPI/PlayableAdsAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/WMPlayer/WMPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -420,6 +434,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayableAdsAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +504,7 @@
 				6D383876223F8DE600521972 /* PAVastViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				5B7D29A722389B370033C00A /* UIView+Toast.m in Sources */,
+				6D383880224094B300521972 /* PAStatisticsReportManager.m in Sources */,
 				5B7D298E2237C59F0033C00A /* PALoadHtmlOrUrlViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,7 +630,7 @@
 		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8F5B6DC94244F29995A2A2F4 /* Pods-PlayableAdsAPI_Example.debug.xcconfig */;
+			baseConfigurationReference = DDB564A7872D2615C923CC9A /* Pods-PlayableAdsAPI_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
