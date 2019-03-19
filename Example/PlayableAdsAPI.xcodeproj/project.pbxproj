@@ -36,6 +36,7 @@
 		6D383878223F915300521972 /* localVast.xml in Resources */ = {isa = PBXBuildFile; fileRef = 6D383877223F915300521972 /* localVast.xml */; };
 		6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387B223F96DC00521972 /* PAVastAdModel.m */; };
 		6D383880224094B300521972 /* PAStatisticsReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387F224094B300521972 /* PAStatisticsReportManager.m */; };
+		6D3838822240C05600521972 /* vastRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D3838812240C05600521972 /* vastRequest.json */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		6D38387B223F96DC00521972 /* PAVastAdModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAVastAdModel.m; sourceTree = "<group>"; };
 		6D38387E224094B300521972 /* PAStatisticsReportManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAStatisticsReportManager.h; sourceTree = "<group>"; };
 		6D38387F224094B300521972 /* PAStatisticsReportManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAStatisticsReportManager.m; sourceTree = "<group>"; };
+		6D3838812240C05600521972 /* vastRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vastRequest.json; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8791B0CEABE867A161B7044D /* Pods_PlayableAdsAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayableAdsAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +274,7 @@
 		6D383873223F8D6400521972 /* Vast */ = {
 			isa = PBXGroup;
 			children = (
+				6D3838812240C05600521972 /* vastRequest.json */,
 				6D38387D2240946D00521972 /* NetWork */,
 				6D383879223F95E300521972 /* Model */,
 				6D383874223F8DE600521972 /* PAVastViewController.h */,
@@ -389,6 +392,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6D383878223F915300521972 /* localVast.xml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				6D3838822240C05600521972 /* vastRequest.json in Resources */,
 				5B7D29972237CB1E0033C00A /* supportFunction1.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
