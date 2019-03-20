@@ -8,12 +8,13 @@
 
 #import "PALoadHtmlOrUrlViewController.h"
 #import "PARenderViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface PALoadHtmlOrUrlViewController () <PARenderVcDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *htmlTextView;
 @property (weak, nonatomic) IBOutlet UISwitch *supportFunction1;
 @property (nonatomic) PARenderViewController *detailVc;
-
+@property (nonatomic) AFHTTPSessionManager *manager;
 @end
 
 @implementation PALoadHtmlOrUrlViewController
@@ -51,7 +52,9 @@
     if (![text hasPrefix:@"http://"] && ![text hasPrefix:@"https://"]) {
         [self.detailVc loadHTMLString:text isReplace:YES];
     }else{
-        [self.detailVc setLoadUrl:text];
+        [self requestHtml:text complete:^(NSString *html) {
+           [self.detailVc loadHTMLString:html isReplace:YES];
+        }];
     }
 }
 
@@ -74,5 +77,18 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
+}
+
+- (void)requestHtml:(NSString *)url complete:(void (^)(NSString *html))complete {
+    self.manager = [AFHTTPSessionManager manager];
+    self.manager.completionQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0);
+    self.manager.requestSerializer.timeoutInterval = 15;
+    self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
+    [self.manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        complete([[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 @end
