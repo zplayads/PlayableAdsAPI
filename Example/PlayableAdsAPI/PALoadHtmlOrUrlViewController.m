@@ -52,8 +52,9 @@
     if (![text hasPrefix:@"http://"] && ![text hasPrefix:@"https://"]) {
         [self.detailVc loadHTMLString:text isReplace:YES];
     }else{
+        __weak __typeof(self)weakSelf = self;
         [self requestHtml:text complete:^(NSString *html) {
-           [self.detailVc loadHTMLString:html isReplace:YES];
+           [weakSelf.detailVc loadHTMLString:html isReplace:YES];
         }];
     }
 }
@@ -88,7 +89,7 @@
     [self.manager GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         complete([[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        complete(nil);
     }];
 }
 @end
