@@ -7,7 +7,7 @@
 //
 
 #import "PAVastViewController.h"
-#import "GDataXMLNode.h"
+#import <GDataXML_HTML/GDataXMLNode.h>
 #import "PAVastAdModel.h"
 #import <WMPlayer/WMPlayer.h>
 #import <Masonry/Masonry.h>
@@ -34,6 +34,11 @@
 }
 
 - (IBAction)handleBackAction:(UIButton *)sender {
+    
+    [self.wmPlayer pause];
+    [self.wmPlayer removeFromSuperview];
+    self.wmPlayer = nil;
+    
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
@@ -157,6 +162,7 @@
         [self.view addSubview:self.videoTipLabel];
        
     }
+    self.videoTipLabel.hidden = NO;
     [self.videoTipLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
         make.left.right.equalTo(self.view);
@@ -332,6 +338,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
     [self showText:@"close video"];
+    self.videoTipLabel.hidden = YES;
 }
 //点击全屏按钮代理方法
 -(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
