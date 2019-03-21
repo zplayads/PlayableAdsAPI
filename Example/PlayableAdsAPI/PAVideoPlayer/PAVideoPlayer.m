@@ -153,6 +153,7 @@ typedef enum : NSUInteger {
     [self releasePlayer];
     
     self.isPauseByUser = NO;
+    self.isFullScreen = NO;
     self.loadedProgress = 0;
     self.duration = 0;
     self.current  = 0;
