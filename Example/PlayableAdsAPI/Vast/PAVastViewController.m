@@ -36,15 +36,17 @@
 
 - (IBAction)handleBackAction:(UIButton *)sender {
     
-    [self.videoPlayer stop];
-    [self.showPlayerView removeFromSuperview];
-    self.videoPlayer = nil;
+    
+    [self clearVideoPlayer];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
 
 - (IBAction)parseVastAction:(UIButton *)sender {
+    
+    [self clearVideoPlayer];
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"localVast" ofType:@"xml"];
     NSData *xmlData = [[NSData alloc] initWithContentsOfFile:filePath];
    
@@ -54,6 +56,9 @@
 }
 
 - (IBAction)handleNetworkVast:(UIButton *)sender {
+    
+    [self clearVideoPlayer];
+    
     [SVProgressHUD show];
     [self showText:@"Request vast from server"];
     __weak typeof(self) weakSelf = self;
@@ -116,7 +121,7 @@
         [self showText:@"videoUrl is nil"];
         return;
     }
-   
+    
     self.videoPlayer = [PAVideoPlayer sharedInstance];
     
     self.videoPlayer.delegate = self;
@@ -130,6 +135,13 @@
     // impressionTracking
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.impressionTracking];
    
+}
+
+- (void)clearVideoPlayer{
+    [self.videoPlayer stop];
+    self.videoPlayer.delegate = nil;
+    self.videoPlayer = nil;
+    [self.showPlayerView removeFromSuperview];
 }
 
 - (void)layoutPlayFrame:(BOOL)isFullScreen{
