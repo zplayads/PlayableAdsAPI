@@ -19,8 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (nonatomic)PAVideoPlayer * videoPlayer;
-@property (nonatomic , assign) BOOL isFullScreen;
-@property (nonatomic , assign) BOOL isPlaying;
 @property (nonatomic) PAVastAdModel *vastModel;
 @property (nonatomic) UILabel  *videoTipLabel;
 @property (nonatomic) UIView  *showPlayerView;
@@ -125,10 +123,7 @@
     self.videoPlayer = [PAVideoPlayer sharedInstance];
     
     self.videoPlayer.delegate = self;
-    self.isFullScreen = NO;
-    [self layoutPlayFrame:self.isFullScreen];
-    self.isPlaying = YES;
-    
+    [self layoutPlayFrame];
     
     [self.videoPlayer playWithUrl:[NSURL URLWithString:videoUrl] showView:self.showPlayerView andSuperView:self.view withCache:YES];
     
@@ -144,7 +139,7 @@
     [self.showPlayerView removeFromSuperview];
 }
 
-- (void)layoutPlayFrame:(BOOL)isFullScreen{
+- (void)layoutPlayFrame{
     if (!self.showPlayerView.superview) {
         [self.view addSubview:self.showPlayerView];
     }
@@ -319,29 +314,12 @@
     
     return  vastModel;
 }
-
-//-(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
-//
-//    self.isFullScreen = !self.isFullScreen;
-//
-//    [self layoutPlayFrame:self.isFullScreen];
-//
-//    if (self.isFullScreen) {
-//        self.view.backgroundColor = [UIColor blackColor];
-//        [self showText:@"video input full screen"];
-//    }else{
-//        self.view.backgroundColor = [UIColor whiteColor];
-//        [self showText:@"video exit full screen"];
-//    }
-//
-//}
 #pragma mark: PAVideoPlayerDelegate
 -(void)videoStartPlaying:(PAVideoPlayer *)player{
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
     [self showText:@"play start video"];
 }
 -(void)videoPlayerFinished:(PAVideoPlayer *)player{
-    self.isPlaying = NO;
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.completeTracking];
     [self showText:@"video play finished"];
 }
