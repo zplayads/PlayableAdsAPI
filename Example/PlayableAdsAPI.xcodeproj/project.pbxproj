@@ -238,8 +238,6 @@
 				6D61921722424B9900287C89 /* PAVideoPlayer */,
 				6D383873223F8D6400521972 /* Vast */,
 				5B7D298F2237CB1E0033C00A /* Tools */,
-				6003F59C195388D20070C39A /* PAAppDelegate.h */,
-				6003F59D195388D20070C39A /* PAAppDelegate.m */,
 				6003F5A5195388D20070C39A /* PAViewController.h */,
 				6003F5A6195388D20070C39A /* PAViewController.m */,
 				5B7D298C2237C59F0033C00A /* PALoadHtmlOrUrlViewController.h */,
@@ -255,6 +253,8 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6003F59C195388D20070C39A /* PAAppDelegate.h */,
+				6003F59D195388D20070C39A /* PAAppDelegate.m */,
 				6D383877223F915300521972 /* localVast.xml */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
