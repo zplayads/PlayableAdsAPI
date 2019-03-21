@@ -253,12 +253,16 @@ typedef enum : NSUInteger {
 }
 
 - (void)fullScreen {
+    
+    self.isFullScreen = !_isFullScreen;
     //如果全屏下
-    if (_isFullScreen) {
-        [self toOrientation:UIInterfaceOrientationPortrait];
-    }else{
-        [self toOrientation:UIInterfaceOrientationLandscapeRight];
-    }
+//    if (_isFullScreen) {
+//        [self toOrientation:UIInterfaceOrientationPortrait];
+//    }else{
+//        [self toOrientation:UIInterfaceOrientationLandscapeRight];
+//    }
+    [self layoutVideoPlayer:self.isFullScreen];
+    
     [self showToolView];
 }
 
@@ -732,46 +736,62 @@ typedef enum : NSUInteger {
     [_showView addSubview:self.toolView];
     [self.toolView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(0);
-        make.bottom.equalTo(weakSelf.showView);
+        if ([self iSiPhoneX] && self.isFullScreen) {
+            make.bottom.equalTo(weakSelf.showView.mas_bottom).offset(-34);
+        }else{
+            make.bottom.equalTo(weakSelf.showView);
+        }
+        
         make.right.mas_equalTo(0);
         make.height.mas_equalTo(44);
     }];
     
-    self.stopButton.frame = CGRectMake(0, 0, 44, 44);
+//    self.stopButton.frame = CGRectMake(0, 0, 44, 44);
     [self.stopButton removeFromSuperview];
     [self.toolView addSubview:self.stopButton];
     [self.stopButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
-        make.left.mas_equalTo(0);
+        if ([self iSiPhoneX] && self.isFullScreen) {
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(44);
+        }else{
+            make.top.mas_equalTo(0);
+            make.left.mas_equalTo(0);
+        }
         make.width.mas_equalTo(44);
         make.height.mas_equalTo(44);
     }];
     
-    self.screenButton.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 44, 0, 44, 44);
+//    self.screenButton.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 44, 0, 44, 44);
     [self.screenButton removeFromSuperview];
     [self.toolView addSubview:self.screenButton];
     [self.screenButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
-        make.right.mas_equalTo(0);
+        if ([self iSiPhoneX] && self.isFullScreen) {
+            make.top.mas_equalTo(0);
+            make.right.equalTo(self.toolView.mas_right).offset(-44);
+        }else{
+            make.top.mas_equalTo(0);
+            make.right.equalTo(self.toolView.mas_right).offset(0);
+        }
+       
         make.width.mas_equalTo(44);
         make.height.mas_equalTo(44);
     }];
     
-    self.currentTimeLbl.frame = CGRectMake(44, 0, 52, 44);
+//    self.currentTimeLbl.frame = CGRectMake(44, 0, 52, 44);
     [self.currentTimeLbl removeFromSuperview];
     [self.toolView addSubview:self.currentTimeLbl];
     [self.currentTimeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(44);
-        make.top.mas_equalTo(0);
+        make.left.equalTo(self.stopButton.mas_right).offset(5);
+        make.centerY.equalTo(self.stopButton.mas_centerY);
         make.width.mas_equalTo(52);
         make.height.mas_equalTo(44);
     }];
     
-    self.totalTimeLbl.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 52 - 44, 0, 52, 44);
+//    self.totalTimeLbl.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 52 - 44, 0, 52, 44);
     [self.totalTimeLbl removeFromSuperview];
     [self.toolView addSubview:self.totalTimeLbl];
     [self.totalTimeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(0);
+        make.centerY.equalTo(self.screenButton.mas_centerY);
         make.right.equalTo(weakSelf.screenButton.mas_left);
         make.width.mas_equalTo(52);
         make.height.mas_equalTo(44);
@@ -809,14 +829,14 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-    self.touchView.frame = CGRectMake(0, 0, CGRectGetWidth(_showView.frame), CGRectGetHeight(_showView.frame) - 44);
+//    self.touchView.frame = CGRectMake(0, 0, CGRectGetWidth(_showView.frame), CGRectGetHeight(_showView.frame) - 44);
     [self.touchView removeFromSuperview];
     [_showView addSubview:self.touchView];
     [self.touchView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.playerView);
         make.left.equalTo(weakSelf.playerView);
         make.right.equalTo(weakSelf.playerView);
-        make.bottom.equalTo(weakSelf.playerView).offset(-44);
+        make.bottom.equalTo(weakSelf.toolView.mas_top);
     }];
     
     [self.volumeView removeFromSuperview];
@@ -860,16 +880,27 @@ typedef enum : NSUInteger {
     
     [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.height.mas_equalTo(20);
-        make.top.equalTo(self.showView.mas_top).offset(5);
-        make.left.equalTo(self.showView.mas_left).offset(5);
+        if ([self iSiPhoneX] && self.isFullScreen) {
+            make.top.equalTo(self.showView.mas_top).offset(44);
+            make.left.equalTo(self.showView.mas_left).offset(44);
+        }else{
+            make.top.equalTo(self.showView.mas_top).offset(5);
+            make.left.equalTo(self.showView.mas_left).offset(5);
+        }
+       
     }];
     [self.downloadButton removeFromSuperview];
     [self.showView addSubview:self.downloadButton];
     [self.downloadButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(36);
-        make.top.equalTo(self.showView.mas_top).offset(5);
-        make.right.equalTo(self.showView.mas_right).offset(-5);
+        if ([self iSiPhoneX] && self.isFullScreen) {
+            make.top.equalTo(self.showView.mas_top).offset(44);
+            make.right.equalTo(self.showView.mas_right).offset(-44);
+        }else{
+            make.top.equalTo(self.showView.mas_top).offset(5);
+            make.right.equalTo(self.showView.mas_right).offset(-5);
+        }
     }];
     
 }
@@ -1047,6 +1078,8 @@ typedef enum : NSUInteger {
 
 - (void)showToolView {
     
+    [self setVideoToolView];
+    
     if (!self.repeatBtn.hidden) {
         return;
     }
@@ -1222,7 +1255,7 @@ typedef enum : NSUInteger {
     [self releasePlayer];
     self.repeatBtn.hidden = YES;
     [self toolViewHidden];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPAPlayerProgressChangedNotification object:nil];
+   
 }
 
 /**
@@ -1255,12 +1288,17 @@ typedef enum : NSUInteger {
     [self.player removeTimeObserver:self.playbackTimeObserver];
     self.playbackTimeObserver = nil;
     self.currentPlayerItem = nil;
+    [self.player.currentItem cancelPendingSeeks];;
+    [self.player.currentItem.asset cancelLoading];;
+    self.player = nil;
     
     if (self.resouerLoader.task) {
         [self.resouerLoader.task cancel];
         self.resouerLoader.task = nil;
         self.resouerLoader = nil;
     }
+
+    
     
 }
 
@@ -1278,6 +1316,11 @@ typedef enum : NSUInteger {
     if ([self.delegate respondsToSelector:@selector(videoPlayerClick:)]) {
         [self.delegate videoPlayerClick:self];
     }
+}
+
+- (BOOL)iSiPhoneX {
+    return kScreenWidth == 812 || kScreenHeight == 812 || kScreenHeight == 896.0 || kScreenWidth == 896.0;
+    
 }
 
 #pragma mark - PALoaderURLConnectionDelegate
@@ -1323,7 +1366,7 @@ typedef enum : NSUInteger {
 
 #pragma mark - 通知中心检测到屏幕旋转
 -(void)orientationChanged:(NSNotification *)notification{
-    [self updateOrientation];
+//    [self updateOrientation];
 }
 
 - (void)updateOrientation {
@@ -1347,6 +1390,51 @@ typedef enum : NSUInteger {
 }
 
 #pragma mark - 全屏旋转处理
+
+- (void)layoutVideoPlayer:(BOOL)isFullScreen{
+    if (isFullScreen) {
+        [self.showView removeFromSuperview];
+        [[UIApplication sharedApplication].keyWindow addSubview:self.showView];
+        
+        // 亮度view加到window最上层
+        PALightView *lightView = [PALightView sharedInstance];
+        [[UIApplication sharedApplication].keyWindow insertSubview:self.showView belowSubview:lightView];
+        
+        [self.showView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.showView.superview);
+        }];
+        
+        [lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.equalTo([UIApplication sharedApplication].keyWindow);
+            make.centerY.equalTo([UIApplication sharedApplication].keyWindow);
+            make.width.mas_equalTo(155);
+            make.height.mas_equalTo(155);
+        }];
+        
+        //
+        
+        return;
+    }
+    
+    [self.showView removeFromSuperview];
+    [self.playerSuperView addSubview:self.showView];
+    
+    PALightView *lightView = [PALightView sharedInstance];
+    [[UIApplication sharedApplication].keyWindow bringSubviewToFront:lightView];
+    __weak PAVideoPlayer * weakSelf = self;
+    [self.showView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(CGRectGetHeight(weakSelf.showViewRect));
+        make.center.equalTo(self.playerSuperView);
+        make.width.mas_equalTo(CGRectGetWidth(weakSelf.showViewRect));
+    }];
+    
+    [lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo([UIApplication sharedApplication].keyWindow);
+        make.centerY.equalTo([UIApplication sharedApplication].keyWindow).offset(-5);
+        make.width.mas_equalTo(155);
+        make.height.mas_equalTo(155);
+    }];
+}
 
 - (void)toOrientation:(UIInterfaceOrientation)orientation {
     
@@ -1387,9 +1475,10 @@ typedef enum : NSUInteger {
         [[UIApplication sharedApplication].keyWindow insertSubview:self.showView belowSubview:lightView];
         
         [self.showView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.width.equalTo(@(kScreenWidth));
-            make.height.equalTo(@(kScreenHeight));
-            make.center.equalTo([[UIApplication sharedApplication].delegate window]);
+//            make.width.equalTo(@(kScreenWidth));
+//            make.height.equalTo(@(kScreenHeight));
+//            make.center.equalTo([[UIApplication sharedApplication].delegate window]);
+            make.edges.equalTo(self.showView.superview);
         }];
         
         [lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
