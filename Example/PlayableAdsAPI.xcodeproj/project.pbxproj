@@ -37,6 +37,14 @@
 		6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387B223F96DC00521972 /* PAVastAdModel.m */; };
 		6D383880224094B300521972 /* PAStatisticsReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D38387F224094B300521972 /* PAStatisticsReportManager.m */; };
 		6D3838822240C05600521972 /* vastRequest.json in Resources */ = {isa = PBXBuildFile; fileRef = 6D3838812240C05600521972 /* vastRequest.json */; };
+		6D61926022424D7400287C89 /* PALoaderURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925022424D7300287C89 /* PALoaderURLConnection.m */; };
+		6D61926122424D7400287C89 /* PAVideoPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6D61925222424D7300287C89 /* PAVideoPlayer.bundle */; };
+		6D61926222424D7400287C89 /* PAPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925322424D7300287C89 /* PAPlayerView.m */; };
+		6D61926322424D7400287C89 /* PAVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925422424D7300287C89 /* PAVideoPlayer.m */; };
+		6D61926422424D7400287C89 /* PAVideoRequestTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925522424D7300287C89 /* PAVideoRequestTask.m */; };
+		6D61926522424D7400287C89 /* NSString+PA.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925822424D7300287C89 /* NSString+PA.m */; };
+		6D61926622424D7400287C89 /* PATimeSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925A22424D7400287C89 /* PATimeSheetView.m */; };
+		6D61926722424D7400287C89 /* PALightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925B22424D7400287C89 /* PALightView.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -102,6 +110,22 @@
 		6D38387E224094B300521972 /* PAStatisticsReportManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAStatisticsReportManager.h; sourceTree = "<group>"; };
 		6D38387F224094B300521972 /* PAStatisticsReportManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAStatisticsReportManager.m; sourceTree = "<group>"; };
 		6D3838812240C05600521972 /* vastRequest.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = vastRequest.json; sourceTree = "<group>"; };
+		6D61924E22424D7300287C89 /* PAVideoRequestTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAVideoRequestTask.h; sourceTree = "<group>"; };
+		6D61925022424D7300287C89 /* PALoaderURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALoaderURLConnection.m; sourceTree = "<group>"; };
+		6D61925222424D7300287C89 /* PAVideoPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PAVideoPlayer.bundle; sourceTree = "<group>"; };
+		6D61925322424D7300287C89 /* PAPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPlayerView.m; sourceTree = "<group>"; };
+		6D61925422424D7300287C89 /* PAVideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAVideoPlayer.m; sourceTree = "<group>"; };
+		6D61925522424D7300287C89 /* PAVideoRequestTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAVideoRequestTask.m; sourceTree = "<group>"; };
+		6D61925622424D7300287C89 /* PALoaderURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PALoaderURLConnection.h; sourceTree = "<group>"; };
+		6D61925722424D7300287C89 /* NSString+PA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+PA.h"; sourceTree = "<group>"; };
+		6D61925822424D7300287C89 /* NSString+PA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+PA.m"; sourceTree = "<group>"; };
+		6D61925922424D7400287C89 /* PAPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPlayerView.h; sourceTree = "<group>"; };
+		6D61925A22424D7400287C89 /* PATimeSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PATimeSheetView.m; sourceTree = "<group>"; };
+		6D61925B22424D7400287C89 /* PALightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PALightView.m; sourceTree = "<group>"; };
+		6D61925C22424D7400287C89 /* PAVideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAVideoPlayer.h; sourceTree = "<group>"; };
+		6D61925D22424D7400287C89 /* PALightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PALightView.h; sourceTree = "<group>"; };
+		6D61925F22424D7400287C89 /* PATimeSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATimeSheetView.h; sourceTree = "<group>"; };
+		6D61926922426D8E00287C89 /* PAPlayerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPlayerHeader.h; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8791B0CEABE867A161B7044D /* Pods_PlayableAdsAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayableAdsAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -211,6 +235,7 @@
 		6003F593195388D20070C39A /* Example for PlayableAdsAPI */ = {
 			isa = PBXGroup;
 			children = (
+				6D61921722424B9900287C89 /* PAVideoPlayer */,
 				6D383873223F8D6400521972 /* Vast */,
 				5B7D298F2237CB1E0033C00A /* Tools */,
 				6003F59C195388D20070C39A /* PAAppDelegate.h */,
@@ -301,6 +326,29 @@
 			path = NetWork;
 			sourceTree = "<group>";
 		};
+		6D61921722424B9900287C89 /* PAVideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				6D61926922426D8E00287C89 /* PAPlayerHeader.h */,
+				6D61925722424D7300287C89 /* NSString+PA.h */,
+				6D61925822424D7300287C89 /* NSString+PA.m */,
+				6D61925222424D7300287C89 /* PAVideoPlayer.bundle */,
+				6D61925C22424D7400287C89 /* PAVideoPlayer.h */,
+				6D61925422424D7300287C89 /* PAVideoPlayer.m */,
+				6D61925D22424D7400287C89 /* PALightView.h */,
+				6D61925B22424D7400287C89 /* PALightView.m */,
+				6D61925622424D7300287C89 /* PALoaderURLConnection.h */,
+				6D61925022424D7300287C89 /* PALoaderURLConnection.m */,
+				6D61925922424D7400287C89 /* PAPlayerView.h */,
+				6D61925322424D7300287C89 /* PAPlayerView.m */,
+				6D61925F22424D7400287C89 /* PATimeSheetView.h */,
+				6D61925A22424D7400287C89 /* PATimeSheetView.m */,
+				6D61924E22424D7300287C89 /* PAVideoRequestTask.h */,
+				6D61925522424D7300287C89 /* PAVideoRequestTask.m */,
+			);
+			path = PAVideoPlayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +437,7 @@
 				5B7D29982237CB1E0033C00A /* supportFunction2.json in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				6D61926122424D7400287C89 /* PAVideoPlayer.bundle in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6D383878223F915300521972 /* localVast.xml in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -424,7 +473,6 @@
 				"${BUILT_PRODUCTS_DIR}/PlayableAdsAPI/PlayableAdsAPI.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/WMPlayer/WMPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/YYModel/YYModel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -438,7 +486,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayableAdsAPI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/WMPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYModel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -500,14 +547,21 @@
 				5B7D29A12237CD4F0033C00A /* ZplayAppStore.m in Sources */,
 				5B7D29952237CB1E0033C00A /* NSString+YumiURLEncodedString.m in Sources */,
 				5B7D299D2237CB8D0033C00A /* PAAPIModel.m in Sources */,
+				6D61926022424D7400287C89 /* PALoaderURLConnection.m in Sources */,
+				6D61926622424D7400287C89 /* PATimeSheetView.m in Sources */,
+				6D61926522424D7400287C89 /* NSString+PA.m in Sources */,
 				6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */,
 				5B7D29A42237CDC50033C00A /* PARenderViewController.m in Sources */,
+				6D61926722424D7400287C89 /* PALightView.m in Sources */,
 				6003F59E195388D20070C39A /* PAAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* PAViewController.m in Sources */,
+				6D61926322424D7400287C89 /* PAVideoPlayer.m in Sources */,
 				5B7D299E2237CB8D0033C00A /* PANetworkManager.m in Sources */,
+				6D61926222424D7400287C89 /* PAPlayerView.m in Sources */,
 				6D383876223F8DE600521972 /* PAVastViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				5B7D29A722389B370033C00A /* UIView+Toast.m in Sources */,
+				6D61926422424D7400287C89 /* PAVideoRequestTask.m in Sources */,
 				6D383880224094B300521972 /* PAStatisticsReportManager.m in Sources */,
 				5B7D298E2237C59F0033C00A /* PALoadHtmlOrUrlViewController.m in Sources */,
 			);

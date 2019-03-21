@@ -7,22 +7,21 @@
 //
 
 #import "PAVastViewController.h"
-#import "GDataXMLNode.h"
+#import <GDataXML_HTML/GDataXMLNode.h>
 #import "PAVastAdModel.h"
-#import <WMPlayer/WMPlayer.h>
 #import <Masonry/Masonry.h>
 #import "PAStatisticsReportManager.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "PANetworkManager.h"
+#import "PAVideoPlayer.h"
 
-@interface PAVastViewController ()<WMPlayerDelegate>
+@interface PAVastViewController ()<PAVideoPlayerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
-@property (nonatomic)WMPlayer * wmPlayer;
-@property (nonatomic , assign) BOOL isFullScreen;
-@property (nonatomic , assign) BOOL isPlaying;
+@property (nonatomic)PAVideoPlayer * videoPlayer;
 @property (nonatomic) PAVastAdModel *vastModel;
 @property (nonatomic) UILabel  *videoTipLabel;
+@property (nonatomic) UIView  *showPlayerView;
 
 @end
 
@@ -34,12 +33,18 @@
 }
 
 - (IBAction)handleBackAction:(UIButton *)sender {
+    
+    
+    [self clearVideoPlayer];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
 }
 
 - (IBAction)parseVastAction:(UIButton *)sender {
+    
+    [self clearVideoPlayer];
+    
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"localVast" ofType:@"xml"];
     NSData *xmlData = [[NSData alloc] initWithContentsOfFile:filePath];
    
@@ -49,6 +54,9 @@
 }
 
 - (IBAction)handleNetworkVast:(UIButton *)sender {
+    
+    [self clearVideoPlayer];
+    
     [SVProgressHUD show];
     [self showText:@"Request vast from server"];
     __weak typeof(self) weakSelf = self;
@@ -111,57 +119,53 @@
         [self showText:@"videoUrl is nil"];
         return;
     }
-    WMPlayerModel *playerModel = [[WMPlayerModel alloc] init];
-    playerModel.title = self.vastModel.adSystem;
-    playerModel.videoURL = [NSURL URLWithString:videoUrl];
-    if (self.wmPlayer) {
-        [self.wmPlayer resetWMPlayer];
-        [self.wmPlayer removeFromSuperview];
-    }
-    self.wmPlayer = [[WMPlayer alloc]initPlayerModel:playerModel];
-    self.wmPlayer.delegate = self;
-    self.wmPlayer.enableVolumeGesture = YES;
-    self.wmPlayer.enableFastForwardGesture = YES;
     
-    self.isFullScreen = NO;
-    [self layoutPlayFrame:self.isFullScreen];
-    self.isPlaying = YES;
-    [self.wmPlayer play];
+    self.videoPlayer = [PAVideoPlayer sharedInstance];
+    
+    self.videoPlayer.delegate = self;
+    [self layoutPlayFrame];
+    
+    [self.videoPlayer playWithUrl:[NSURL URLWithString:videoUrl] showView:self.showPlayerView andSuperView:self.view withCache:YES];
     
     // impressionTracking
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.impressionTracking];
-    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
-    [self showText:@"play start video"];
-    
+   
 }
 
-- (void)layoutPlayFrame:(BOOL)isFullScreen{
-    if (!self.wmPlayer.superview) {
-        [self.view addSubview:self.wmPlayer];
+- (void)clearVideoPlayer{
+    [self.videoPlayer stop];
+    self.videoPlayer.delegate = nil;
+    self.videoPlayer = nil;
+    [self.showPlayerView removeFromSuperview];
+}
+
+- (void)layoutPlayFrame{
+    if (!self.showPlayerView.superview) {
+        [self.view addSubview:self.showPlayerView];
     }
+
+    CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
-    if (isFullScreen) {
-        [self.wmPlayer mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.leading.trailing.equalTo(self.wmPlayer.superview);
-            make.top.equalTo(self.view.mas_top).offset(44);
-            make.bottom.equalTo(self.view.mas_bottom).offset(-64);
-        }];
-        return;
-    }
-    [self.wmPlayer mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(self.view);
-        make.centerY.equalTo(self.view.mas_centerY);
-        make.height.mas_equalTo(self.wmPlayer.mas_width).multipliedBy(9.0/16);
+    CGFloat minWidth = MIN(screenSize.width, screenSize.height);
+
+    [self.showPlayerView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(minWidth);
+        make.center.equalTo(self.view);
+        make.height.mas_equalTo(minWidth * 9 / 16);
     }];
     if (!self.videoTipLabel.superview) {
         [self.view addSubview:self.videoTipLabel];
-       
+
     }
+    CGFloat topMargin =  (screenSize.height + (minWidth * 9 / 16)) * 0.5 + 10;
+    self.videoTipLabel.hidden = NO;
     [self.videoTipLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
         make.left.right.equalTo(self.view);
-        make.top.equalTo(self.wmPlayer.mas_bottom).offset(10);
+        make.top.equalTo(self.view.mas_top).offset(topMargin);
     }];
+    
+    [self.view layoutIfNeeded];
 }
 
 - (PAVastAdModel *)convertToAdModelWithXMLAdTag:(GDataXMLElement *)adElement{
@@ -310,55 +314,25 @@
     
     return  vastModel;
 }
-
-#pragma mark: WMPlayerDelegate
-//点击播放暂停按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedPlayOrPauseButton:(UIButton *)playOrPauseBtn{
-    self.isPlaying = !self.isPlaying;
-    if (self.isPlaying) { // resumeTracking
-        [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.resumeTracking];
-        [self showText:@"resume video"];
-        return;
-    }
+#pragma mark: PAVideoPlayerDelegate
+-(void)videoStartPlaying:(PAVideoPlayer *)player{
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
+    [self showText:@"play start video"];
+}
+-(void)videoPlayerFinished:(PAVideoPlayer *)player{
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.completeTracking];
+    [self showText:@"video play finished"];
+}
+-(void)videoPlayerPause:(PAVideoPlayer *)player{
     //pause
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.pauseTracking];
     [self showText:@"pause video"];
 }
-//点击关闭按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedCloseButton:(UIButton *)backBtn{
-    [self.wmPlayer pause];
-    [self.wmPlayer removeFromSuperview];
-    self.wmPlayer = nil;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
-    [self showText:@"close video"];
+-(void)videoPlayerResume:(PAVideoPlayer *)player{
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.resumeTracking];
+    [self showText:@"resume video"];
 }
-//点击全屏按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
-    
-    self.isFullScreen = !self.isFullScreen;
-    
-    [self layoutPlayFrame:self.isFullScreen];
-    
-    if (self.isFullScreen) {
-        self.view.backgroundColor = [UIColor blackColor];
-        [self showText:@"video input full screen"];
-    }else{
-        self.view.backgroundColor = [UIColor whiteColor];
-        [self showText:@"video exit full screen"];
-    }
-    
-}
-//点击锁定🔒按钮的方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedLockButton:(UIButton *)lockBtn{
-    
-}
-//单击WMPlayer的代理方法
--(void)wmplayer:(WMPlayer *)wmplayer singleTaped:(UITapGestureRecognizer *)singleTap{
-    
-}
-//双击WMPlayer的代理方法
--(void)wmplayer:(WMPlayer *)wmplayer doubleTaped:(UITapGestureRecognizer *)doubleTap{
+-(void)videoPlayerClick:(PAVideoPlayer *)player{
     NSURL *targetUrl = [NSURL URLWithString:self.vastModel.targetUrl];
     if (!targetUrl) {
         [self showText:@"targetUrl is nil"];
@@ -373,28 +347,14 @@
     
     [self showText:@"double click open App Store"];
 }
-//WMPlayer的的操作栏隐藏和显示
--(void)wmplayer:(WMPlayer *)wmplayer isHiddenTopAndBottomView:(BOOL )isHidden{
-    
+-(void)videoPlayerClose:(PAVideoPlayer *)player{
+   
+//    self.view.backgroundColor = [UIColor whiteColor];
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
+    [self showText:@"close video"];
+    self.videoTipLabel.hidden = YES;
 }
-//播放失败的代理方法
--(void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    [self showText:@"video play fail"];
-}
-//准备播放的代理方法
--(void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    
-}
-//播放器已经拿到视频的尺寸大小
--(void)wmplayerGotVideoSize:(WMPlayer *)wmplayer videoSize:(CGSize )presentationSize{
-    
-}
-//播放完毕的代理方法
--(void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
-    self.isPlaying = NO;
-    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.completeTracking];
-    [self showText:@"video play finished"];
-}
+
 
 - (UILabel *)videoTipLabel{
     if (!_videoTipLabel) {
@@ -405,6 +365,13 @@
         _videoTipLabel.font = [UIFont systemFontOfSize:15.0];
     }
     return _videoTipLabel;
+}
+
+- (UIView *)showPlayerView{
+    if (!_showPlayerView) {
+        _showPlayerView = [[UIView alloc] init];
+    }
+    return _showPlayerView;
 }
 
 @end
