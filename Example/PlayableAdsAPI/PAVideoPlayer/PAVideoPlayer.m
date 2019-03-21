@@ -417,6 +417,10 @@ typedef enum : NSUInteger {
     
     self.duration = playerItem.duration.value / playerItem.duration.timescale; //视频总时间
     [self.player play];
+    if ([self.delegate respondsToSelector:@selector(videoStartPlaying:)]) {
+        
+        [self.delegate videoStartPlaying:self];
+    }
     [self updateTotolTime:self.duration];
     [self setPlaySliderValue:self.duration];
     
