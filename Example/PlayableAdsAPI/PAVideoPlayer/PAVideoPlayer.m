@@ -185,12 +185,7 @@ typedef enum : NSUInteger {
     } else {
         [self.player replaceCurrentItemWithPlayerItem:self.currentPlayerItem];
     }
-    //    self.currentPlayerLayer       = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    //    self.currentPlayerLayer.frame = CGRectMake(0, 44, showView.bounds.size.width, showView.bounds.size.height - 44);
-    //    self.currentPlayerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
-    //
-    //    [showView.layer addSublayer:self.currentPlayerLayer];
-    
+   
     [(AVPlayerLayer *)self.playerView.layer setPlayer:self.player];
     
     [self.currentPlayerItem addObserver:self forKeyPath:PAVideoPlayerItemStatusKeyPath options:NSKeyValueObservingOptionNew context:nil];
@@ -255,12 +250,7 @@ typedef enum : NSUInteger {
 - (void)fullScreen {
     
     self.isFullScreen = !_isFullScreen;
-    //如果全屏下
-//    if (_isFullScreen) {
-//        [self toOrientation:UIInterfaceOrientationPortrait];
-//    }else{
-//        [self toOrientation:UIInterfaceOrientationLandscapeRight];
-//    }
+
     [self layoutVideoPlayer:self.isFullScreen];
     
     [self showToolView];
@@ -327,7 +317,6 @@ typedef enum : NSUInteger {
             
             self.actIndicator.hidden = NO;
             [self.actIndicator startAnimating];
-            //            [[XCHudHelper sharedInstance] showHudOnView:_showView caption:nil image:nil acitivity:YES autoHideTime:0];
         }
         
     }];
@@ -419,11 +408,6 @@ typedef enum : NSUInteger {
         static float staticHeight = 0;
         staticHeight = size.height/size.width * kScreenWidth;
         NSLog(@"%f", staticHeight);
-        
-        //用来监测屏幕旋转
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationChanged:) name:UIDeviceOrientationDidChangeNotification object:nil];
-        
         _canFullScreen = YES;
     }
 }
@@ -524,7 +508,6 @@ typedef enum : NSUInteger {
 - (void)setState:(PAPlayerState)state
 {
     if (state != PAPlayerStateBuffering) {
-        //        [[XCHudHelper sharedInstance] hideHud];
         [self.actIndicator stopAnimating];
         self.actIndicator.hidden = YES;
     }
@@ -746,7 +729,6 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-//    self.stopButton.frame = CGRectMake(0, 0, 44, 44);
     [self.stopButton removeFromSuperview];
     [self.toolView addSubview:self.stopButton];
     [self.stopButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -761,7 +743,6 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-//    self.screenButton.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 44, 0, 44, 44);
     [self.screenButton removeFromSuperview];
     [self.toolView addSubview:self.screenButton];
     [self.screenButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -777,7 +758,6 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-//    self.currentTimeLbl.frame = CGRectMake(44, 0, 52, 44);
     [self.currentTimeLbl removeFromSuperview];
     [self.toolView addSubview:self.currentTimeLbl];
     [self.currentTimeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -787,7 +767,6 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-//    self.totalTimeLbl.frame = CGRectMake(CGRectGetWidth(self.toolView.frame) - 52 - 44, 0, 52, 44);
     [self.totalTimeLbl removeFromSuperview];
     [self.toolView addSubview:self.totalTimeLbl];
     [self.totalTimeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -829,7 +808,6 @@ typedef enum : NSUInteger {
         make.height.mas_equalTo(44);
     }];
     
-//    self.touchView.frame = CGRectMake(0, 0, CGRectGetWidth(_showView.frame), CGRectGetHeight(_showView.frame) - 44);
     [self.touchView removeFromSuperview];
     [_showView addSubview:self.touchView];
     [self.touchView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -1360,36 +1338,10 @@ typedef enum : NSUInteger {
     }
     
     NSLog(@"%@", str);
-    //    [XCHudHelper showMessage:str];
     
 }
 
-#pragma mark - 通知中心检测到屏幕旋转
--(void)orientationChanged:(NSNotification *)notification{
-//    [self updateOrientation];
-}
-
-- (void)updateOrientation {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    switch (orientation) {
-        case UIDeviceOrientationPortrait:
-            [self toOrientation:UIInterfaceOrientationPortrait];
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-            [self toOrientation:UIInterfaceOrientationLandscapeRight];
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            [self toOrientation:UIInterfaceOrientationLandscapeLeft];
-            break;
-        case UIDeviceOrientationPortraitUpsideDown:
-            [self toOrientation:UIInterfaceOrientationPortraitUpsideDown];
-            break;
-        default:
-            break;
-    }
-}
-
-#pragma mark - 全屏旋转处理
+#pragma mark - 全屏布局
 
 - (void)layoutVideoPlayer:(BOOL)isFullScreen{
     if (isFullScreen) {
@@ -1434,111 +1386,6 @@ typedef enum : NSUInteger {
         make.width.mas_equalTo(155);
         make.height.mas_equalTo(155);
     }];
-}
-
-- (void)toOrientation:(UIInterfaceOrientation)orientation {
-    
-    if (!_canFullScreen) {
-        return;
-    }
-    
-    if ([[UIDevice currentDevice].model hasPrefix:@"iPhone"] && (orientation == UIInterfaceOrientationPortraitUpsideDown)) {
-        return;
-    }
-    
-    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        [self.showView removeFromSuperview];
-        [self.playerSuperView addSubview:self.showView];
-        
-        PALightView *lightView = [PALightView sharedInstance];
-        [[UIApplication sharedApplication].keyWindow bringSubviewToFront:lightView];
-        __weak PAVideoPlayer * weakSelf = self;
-        [self.showView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.top.mas_equalTo(CGRectGetMinY(weakSelf.showViewRect));
-            make.left.mas_equalTo(CGRectGetMinX(weakSelf.showViewRect));
-            make.width.mas_equalTo(CGRectGetWidth(weakSelf.showViewRect));
-            make.height.mas_equalTo(CGRectGetHeight(weakSelf.showViewRect));
-        }];
-        
-        [lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo([UIApplication sharedApplication].keyWindow);
-            make.centerY.equalTo([UIApplication sharedApplication].keyWindow).offset(-5);
-            make.width.mas_equalTo(155);
-            make.height.mas_equalTo(155);
-        }];
-    } else if (orientation == UIInterfaceOrientationLandscapeLeft || orientation == UIInterfaceOrientationLandscapeRight) {
-        [self.showView removeFromSuperview];
-        [[UIApplication sharedApplication].keyWindow addSubview:self.showView];
-        
-        // 亮度view加到window最上层
-        PALightView *lightView = [PALightView sharedInstance];
-        [[UIApplication sharedApplication].keyWindow insertSubview:self.showView belowSubview:lightView];
-        
-        [self.showView mas_remakeConstraints:^(MASConstraintMaker *make) {
-//            make.width.equalTo(@(kScreenWidth));
-//            make.height.equalTo(@(kScreenHeight));
-//            make.center.equalTo([[UIApplication sharedApplication].delegate window]);
-            make.edges.equalTo(self.showView.superview);
-        }];
-        
-        [lightView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.centerX.equalTo([UIApplication sharedApplication].keyWindow);
-            make.centerY.equalTo([UIApplication sharedApplication].keyWindow);
-            make.width.mas_equalTo(155);
-            make.height.mas_equalTo(155);
-        }];
-    }
-    
-    _currentOrientation = orientation;
-    
-    [UIView animateWithDuration:0.5 animations:^{
-        [[UIApplication sharedApplication] setStatusBarOrientation:_currentOrientation animated:YES];
-        [self.playerSuperView layoutIfNeeded];
-    } completion:^(BOOL finished) {
-        
-    }];
-}
-
-//根据状态条旋转的方向来旋转 avplayerView
--(CGAffineTransform)getOrientation:(UIInterfaceOrientation)orientation{
-    //    UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
-    
-    if (orientation == UIInterfaceOrientationPortrait) {
-        [self toPortraitUpdate];
-        return CGAffineTransformIdentity;
-    } else if (orientation == UIInterfaceOrientationLandscapeLeft){
-        [self toLandscapeUpdate];
-        return CGAffineTransformMakeRotation(-M_PI_2);
-    } else if (orientation == UIInterfaceOrientationLandscapeRight){
-        [self toLandscapeUpdate];
-        return CGAffineTransformMakeRotation(M_PI_2);
-    } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
-        [self toPortraitUpdate];
-        return CGAffineTransformMakeRotation(M_PI);
-    }
-    return CGAffineTransformIdentity;
-}
-
--(void)toPortraitUpdate{
-    _isFullScreen = NO;
-    self.toolView.hidden = YES;
-    //处理状态条
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    if ([UIApplication sharedApplication].statusBarHidden) {
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    }
-}
-
--(void)toLandscapeUpdate{
-    _isFullScreen = YES;
-    
-    //处理状态条
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    if (self.toolView.hidden) {
-        [[UIApplication sharedApplication] setStatusBarHidden:YES];
-    }else{
-        [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    }
 }
 
 - (void)dealloc
