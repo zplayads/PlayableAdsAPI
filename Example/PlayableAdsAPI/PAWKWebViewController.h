@@ -1,8 +1,8 @@
 //
-//  PAUIWebViewController.h
+//  PAWKWebViewController.h
 //  PlayableAdsAPI_Example
 //
-//  Created by Michael Tang on 2019/3/21.
+//  Created by 王泽永 on 2019/3/12.
 //  Copyright © 2019 wzy2010416033@163.com. All rights reserved.
 //
 
@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PAUIWebViewController : UIViewController <PAUnifiedRenderWebView>
+@interface PAWKWebViewController : UIViewController <PAUnifiedRenderWebView>
 
 @end
 

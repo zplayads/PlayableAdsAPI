@@ -1,24 +1,28 @@
 //
-//  PARenderViewController.m
+//  PAWKWebViewController.m
 //  PlayableAdsAPI_Example
 //
 //  Created by 王泽永 on 2019/3/12.
 //  Copyright © 2019 wzy2010416033@163.com. All rights reserved.
 //
 
-#import "PARenderViewController.h"
+#import "PAWKWebViewController.h"
 #import <WebKit/WebKit.h>
 #import "ZplayAppStore.h"
 #import "NSString+YumiURLEncodedString.h"
+#import "PASettingsManager.h"
 
-@interface PARenderViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
+@interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
-@property (nonatomic) UIWebView *uiAdRender;
 @property (nonatomic) ZplayAppStore  *appStore;
+
+@property (nonatomic , assign) SupportFunctionType functionType;
+@property (nonatomic) PAAdsModel *adModel;
+@property (nonatomic) id<PARenderVcDelegate> delegate;
 
 @end
 
-@implementation PARenderViewController
+@implementation PAWKWebViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSNumber *itunesId = [NSNumber numberWithInt:1167885749];
@@ -31,13 +35,8 @@
     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickViewTapped:)];
     tap.numberOfTapsRequired = 5;
     tap.delegate = self;
-    if (self.isUseUIWebView) {
-        [self.view addSubview:self.uiAdRender];
-        [self.uiAdRender addGestureRecognizer:tap];
-    } else {
-        [self.view addSubview:self.wkAdRender];
-        [self.wkAdRender addGestureRecognizer:tap];
-    }
+    [self.view addSubview:self.wkAdRender];
+    [self.wkAdRender addGestureRecognizer:tap];
 }
 
 - (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {
@@ -48,17 +47,23 @@
     return YES;
 }
 
+- (void)setAdModel:(PAAdsModel *)adModel{
+    _adModel = adModel;
+}
+- (void)setFunctionType:(SupportFunctionType)functionType{
+    _functionType = functionType;
+}
+- (void)setDelegate:(id<PARenderVcDelegate> _Nullable)delegate{
+    _delegate = delegate;
+}
+
 - (void)setLoadUrl:(NSString *)urlString{
     NSURL *url = [NSURL URLWithString:urlString];
     if (!url) {
         return;
     }
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    if (self.isUseUIWebView) {
-        [self.uiAdRender loadRequest:request];
-    } else {
-        [self.wkAdRender loadRequest:request];
-    }
+    [self.wkAdRender loadRequest:request];
 }
 
 - (void)loadHTMLString:(NSString *)htmlStr isReplace:(BOOL)isReplace{
@@ -71,11 +76,8 @@
         htmlStr = [htmlStr stringByReplacingOccurrencesOfString:@"\\\\" withString:@"\\"];
         htmlStr = [htmlStr stringByReplacingOccurrencesOfString:@"\\\"" withString:@"\""];
     }
-    if (self.isUseUIWebView) {
-        [self.uiAdRender loadHTMLString:htmlStr baseURL:nil];
-    } else {
-        [self.wkAdRender loadHTMLString:htmlStr baseURL:nil];
-    }
+   
+    [self.wkAdRender loadHTMLString:htmlStr baseURL:nil];
 }
 
 - (void)openAppstore:(NSURL *)openUrl{
@@ -97,20 +99,11 @@
 }
 
 - (void)dismissAd {
-    if (self.isPreRender) {
+    [self dismissViewControllerAnimated:YES completion:^{
         [self.wkAdRender removeFromSuperview];
         [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
-        self.view.hidden = YES;
         self.wkAdRender = nil;
-        self.uiAdRender = nil;
-    } else {
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self.wkAdRender removeFromSuperview];
-            [self.wkAdRender.configuration.userContentController removeScriptMessageHandlerForName:@"zplayads"];
-            self.wkAdRender = nil;
-            self.uiAdRender = nil;
-        }];
-    }
+    }];
     [self.delegate PARenderVcDidClosed];
 }
 
@@ -150,7 +143,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
-        if (!self.isSupportATag) {
+        if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
@@ -173,7 +166,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 - (WKWebView *)wkAdRender {
     if (!_wkAdRender) {
         NSString *mraidJs = nil;
-        if (self.isSupportMraid) {
+        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
             NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
             NSData *data= [[NSData alloc] initWithContentsOfFile:path];
             mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -198,13 +191,6 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         }
     }
     return _wkAdRender;
-}
-
-- (UIWebView *)uiAdRender {
-    if (!_uiAdRender) {
-        
-    }
-    return _uiAdRender;
 }
 
 @end
