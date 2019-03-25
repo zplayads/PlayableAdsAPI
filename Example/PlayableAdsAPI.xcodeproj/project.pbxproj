@@ -22,7 +22,6 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* PAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* PAAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,8 +36,9 @@
 		6D52F9342248BA160042830A /* PASettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9332248BA160042830A /* PASettingItem.m */; };
 		6D52F93C2248E8EC0042830A /* PAWKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9382248E8EC0042830A /* PAWKWebViewController.m */; };
 		6D52F93D2248E8EC0042830A /* PAUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F93B2248E8EC0042830A /* PAUIWebViewController.m */; };
+		6D52F9432248EB280042830A /* PAMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9412248EB280042830A /* PAMainPageViewController.m */; };
+		6D52F9442248EB280042830A /* PAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9422248EB280042830A /* PAAppDelegate.m */; };
 		6D58D2222248727A00239B28 /* PASupportFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D2212248727A00239B28 /* PASupportFunctionViewController.m */; };
-		6D58D2252248751500239B28 /* PAMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D2242248751500239B28 /* PAMainPageViewController.m */; };
 		6D58D22922488F9700239B28 /* PASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D22822488F9700239B28 /* PASettingsViewController.m */; };
 		6D58D22C224890D600239B28 /* PASettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D22B224890D600239B28 /* PASettingsManager.m */; };
 		6D58D2312248ACFC00239B28 /* PASettingNormalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D22F2248ACFC00239B28 /* PASettingNormalCell.m */; };
@@ -92,8 +92,6 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* PlayableAdsAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlayableAdsAPI-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* PAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* PAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAAppDelegate.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* PlayableAdsAPI_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlayableAdsAPI_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -119,10 +117,12 @@
 		6D52F9392248E8EC0042830A /* PAWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWKWebViewController.h; sourceTree = "<group>"; };
 		6D52F93A2248E8EC0042830A /* PAUIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAUIWebViewController.h; sourceTree = "<group>"; };
 		6D52F93B2248E8EC0042830A /* PAUIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAUIWebViewController.m; sourceTree = "<group>"; };
+		6D52F93F2248EB280042830A /* PAAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAAppDelegate.h; sourceTree = "<group>"; };
+		6D52F9402248EB280042830A /* PAMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAMainPageViewController.h; sourceTree = "<group>"; };
+		6D52F9412248EB280042830A /* PAMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAMainPageViewController.m; sourceTree = "<group>"; };
+		6D52F9422248EB280042830A /* PAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAAppDelegate.m; sourceTree = "<group>"; };
 		6D58D2202248727A00239B28 /* PASupportFunctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASupportFunctionViewController.h; sourceTree = "<group>"; };
 		6D58D2212248727A00239B28 /* PASupportFunctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASupportFunctionViewController.m; sourceTree = "<group>"; };
-		6D58D2232248751500239B28 /* PAMainPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PAMainPageViewController.h; path = PlayableAdsAPI/PAMainPageViewController.h; sourceTree = SOURCE_ROOT; };
-		6D58D2242248751500239B28 /* PAMainPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PAMainPageViewController.m; path = PlayableAdsAPI/PAMainPageViewController.m; sourceTree = SOURCE_ROOT; };
 		6D58D22722488F9700239B28 /* PASettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASettingsViewController.h; sourceTree = "<group>"; };
 		6D58D22822488F9700239B28 /* PASettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASettingsViewController.m; sourceTree = "<group>"; };
 		6D58D22A224890D600239B28 /* PASettingsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASettingsManager.h; sourceTree = "<group>"; };
@@ -256,24 +256,13 @@
 		6003F593195388D20070C39A /* Example for PlayableAdsAPI */ = {
 			isa = PBXGroup;
 			children = (
+				6D52F93E2248EB0D0042830A /* Main */,
 				6D52F9352248DA290042830A /* RenderWebView */,
 				6D58D22622488F4C00239B28 /* Settings */,
 				6D58D21F2248724500239B28 /* SupportFunction */,
 				6D61921722424B9900287C89 /* PAVideoPlayer */,
 				6D383873223F8D6400521972 /* Vast */,
 				5B7D298F2237CB1E0033C00A /* Tools */,
-				6003F5A5195388D20070C39A /* PAViewController.h */,
-				6003F5A6195388D20070C39A /* PAViewController.m */,
-				5B7D298C2237C59F0033C00A /* PALoadHtmlOrUrlViewController.h */,
-				5B7D298D2237C59F0033C00A /* PALoadHtmlOrUrlViewController.m */,
-				5B7D29A22237CDC50033C00A /* PARenderViewController.h */,
-				5B7D29A32237CDC50033C00A /* PARenderViewController.m */,
-				6D61926A2243918100287C89 /* PAUIWebViewController.h */,
-				6D61926B2243918100287C89 /* PAUIWebViewController.m */,
-				6003F59C195388D20070C39A /* PAAppDelegate.h */,
-				6003F59D195388D20070C39A /* PAAppDelegate.m */,
-				6D58D2232248751500239B28 /* PAMainPageViewController.h */,
-				6D58D2242248751500239B28 /* PAMainPageViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for PlayableAdsAPI";
@@ -283,8 +272,6 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* PAAppDelegate.h */,
-				6003F59D195388D20070C39A /* PAAppDelegate.m */,
 				6D383877223F915300521972 /* localVast.xml */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -367,6 +354,17 @@
 				6D52F9362248DACA0042830A /* PAUnifiedRenderWebView.h */,
 			);
 			path = RenderWebView;
+			sourceTree = "<group>";
+		};
+		6D52F93E2248EB0D0042830A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				6D52F93F2248EB280042830A /* PAAppDelegate.h */,
+				6D52F9422248EB280042830A /* PAAppDelegate.m */,
+				6D52F9402248EB280042830A /* PAMainPageViewController.h */,
+				6D52F9412248EB280042830A /* PAMainPageViewController.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		6D58D21F2248724500239B28 /* SupportFunction */ = {
@@ -629,10 +627,10 @@
 				6D61926622424D7400287C89 /* PATimeSheetView.m in Sources */,
 				6D61926522424D7400287C89 /* NSString+PA.m in Sources */,
 				6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */,
-				6D58D2252248751500239B28 /* PAMainPageViewController.m in Sources */,
 				6D61926722424D7400287C89 /* PALightView.m in Sources */,
 				6D52F93C2248E8EC0042830A /* PAWKWebViewController.m in Sources */,
-				6003F59E195388D20070C39A /* PAAppDelegate.m in Sources */,
+				6D52F9442248EB280042830A /* PAAppDelegate.m in Sources */,
+				6D52F9432248EB280042830A /* PAMainPageViewController.m in Sources */,
 				6D58D2222248727A00239B28 /* PASupportFunctionViewController.m in Sources */,
 				6D58D22C224890D600239B28 /* PASettingsManager.m in Sources */,
 				6D58D22922488F9700239B28 /* PASettingsViewController.m in Sources */,
