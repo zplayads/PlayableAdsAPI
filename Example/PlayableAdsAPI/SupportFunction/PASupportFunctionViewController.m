@@ -143,6 +143,7 @@
 
 #pragma mark: render
 - (void)loadHtml:(PAAdsModel *)adModel {
+    [self showResultLog:@"load html with response html"];
     PARenderViewController *renderVc = [[PARenderViewController alloc] init];
     renderVc.delegate = self;
     renderVc.adModel = adModel;
