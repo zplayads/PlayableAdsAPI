@@ -75,6 +75,7 @@
 #pragma mark: IBAction
 
 - (IBAction)requestAPIAction:(UIButton *)sender {
+    [self hideKeyBoard];
     
     NSString *requestLog = [NSString stringWithFormat:@"request Supprt Function = %zd .",self.functionType];
     
@@ -107,6 +108,9 @@
     
 }
 - (IBAction)PresentHtmlAction:(UIButton *)sender {
+    
+    [self hideKeyBoard];
+    
     NSString *presentLog = [NSString stringWithFormat:@"present Supprt Function = %zd .",self.functionType];
     
     [self showResultLog:presentLog];
@@ -125,6 +129,23 @@
         [weakSelf.resultTextView scrollRangeToVisible:NSMakeRange(text.length, 1)];
         weakSelf.resultTextView.text = text;
     });
+}
+
+- (void)hideKeyBoard{
+    [self.requestTextView resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self hideKeyBoard];
+}
+
+#pragma mark: UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){
+        [self hideKeyBoard];
+        return NO;
+    }
+    return YES;
 }
 
 @end
