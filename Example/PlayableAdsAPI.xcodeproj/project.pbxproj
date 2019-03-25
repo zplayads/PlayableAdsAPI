@@ -45,6 +45,7 @@
 		6D61926522424D7400287C89 /* NSString+PA.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925822424D7300287C89 /* NSString+PA.m */; };
 		6D61926622424D7400287C89 /* PATimeSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925A22424D7400287C89 /* PATimeSheetView.m */; };
 		6D61926722424D7400287C89 /* PALightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61925B22424D7400287C89 /* PALightView.m */; };
+		6D61926C2243918100287C89 /* PAUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D61926B2243918100287C89 /* PAUIWebViewController.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -126,6 +127,8 @@
 		6D61925D22424D7400287C89 /* PALightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PALightView.h; sourceTree = "<group>"; };
 		6D61925F22424D7400287C89 /* PATimeSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PATimeSheetView.h; sourceTree = "<group>"; };
 		6D61926922426D8E00287C89 /* PAPlayerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPlayerHeader.h; sourceTree = "<group>"; };
+		6D61926A2243918100287C89 /* PAUIWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAUIWebViewController.h; sourceTree = "<group>"; };
+		6D61926B2243918100287C89 /* PAUIWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PAUIWebViewController.m; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8791B0CEABE867A161B7044D /* Pods_PlayableAdsAPI_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayableAdsAPI_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +247,8 @@
 				5B7D298D2237C59F0033C00A /* PALoadHtmlOrUrlViewController.m */,
 				5B7D29A22237CDC50033C00A /* PARenderViewController.h */,
 				5B7D29A32237CDC50033C00A /* PARenderViewController.m */,
+				6D61926A2243918100287C89 /* PAUIWebViewController.h */,
+				6D61926B2243918100287C89 /* PAUIWebViewController.m */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
 			name = "Example for PlayableAdsAPI";
@@ -554,6 +559,7 @@
 				5B7D29A42237CDC50033C00A /* PARenderViewController.m in Sources */,
 				6D61926722424D7400287C89 /* PALightView.m in Sources */,
 				6003F59E195388D20070C39A /* PAAppDelegate.m in Sources */,
+				6D61926C2243918100287C89 /* PAUIWebViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* PAViewController.m in Sources */,
 				6D61926322424D7400287C89 /* PAVideoPlayer.m in Sources */,
 				5B7D299E2237CB8D0033C00A /* PANetworkManager.m in Sources */,
