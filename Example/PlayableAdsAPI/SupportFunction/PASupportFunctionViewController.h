@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef enum : NSUInteger {
-    kSupportFunctionType_01 = 1 << 1,
-    kSupportFunctionType_02 = 1 << 2,
-} SupportFunctionType;
+#import "PANetworkManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

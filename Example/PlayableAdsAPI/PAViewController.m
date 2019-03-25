@@ -31,7 +31,7 @@
 - (IBAction)supportFunction1:(id)sender {
     [SVProgressHUD show];
     __weak typeof(self) weakSelf = self;
-    [[PANetworkManager sharedManager] requestAPIDataSpport:1 success:^(PAAPIModel * _Nonnull apiModel) {
+    [[PANetworkManager sharedManager] requestAPIDataSpport:nil success:^(PAAPIModel * _Nonnull apiModel) {
         [SVProgressHUD dismiss];
         if (apiModel.ads.count == 0) {
             [weakSelf.view makeToast:@"load fail..."];
@@ -51,7 +51,7 @@
 - (IBAction)supportFunction2:(id)sender {
     [SVProgressHUD show];
     __weak typeof(self) weakSelf = self;
-    [[PANetworkManager sharedManager] requestAPIDataSpport:2 success:^(PAAPIModel * _Nonnull apiModel) {
+    [[PANetworkManager sharedManager] requestAPIDataSpport:nil success:^(PAAPIModel * _Nonnull apiModel) {
         [SVProgressHUD dismiss];
         if (apiModel.ads.count == 0) {
             [weakSelf.view makeToast:@"load fail..."];

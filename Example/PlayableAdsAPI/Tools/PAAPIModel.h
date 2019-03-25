@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum : NSUInteger {
+    kSupportFunctionType_01 = 1,
+    kSupportFunctionType_02,
+} SupportFunctionType;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PAAdsModel : NSObject
@@ -15,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString  *app_bundle;
 @property (nonatomic) NSString  *playable_ads_html;
 @property (nonatomic) NSString *target_url;
-@property (nonatomic , assign) int support_function;
+@property (nonatomic , assign) SupportFunctionType support_function;
 
 @end
 

@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface PANetworkManager : NSObject
 +(instancetype)sharedManager;
-- (void)requestAPIDataSpport:(int)supportType
+- (void)requestAPIDataSpport:(NSDictionary *)parameters
                      success:(void (^)(PAAPIModel *apiModel))success
                      failure:(void (^)(NSError *error))failure;
 
