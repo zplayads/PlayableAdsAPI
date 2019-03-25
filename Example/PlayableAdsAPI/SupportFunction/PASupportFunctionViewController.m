@@ -7,18 +7,20 @@
 //
 
 #import "PASupportFunctionViewController.h"
-#import "PARenderViewController.h"
+#import "PAWKWebViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UIView+Toast.h"
 #import "PANetworkManager.h"
 #import "PASettingsViewController.h"
 #import "PASettingsManager.h"
+#import "PAUnifiedRenderWebView.h"
+#import "PAUIWebViewController.h"
 
 @interface PASupportFunctionViewController ()<PARenderVcDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *requestTextView;
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
-@property (nonatomic) PARenderViewController  *renderVc;
+@property (nonatomic) UIViewController<PAUnifiedRenderWebView>  *renderVc;
 
 @end
 
@@ -112,15 +114,17 @@
 }
 - (IBAction)PresentHtmlAction:(UIButton *)sender {
     
-     NSString *presentLog = [NSString stringWithFormat:@"present Supprt Function = %zd .",self.functionType];
-    [self showResultLog:presentLog];
-    
     [self hideKeyBoard];
     
     if (!self.renderVc) {
         [self showResultLog:@"render vc is nil "];
         return;
     }
+    
+     NSString *presentLog = [NSString stringWithFormat:@"present Supprt Function = %zd .",self.functionType];
+    [self showResultLog:presentLog];
+    
+   
      [self presentViewController:self.renderVc animated:YES completion:nil];
 }
 
@@ -144,13 +148,16 @@
 #pragma mark: render
 - (void)loadHtml:(PAAdsModel *)adModel {
     [self showResultLog:@"load html with response html"];
-    PARenderViewController *renderVc = [[PARenderViewController alloc] init];
-    renderVc.delegate = self;
-    renderVc.adModel = adModel;
-    if (self.functionType == kSupportFunctionType_01) {
-         renderVc.isSupportMraid = [PASettingsManager sharedManager].isSupportMraid_01;
-        renderVc.isSupportATag = [PASettingsManager sharedManager].isSupportATag_01;
+    UIViewController<PAUnifiedRenderWebView> *renderVc = nil;
+    if ([PASettingsManager sharedManager].isUIWebView_Overall) {
+        renderVc = [[PAUIWebViewController alloc] init];
+    }else{
+        renderVc = [[PAWKWebViewController alloc] init];
     }
+    [renderVc setDelegate:self];
+    [renderVc setAdModel:adModel];
+    [renderVc setFunctionType:self.functionType];
+   
     self.renderVc = renderVc;
     if (![adModel.playable_ads_html hasPrefix:@"http://"] && ![adModel.playable_ads_html hasPrefix:@"https://"]) {
         [renderVc loadHTMLString:adModel.playable_ads_html isReplace:NO];
@@ -203,7 +210,7 @@
 }
 #pragma mark: PARenderVcDelegate
 - (void)PARenderVcDidClosed{
-    self.renderVc.delegate = nil;
+    [self.renderVc setDelegate:nil];
     self.renderVc = nil;
     [self showResultLog:@"close ad... "];
 }
