@@ -150,6 +150,10 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
+        if (!self.isSupportATag) {
+            decisionHandler(WKNavigationActionPolicyAllow);
+            return;
+        }
         NSURL *openUrl = [NSURL URLWithString:rUrl];
         [self openAppstore:openUrl];
         decisionHandler(WKNavigationActionPolicyCancel);

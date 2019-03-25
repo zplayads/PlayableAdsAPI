@@ -20,6 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSupportMraid;
 @property (nonatomic, assign) BOOL isUseUIWebView;
 @property (nonatomic, assign) BOOL isPreRender;
+@property (nonatomic ,assign) BOOL isSupportATag;
+
 @property (nonatomic) PAAdsModel *adModel;
 
 - (void)setLoadUrl:(NSString *)urlString;
