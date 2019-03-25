@@ -12,12 +12,13 @@
 #import "UIView+Toast.h"
 #import "PANetworkManager.h"
 #import "PASettingsViewController.h"
+#import "PASettingsManager.h"
 
-@interface PASupportFunctionViewController ()
+@interface PASupportFunctionViewController ()<PARenderVcDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextView *requestTextView;
-
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+@property (nonatomic) PARenderViewController  *renderVc;
 
 @end
 
@@ -100,7 +101,7 @@
         }
         PAAdsModel *model = apiModel.ads[0];
         model.support_function = weakSelf.functionType;
-        
+        [weakSelf loadHtml:model];
     } failure:^(NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
@@ -111,11 +112,16 @@
 }
 - (IBAction)PresentHtmlAction:(UIButton *)sender {
     
+     NSString *presentLog = [NSString stringWithFormat:@"present Supprt Function = %zd .",self.functionType];
+    [self showResultLog:presentLog];
+    
     [self hideKeyBoard];
     
-    NSString *presentLog = [NSString stringWithFormat:@"present Supprt Function = %zd .",self.functionType];
-    
-    [self showResultLog:presentLog];
+    if (!self.renderVc) {
+        [self showResultLog:@"render vc is nil "];
+        return;
+    }
+     [self presentViewController:self.renderVc animated:YES completion:nil];
 }
 
 //prepareForSegue
@@ -134,6 +140,34 @@
         
     }
 }
+
+#pragma mark: render
+- (void)loadHtml:(PAAdsModel *)adModel {
+    PARenderViewController *renderVc = [[PARenderViewController alloc] init];
+    renderVc.delegate = self;
+    renderVc.adModel = adModel;
+    if (self.functionType == kSupportFunctionType_01) {
+         renderVc.isSupportMraid = [PASettingsManager sharedManager].isSupportMraid_01;
+        renderVc.isSupportATag = [PASettingsManager sharedManager].isSupportATag_01;
+    }
+    self.renderVc = renderVc;
+    if (![adModel.playable_ads_html hasPrefix:@"http://"] && ![adModel.playable_ads_html hasPrefix:@"https://"]) {
+        [renderVc loadHTMLString:adModel.playable_ads_html isReplace:NO];
+    }else{
+        [renderVc setLoadUrl:adModel.playable_ads_html];
+    }
+    
+    // 预加载
+    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        return;
+    }
+    if (([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02)) {
+        return;
+    }
+    
+    [self PresentHtmlAction:nil];
+}
+
 
 #pragma mark: private
 - (void)showResultLog:(NSString *)logText{
@@ -158,7 +192,6 @@
     [self hideKeyBoard];
 }
 
-
 #pragma mark: UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     if ([text isEqualToString:@"\n"]){
@@ -166,6 +199,12 @@
         return NO;
     }
     return YES;
+}
+#pragma mark: PARenderVcDelegate
+- (void)PARenderVcDidClosed{
+    self.renderVc.delegate = nil;
+    self.renderVc = nil;
+    [self showResultLog:@"close ad... "];
 }
 
 @end
