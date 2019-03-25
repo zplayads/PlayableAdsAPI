@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PANetworkManager.h"
+#import "PAHeaderFile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

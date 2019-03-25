@@ -8,6 +8,7 @@
 
 #import "PAMainPageViewController.h"
 #import "PASupportFunctionViewController.h"
+#import "PASettingsViewController.h"
 
 @interface PAMainPageViewController ()
 
@@ -29,8 +30,13 @@
     } else if ([segue.identifier isEqualToString:@"Function02"]) {
         PASupportFunctionViewController *functionVc = segue.destinationViewController;
         functionVc.functionType = kSupportFunctionType_02;
-        
+    
+    }else if ([segue.identifier isEqualToString:@"SettingsOverall"]) {
+        PASettingsViewController *settingsVc = segue.destinationViewController;
+        settingsVc.settingType = kSettingType_Overall;
+        settingsVc.customTitle = @"Overall Settings";
     }
+   
 }
 
 @end

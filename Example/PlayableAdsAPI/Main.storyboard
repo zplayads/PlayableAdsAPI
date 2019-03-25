@@ -88,12 +88,15 @@
                     <navigationItem key="navigationItem" title="API Preview Demo" id="35T-ld-fUT">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="WJm-WM-S4o">
                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="z0e-1x-jCM" kind="push" identifier="SettingsOverall" id="y6e-1o-zGI"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hcc-om-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="329" y="45"/>
+            <point key="canvasLocation" x="468" y="44"/>
         </scene>
         <!--Support Function View Controller-->
         <scene sceneID="Nr4-rh-0ch">
@@ -195,6 +198,9 @@
                     <navigationItem key="navigationItem" id="lzm-nf-gys">
                         <barButtonItem key="rightBarButtonItem" title="Settings" style="plain" id="XOZ-pl-7tn">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="z0e-1x-jCM" kind="push" identifier="SettingsId" id="YF2-0d-66o"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -204,7 +210,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRZ-OG-kcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-10.344827586206897"/>
+            <point key="canvasLocation" x="-260" y="-502"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="dDn-ja-GFB">
+            <objects>
+                <viewController id="z0e-1x-jCM" customClass="PASettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5bF-1W-3zh"/>
+                        <viewControllerLayoutGuide type="bottom" id="FPd-xk-2aq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0pe-dJ-IW0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kwN-67-nvr">
+                                <rect key="frame" x="0.0" y="64" width="375" height="593"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="z0e-1x-jCM" id="g1k-CD-WyO"/>
+                                    <outlet property="delegate" destination="z0e-1x-jCM" id="VbW-wo-uam"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kwN-67-nvr" firstAttribute="top" secondItem="5bF-1W-3zh" secondAttribute="bottom" id="nQL-Oa-oc1"/>
+                            <constraint firstItem="FPd-xk-2aq" firstAttribute="top" secondItem="kwN-67-nvr" secondAttribute="bottom" constant="10" id="r1S-NM-aDg"/>
+                            <constraint firstAttribute="trailing" secondItem="kwN-67-nvr" secondAttribute="trailing" id="x46-aK-U5r"/>
+                            <constraint firstItem="kwN-67-nvr" firstAttribute="leading" secondItem="0pe-dJ-IW0" secondAttribute="leading" id="zba-aB-GF1"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="HuM-Yu-dTj"/>
+                    <connections>
+                        <outlet property="tableView" destination="kwN-67-nvr" id="gyt-7t-IYM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ay6-GZ-VAv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1532" y="-641"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Alv-uM-oxA">
@@ -224,6 +268,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="YF2-0d-66o"/>
         <segue reference="z7p-4o-Ixc"/>
     </inferredMetricsTieBreakers>
 </document>

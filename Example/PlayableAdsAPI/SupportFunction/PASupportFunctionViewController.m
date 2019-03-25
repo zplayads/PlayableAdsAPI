@@ -10,6 +10,8 @@
 #import "PARenderViewController.h"
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UIView+Toast.h"
+#import "PANetworkManager.h"
+#import "PASettingsViewController.h"
 
 @interface PASupportFunctionViewController ()
 
@@ -116,6 +118,23 @@
     [self showResultLog:presentLog];
 }
 
+//prepareForSegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"SettingsId"]) {
+        PASettingsViewController *settingVc= segue.destinationViewController;
+        settingVc.customTitle = @"Independent Settings";
+        
+        if (self.functionType == kSupportFunctionType_01) {
+            settingVc.settingType = kSettingType_Function01;
+        }
+        if (self.functionType == kSupportFunctionType_02) {
+            settingVc.settingType = kSettingType_Function02;
+        }
+        
+    }
+}
+
 #pragma mark: private
 - (void)showResultLog:(NSString *)logText{
     __weak typeof(self) weakSelf = self;
@@ -138,6 +157,7 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     [self hideKeyBoard];
 }
+
 
 #pragma mark: UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
