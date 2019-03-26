@@ -38,6 +38,8 @@
 		6D52F93D2248E8EC0042830A /* PAUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F93B2248E8EC0042830A /* PAUIWebViewController.m */; };
 		6D52F9432248EB280042830A /* PAMainPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9412248EB280042830A /* PAMainPageViewController.m */; };
 		6D52F9442248EB280042830A /* PAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9422248EB280042830A /* PAAppDelegate.m */; };
+		6D52F9462249BFE60042830A /* back_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D52F9452249BFE60042830A /* back_icon@2x.png */; };
+		6D52F9492249C4DE0042830A /* UIViewController+PACloseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D52F9482249C4DE0042830A /* UIViewController+PACloseView.m */; };
 		6D58D2222248727A00239B28 /* PASupportFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D2212248727A00239B28 /* PASupportFunctionViewController.m */; };
 		6D58D22922488F9700239B28 /* PASettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D22822488F9700239B28 /* PASettingsViewController.m */; };
 		6D58D22C224890D600239B28 /* PASettingsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D22B224890D600239B28 /* PASettingsManager.m */; };
@@ -112,7 +114,6 @@
 		6D52F9322248BA160042830A /* PASettingItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASettingItem.h; sourceTree = "<group>"; };
 		6D52F9332248BA160042830A /* PASettingItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASettingItem.m; sourceTree = "<group>"; };
 		6D52F9362248DACA0042830A /* PAUnifiedRenderWebView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PAUnifiedRenderWebView.h; sourceTree = "<group>"; };
-		6D52F9372248E8EC0042830A /* PAUnifiedRenderWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAUnifiedRenderWebView.h; sourceTree = "<group>"; };
 		6D52F9382248E8EC0042830A /* PAWKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAWKWebViewController.m; sourceTree = "<group>"; };
 		6D52F9392248E8EC0042830A /* PAWKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAWKWebViewController.h; sourceTree = "<group>"; };
 		6D52F93A2248E8EC0042830A /* PAUIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAUIWebViewController.h; sourceTree = "<group>"; };
@@ -121,6 +122,9 @@
 		6D52F9402248EB280042830A /* PAMainPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAMainPageViewController.h; sourceTree = "<group>"; };
 		6D52F9412248EB280042830A /* PAMainPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAMainPageViewController.m; sourceTree = "<group>"; };
 		6D52F9422248EB280042830A /* PAAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAAppDelegate.m; sourceTree = "<group>"; };
+		6D52F9452249BFE60042830A /* back_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back_icon@2x.png"; sourceTree = "<group>"; };
+		6D52F9472249C4DE0042830A /* UIViewController+PACloseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+PACloseView.h"; sourceTree = "<group>"; };
+		6D52F9482249C4DE0042830A /* UIViewController+PACloseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+PACloseView.m"; sourceTree = "<group>"; };
 		6D58D2202248727A00239B28 /* PASupportFunctionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASupportFunctionViewController.h; sourceTree = "<group>"; };
 		6D58D2212248727A00239B28 /* PASupportFunctionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PASupportFunctionViewController.m; sourceTree = "<group>"; };
 		6D58D22722488F9700239B28 /* PASettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PASettingsViewController.h; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 		6003F594195388D20070C39A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6D52F9452249BFE60042830A /* back_icon@2x.png */,
 				6D383877223F915300521972 /* localVast.xml */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -348,10 +353,11 @@
 			children = (
 				6D52F93A2248E8EC0042830A /* PAUIWebViewController.h */,
 				6D52F93B2248E8EC0042830A /* PAUIWebViewController.m */,
-				6D52F9372248E8EC0042830A /* PAUnifiedRenderWebView.h */,
 				6D52F9392248E8EC0042830A /* PAWKWebViewController.h */,
 				6D52F9382248E8EC0042830A /* PAWKWebViewController.m */,
 				6D52F9362248DACA0042830A /* PAUnifiedRenderWebView.h */,
+				6D52F9472249C4DE0042830A /* UIViewController+PACloseView.h */,
+				6D52F9482249C4DE0042830A /* UIViewController+PACloseView.m */,
 			);
 			path = RenderWebView;
 			sourceTree = "<group>";
@@ -509,6 +515,7 @@
 			files = (
 				5B7D29962237CB1E0033C00A /* mraid.js in Resources */,
 				5B7D29982237CB1E0033C00A /* supportFunction2.json in Resources */,
+				6D52F9462249BFE60042830A /* back_icon@2x.png in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6D61926122424D7400287C89 /* PAVideoPlayer.bundle in Resources */,
@@ -624,6 +631,7 @@
 				6D52F9342248BA160042830A /* PASettingItem.m in Sources */,
 				5B7D299D2237CB8D0033C00A /* PAAPIModel.m in Sources */,
 				6D61926022424D7400287C89 /* PALoaderURLConnection.m in Sources */,
+				6D52F9492249C4DE0042830A /* UIViewController+PACloseView.m in Sources */,
 				6D61926622424D7400287C89 /* PATimeSheetView.m in Sources */,
 				6D61926522424D7400287C89 /* NSString+PA.m in Sources */,
 				6D38387C223F96DC00521972 /* PAVastAdModel.m in Sources */,
