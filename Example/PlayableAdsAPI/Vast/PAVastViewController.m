@@ -36,6 +36,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupDefault];
+}
+
+- (void)setupDefault{
+    
+    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"vastRequest" ofType:@"json"];;
+    
+    if (dataPath.length == 0) {
+        return;
+    }
+    
+    NSString *defaultText = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:dataPath] encoding:NSUTF8StringEncoding error:nil];
+    self.requestTextView.text = defaultText;
 }
 
 #pragma mark: 禁用和恢复右滑返回
