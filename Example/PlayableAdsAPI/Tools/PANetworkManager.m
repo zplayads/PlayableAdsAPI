@@ -78,13 +78,8 @@
       }] resume];
 }
 
-- (void)requestVastDataCompleted:(void (^)(NSData *vastData))completed{
+- (void)requestVastData:(NSDictionary *)parameters completed:(void (^)(NSData *vastData))completed{
     
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"vastRequest" ofType:@"json"];
-    NSData *objectData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:dataPath]];
-    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
-                                                               options:NSJSONReadingMutableContainers
-                                                                 error:nil];
     NSString *httpUrl = @"http://101.201.78.229:8999/v1/api/ads";
     AFURLSessionManager *manager = [[AFURLSessionManager alloc]
                                     initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];

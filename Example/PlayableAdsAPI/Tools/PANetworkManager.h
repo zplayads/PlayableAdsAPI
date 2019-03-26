@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
                      failure:(void (^)(NSError *error))failure;
 
 // request vast
-- (void)requestVastDataCompleted:(void (^)(NSData *vastData))completed;
+- (void)requestVastData:(NSDictionary *)parameters completed:(void (^)(NSData *vastData))completed;
 
 @end
 NS_ASSUME_NONNULL_END
