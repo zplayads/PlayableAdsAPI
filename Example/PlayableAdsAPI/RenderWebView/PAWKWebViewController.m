@@ -11,6 +11,7 @@
 #import "ZplayAppStore.h"
 #import "NSString+YumiURLEncodedString.h"
 #import "PASettingsManager.h"
+#import "UIViewController+PACloseView.h"
 
 @interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
@@ -30,13 +31,8 @@
                       initWithItunesID:itunesId
                       itunesLink:@"https://itunes.apple.com/cn/app/"
                       @"%E5%B0%8F%E7%8B%90%E7%8B%B8-%E5%BE%8B%E5%8A%A8%E8%B7%B3%E8%B7%83/id1167885749"];
-    // add tap
-    UITapGestureRecognizer *tap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickViewTapped:)];
-    tap.numberOfTapsRequired = 5;
-    tap.delegate = self;
     [self.view addSubview:self.wkAdRender];
-    [self.wkAdRender addGestureRecognizer:tap];
+    [self showCloseView];
 }
 
 - (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {

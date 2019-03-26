@@ -10,6 +10,7 @@
 #import <Masonry/Masonry.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "PASettingsManager.h"
+#import "UIViewController+PACloseView.h"
 
 @interface PAUIWebViewController ()<UIWebViewDelegate>
 
@@ -33,6 +34,8 @@
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    [self showCloseView];
 }
 
 #pragma mark: public method
