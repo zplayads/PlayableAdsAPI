@@ -29,22 +29,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupTitle];
+    [self setupDefault];
     
 }
 
-- (void)setupTitle{
+- (void)setupDefault{
+    
+    NSString *dataPath = nil;
     switch (self.functionType) {
         case kSupportFunctionType_01:
             self.title = @"Supprt Function = 1";
+            dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction1" ofType:@"json"];
             break;
         case kSupportFunctionType_02:
             self.title = @"Supprt Function = 2";
+             dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction2" ofType:@"json"];
             break;
             
         default:
             break;
     }
+    
+    if (dataPath.length == 0) {
+        return;
+    }
+    
+    NSString *defaultText = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:dataPath] encoding:NSUTF8StringEncoding error:nil];
+    self.requestTextView.text = defaultText;
 }
 
 - (NSDictionary *)handleRequestParams{
