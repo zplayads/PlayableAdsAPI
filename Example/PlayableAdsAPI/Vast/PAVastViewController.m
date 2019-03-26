@@ -17,11 +17,18 @@
 
 @interface PAVastViewController ()<PAVideoPlayerDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UITextView *requestTextView;
+@property (weak, nonatomic) IBOutlet UITextView *resultTextView;
+
 @property (nonatomic)PAVideoPlayer * videoPlayer;
 @property (nonatomic) PAVastAdModel *vastModel;
 @property (nonatomic) UILabel  *videoTipLabel;
-@property (nonatomic) UIView  *showPlayerView;
+
+@property (strong, nonatomic) IBOutlet UIView *showPlayerView;
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topSpaceConstraint;
 
 @end
 
@@ -29,19 +36,34 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (IBAction)handleBackAction:(UIButton *)sender {
-    
-    
+#pragma mark: 禁用和恢复右滑返回
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+
+    }
+}
+
+- (IBAction)handleBack:(UIBarButtonItem *)sender {
     [self clearVideoPlayer];
-    [self dismissViewControllerAnimated:YES completion:^{
-        
-    }];
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)parseVastAction:(UIButton *)sender {
+- (void)parseVastAction {
     
     [self clearVideoPlayer];
     
@@ -56,13 +78,24 @@
 - (IBAction)handleNetworkVast:(UIButton *)sender {
     
     [self clearVideoPlayer];
-    
-    [SVProgressHUD show];
     [self showText:@"Request vast from server"];
+    
+    NSDictionary *param =  [self handleRequestParams];
+    if (!param) {
+        
+        return;
+    }
+    [SVProgressHUD show];
+    
     __weak typeof(self) weakSelf = self;
-    [[PANetworkManager sharedManager] requestVastDataCompleted:^(NSData * _Nonnull vastData) {
+    [[PANetworkManager sharedManager] requestVastData:param completed:^(NSData * _Nonnull vastData) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
+            if (!vastData) {
+                
+                [weakSelf showText:@"vast response is nil"];
+                return ;
+            }
             NSError *error;
             NSDictionary *dictFromData = [NSJSONSerialization JSONObjectWithData:vastData
                                                                          options:NSJSONReadingAllowFragments
@@ -71,8 +104,9 @@
                 NSDictionary *ad = ((NSArray *)dictFromData[@"ads"]).firstObject;
                 NSData *vastData = [ad[@"adm"] dataUsingEncoding:NSUTF8StringEncoding];
                 [weakSelf handleVastData:vastData];
+                return;
             }
-            
+            [weakSelf showText:@"vast ads is nil"];
         });
         
     }];
@@ -80,7 +114,7 @@
 
 - (void)handleVastData:(NSData *)vastData{
     if (!vastData) {
-        [self showText:@"Vast response fail"];
+        [self showText:@"Vast response adm is nil"];
         return;
     }
   
@@ -108,10 +142,40 @@
     
 }
 
+- (NSDictionary *)handleRequestParams{
+    NSString *requestText = self.requestTextView.text;
+    // 去除首尾空格和换行
+    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if (requestText.length == 0) {
+        [self showText:@"request params is nil !!!"];
+        return nil;
+    }
+    NSData *objectData = [requestText dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
+                                                               options:NSJSONReadingMutableContainers
+                                                                 error:&error];
+    if (error || !parameters) {
+        [self showText:@"Request parameter is not a standard json string"];
+        return nil;
+    }
+    
+    return parameters;
+}
+
 - (void)showText:(NSString *)logText{
     __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.tipLabel.text = logText;
+        weakSelf.resultTextView.layoutManager.allowsNonContiguousLayout = NO;
+        NSString *oldLog = weakSelf.resultTextView.text;
+        NSString *text = [NSString stringWithFormat:@"%@\n%@", oldLog, logText];
+        if (oldLog.length == 0) {
+            text = [NSString stringWithFormat:@"%@", logText];
+        }
+        [weakSelf.resultTextView scrollRangeToVisible:NSMakeRange(text.length, 1)];
+        weakSelf.resultTextView.text = text;
     });
 }
 - (void)playVideo:(NSString *)videoUrl{
@@ -153,11 +217,16 @@
         make.center.equalTo(self.view);
         make.height.mas_equalTo(minWidth * 9 / 16);
     }];
+    // 调整xib布局
+    self.playerViewHeightConstraint.constant = minWidth * 9 / 16;
+    self.playerViewWidthConstraint.constant = minWidth;
+    self.topSpaceConstraint.constant = minWidth * 9 / 16 + 40;
+    
     if (!self.videoTipLabel.superview) {
         [self.view addSubview:self.videoTipLabel];
 
     }
-    CGFloat topMargin =  (screenSize.height + (minWidth * 9 / 16)) * 0.5 + 10;
+    CGFloat topMargin =  (screenSize.height + (minWidth * 9 / 16)) * 0.5 + 5;
     self.videoTipLabel.hidden = NO;
     [self.videoTipLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
@@ -314,6 +383,24 @@
     
     return  vastModel;
 }
+
+- (void)hideKeyBoard{
+    [self.requestTextView resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self hideKeyBoard];
+}
+
+#pragma mark: UITextViewDelegate
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    if ([text isEqualToString:@"\n"]){
+        [self hideKeyBoard];
+        return NO;
+    }
+    return YES;
+}
+
 #pragma mark: PAVideoPlayerDelegate
 -(void)videoStartPlaying:(PAVideoPlayer *)player{
     [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.startTracking];
@@ -365,13 +452,6 @@
         _videoTipLabel.font = [UIFont systemFontOfSize:15.0];
     }
     return _videoTipLabel;
-}
-
-- (UIView *)showPlayerView{
-    if (!_showPlayerView) {
-        _showPlayerView = [[UIView alloc] init];
-    }
-    return _showPlayerView;
 }
 
 @end
