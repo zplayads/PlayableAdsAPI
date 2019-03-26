@@ -154,6 +154,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }else if ([rUrl hasPrefix:@"mraid://"]){
+        decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
     decisionHandler(WKNavigationActionPolicyAllow);
