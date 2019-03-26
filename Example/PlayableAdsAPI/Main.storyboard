@@ -76,6 +76,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="kEI-jL-Qap" kind="push" id="CKf-qz-SQJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -210,7 +213,100 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wRZ-OG-kcX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260" y="-502"/>
+            <point key="canvasLocation" x="106" y="-824"/>
+        </scene>
+        <!--Support VAST-->
+        <scene sceneID="ju0-98-Yq3">
+            <objects>
+                <viewController id="kEI-jL-Qap" customClass="PAVastViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lYo-4c-Ta9"/>
+                        <viewControllerLayoutGuide type="bottom" id="jBz-o2-drs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsi-Lg-3o3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8N-pL-0Ef">
+                                <rect key="frame" x="16" y="69" width="343" height="154"/>
+                                <color key="backgroundColor" red="0.7843137255" green="0.7843137255" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kEI-jL-Qap" id="vWA-bE-hat"/>
+                                </connections>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9K4-A8-ZbD">
+                                <rect key="frame" x="16" y="508" width="343" height="154"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="As8-jc-aaw">
+                                <rect key="frame" x="27.5" y="233.5" width="320" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="H2l-1C-rDO"/>
+                                    <constraint firstAttribute="width" constant="320" id="TaF-GS-JYq"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rfm-eS-Ofz">
+                                <rect key="frame" x="87.5" y="463" width="200" height="35"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.38431372549999998" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="RFX-74-f9a"/>
+                                    <constraint firstAttribute="width" constant="200" id="XOj-5P-arT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Parse Network Vast">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="handleNetworkVast:" destination="kEI-jL-Qap" eventType="touchUpInside" id="Bsy-xl-5Ry"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="e8N-pL-0Ef" secondAttribute="trailing" id="4vN-UA-VMH"/>
+                            <constraint firstItem="jBz-o2-drs" firstAttribute="top" secondItem="9K4-A8-ZbD" secondAttribute="bottom" constant="5" id="6pi-IJ-Fpe"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9K4-A8-ZbD" secondAttribute="trailing" id="8zH-Az-TX7"/>
+                            <constraint firstItem="9K4-A8-ZbD" firstAttribute="top" secondItem="Rfm-eS-Ofz" secondAttribute="bottom" constant="10" id="Bct-Kv-SoR"/>
+                            <constraint firstItem="9K4-A8-ZbD" firstAttribute="height" secondItem="e8N-pL-0Ef" secondAttribute="height" id="EVa-sw-Nlu"/>
+                            <constraint firstItem="9K4-A8-ZbD" firstAttribute="leading" secondItem="tsi-Lg-3o3" secondAttribute="leadingMargin" id="Hf0-Ce-r7Z"/>
+                            <constraint firstItem="As8-jc-aaw" firstAttribute="centerX" secondItem="tsi-Lg-3o3" secondAttribute="centerX" id="MoG-6N-0F1"/>
+                            <constraint firstItem="As8-jc-aaw" firstAttribute="centerY" secondItem="tsi-Lg-3o3" secondAttribute="centerY" id="QXp-ET-l2Q"/>
+                            <constraint firstItem="Rfm-eS-Ofz" firstAttribute="centerX" secondItem="tsi-Lg-3o3" secondAttribute="centerX" id="eSP-u6-xTk"/>
+                            <constraint firstItem="e8N-pL-0Ef" firstAttribute="leading" secondItem="tsi-Lg-3o3" secondAttribute="leadingMargin" id="hhD-5y-LPR"/>
+                            <constraint firstItem="e8N-pL-0Ef" firstAttribute="top" secondItem="lYo-4c-Ta9" secondAttribute="bottom" constant="5" id="i22-ke-bIb"/>
+                            <constraint firstItem="Rfm-eS-Ofz" firstAttribute="top" secondItem="e8N-pL-0Ef" secondAttribute="bottom" constant="240" id="jVc-Bj-ueU"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Support VAST" id="BV5-3G-q02">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="stop" id="CWh-Hx-8ce">
+                            <connections>
+                                <action selector="handleBack:" destination="kEI-jL-Qap" id="Bqr-9v-ThF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="playerViewHeightConstraint" destination="H2l-1C-rDO" id="zyY-RZ-jP2"/>
+                        <outlet property="playerViewWidthConstraint" destination="TaF-GS-JYq" id="HKh-y3-JWc"/>
+                        <outlet property="requestTextView" destination="e8N-pL-0Ef" id="uNm-jy-d7w"/>
+                        <outlet property="resultTextView" destination="9K4-A8-ZbD" id="WCe-yR-1aO"/>
+                        <outlet property="showPlayerView" destination="As8-jc-aaw" id="Ck4-Sw-QlH"/>
+                        <outlet property="topSpaceConstraint" destination="jVc-Bj-ueU" id="XIy-8J-nWt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R7s-mS-0M8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="785" y="-911"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="dDn-ja-GFB">
