@@ -12,6 +12,7 @@
 #import "NSString+YumiURLEncodedString.h"
 #import "PASettingsManager.h"
 #import "UIViewController+PACloseView.h"
+#import "UIView+Toast.h"
 
 @interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
@@ -86,6 +87,7 @@
 
 #pragma mark: JS call back
 - (void)handlePlayablePageMessage:(NSString *)msg {
+    [self.view makeToast:msg duration:2.0 position:CSToastPositionCenter];
     if ([msg isEqualToString:@"user_did_tap_install"]) {
         NSURL  *openUrl = [NSURL URLWithString:self.adModel.target_url];
         [self openAppstore:openUrl];

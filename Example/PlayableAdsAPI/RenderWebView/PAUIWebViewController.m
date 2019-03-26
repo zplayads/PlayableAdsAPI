@@ -11,6 +11,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "PASettingsManager.h"
 #import "UIViewController+PACloseView.h"
+#import "UIView+Toast.h"
 
 @interface PAUIWebViewController ()<UIWebViewDelegate>
 
@@ -66,6 +67,7 @@
 }
 
 - (void)handleCustomAction:(NSString *)msg{
+    [self.view makeToast:msg duration:2.0 position:CSToastPositionCenter];
     NSLog(@"actionUrl = %@",msg);
     if ([msg isEqualToString:@"user_did_tap_install"]) {
         NSURL  *openUrl = [NSURL URLWithString:self.adModel.target_url];
