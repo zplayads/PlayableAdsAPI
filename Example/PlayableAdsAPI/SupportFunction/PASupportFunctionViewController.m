@@ -125,7 +125,16 @@
     [self showResultLog:presentLog];
     
    
-     [self presentViewController:self.renderVc animated:YES completion:nil];
+    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        
+        [self.renderVc.view removeFromSuperview];
+        self.renderVc.view.hidden = NO;
+    }
+    if (([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02)) {
+        [self.renderVc.view removeFromSuperview];
+        self.renderVc.view.hidden = NO;
+    }
+    [self presentViewController:self.renderVc animated:YES completion:nil];
 }
 
 //prepareForSegue
@@ -167,9 +176,14 @@
     
     // 预加载
     if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        
+        self.renderVc.view.hidden = YES;
+        [self.view addSubview:self.renderVc.view];
         return;
     }
     if (([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02)) {
+        self.renderVc.view.hidden = YES;
+        [self.view addSubview:self.renderVc.view];
         return;
     }
     
