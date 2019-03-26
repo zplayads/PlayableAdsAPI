@@ -28,18 +28,18 @@
     
 }
 
-- (void)requestAPIDataSpport:(int)supportType
+- (void)requestAPIDataSpport:(NSDictionary *)parameters
                      success:(void (^)(PAAPIModel *apiModel))success
                      failure:(void (^)(NSError *error))failure {
     
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction1" ofType:@"json"];
-    if (supportType == 2) {
-        dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction2" ofType:@"json"];
-    }
-    NSData *objectData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:dataPath]];
-    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
-                                                         options:NSJSONReadingMutableContainers
-                                                           error:nil];
+//    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction1" ofType:@"json"];
+//    if (supportType == 2) {
+//        dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction2" ofType:@"json"];
+//    }
+//    NSData *objectData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:dataPath]];
+//    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
+//                                                         options:NSJSONReadingMutableContainers
+//                                                           error:nil];
     
 //    [self.httpManager POST:@"http://pa-engine.zplayads.com/v1/api/ads" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
 //

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PAHeaderFile.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString  *app_bundle;
 @property (nonatomic) NSString  *playable_ads_html;
 @property (nonatomic) NSString *target_url;
-@property (nonatomic , assign) int support_function;
+@property (nonatomic , assign) SupportFunctionType support_function;
 
 @end
 
