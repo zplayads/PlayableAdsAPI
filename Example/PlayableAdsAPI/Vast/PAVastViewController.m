@@ -211,22 +211,22 @@
     CGSize screenSize = [UIScreen mainScreen].bounds.size;
     
     CGFloat minWidth = MIN(screenSize.width, screenSize.height);
-
+    CGFloat scale = 0.5;
     [self.showPlayerView mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.width.mas_equalTo(minWidth);
         make.center.equalTo(self.view);
-        make.height.mas_equalTo(minWidth * 9 / 16);
+        make.height.mas_equalTo(minWidth * scale);
     }];
     // 调整xib布局
-    self.playerViewHeightConstraint.constant = minWidth * 9 / 16;
+    self.playerViewHeightConstraint.constant = minWidth * scale;
     self.playerViewWidthConstraint.constant = minWidth;
-    self.topSpaceConstraint.constant = minWidth * 9 / 16 + 40;
+    self.topSpaceConstraint.constant = minWidth * scale + 40;
     
     if (!self.videoTipLabel.superview) {
         [self.view addSubview:self.videoTipLabel];
 
     }
-    CGFloat topMargin =  (screenSize.height + (minWidth * 9 / 16)) * 0.5 + 5;
+    CGFloat topMargin =  (screenSize.height + (minWidth * scale)) * 0.5 + 5;
     self.videoTipLabel.hidden = NO;
     [self.videoTipLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(20);
