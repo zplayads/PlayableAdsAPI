@@ -158,10 +158,10 @@ typedef enum : NSUInteger {
     self.duration = 0;
     self.current  = 0;
     
-    _showView = showView;
-    _showViewRect = showView.frame;
-    _showView.backgroundColor = [UIColor blackColor];
-    _playerSuperView = superView;
+    self.showView = showView;
+    self.showViewRect = showView.frame;
+    self.showView.backgroundColor = [UIColor blackColor];
+    self.playerSuperView = superView;
     
     NSString *str = [url absoluteString];
     //如果是ios  < 7 或者是本地资源，直接播放
@@ -206,9 +206,6 @@ typedef enum : NSUInteger {
             [[NSNotificationCenter defaultCenter] postNotificationName:kPAPlayerStateChangedNotification object:nil];
         } else {
             self.state = PAPlayerStatePlaying;
-        }
-        if ([self.delegate respondsToSelector:@selector(videoStartPlaying:)]) {
-            [self.delegate videoStartPlaying:self];
         }
         
     } else {
@@ -312,7 +309,7 @@ typedef enum : NSUInteger {
     [self.player pause];
     [self.player seekToTime:CMTimeMakeWithSeconds(seconds, NSEC_PER_SEC) completionHandler:^(BOOL finished) {
         self.isPauseByUser = NO;
-        [self.player play];
+        [self videoPlaying:NO];
         if (!self.currentPlayerItem.isPlaybackLikelyToKeepUp) {
             self.state = PAPlayerStateBuffering;
             
@@ -321,6 +318,34 @@ typedef enum : NSUInteger {
         }
         
     }];
+}
+
+- (void)videoPlaying:(BOOL)isResume{
+    
+    if (!self.currentPlayerItem) {
+        return;
+    }
+    
+    [self.stopButton setImage:[UIImage imageNamed:PAImageSrcName(@"icon_pause")] forState:UIControlStateNormal];
+    [self.stopButton setImage:[UIImage imageNamed:PAImageSrcName(@"icon_pause_hl")] forState:UIControlStateHighlighted];
+   
+    self.state = PAPlayerStatePlaying;
+    [self.player play];
+    
+    if (!isResume) {
+        if ([self.delegate respondsToSelector:@selector(videoStartPlaying:)]) {
+            
+            [self.delegate videoStartPlaying:self];
+        }
+        return;
+    }
+    
+    self.isPauseByUser = NO;
+    self.repeatBtn.hidden = YES;
+    if ([self.delegate respondsToSelector:@selector(videoPlayerResume:)]) {
+        [self.delegate videoPlayerResume:self];
+    }
+   
 }
 
 #pragma mark - observer
@@ -417,11 +442,7 @@ typedef enum : NSUInteger {
 {
     
     self.duration = playerItem.duration.value / playerItem.duration.timescale; //视频总时间
-    [self.player play];
-    if ([self.delegate respondsToSelector:@selector(videoStartPlaying:)]) {
-        
-        [self.delegate videoStartPlaying:self];
-    }
+    [self videoPlaying:NO];
     [self updateTotolTime:self.duration];
     [self setPlaySliderValue:self.duration];
     
@@ -488,10 +509,7 @@ typedef enum : NSUInteger {
             return;
         }
         
-        [self.player play];
-        if ([self.delegate respondsToSelector:@selector(videoStartPlaying:)]) {
-            [self.delegate videoStartPlaying:self];
-        }
+        [self videoPlaying:NO];
         // 如果执行了play还是没有播放则说明还没有缓存好，则再次缓存一段时间
         isBuffering = NO;
         if (!self.currentPlayerItem.isPlaybackLikelyToKeepUp) {
@@ -1190,20 +1208,7 @@ typedef enum : NSUInteger {
  */
 - (void)resume
 {
-    if (!self.currentPlayerItem) {
-        return;
-    }
-    
-    [self.stopButton setImage:[UIImage imageNamed:PAImageSrcName(@"icon_pause")] forState:UIControlStateNormal];
-    [self.stopButton setImage:[UIImage imageNamed:PAImageSrcName(@"icon_pause_hl")] forState:UIControlStateHighlighted];
-    self.isPauseByUser = NO;
-    self.repeatBtn.hidden = YES;
-    self.state = PAPlayerStatePlaying;
-    [self.player play];
-    
-    if ([self.delegate respondsToSelector:@selector(videoPlayerResume:)]) {
-        [self.delegate videoPlayerResume:self];
-    }
+    [self videoPlaying:YES];
 }
 
 /**
@@ -1288,6 +1293,7 @@ typedef enum : NSUInteger {
 - (void)handleColseVideo{
    
     [self.showView removeFromSuperview];
+   
     [self stop];
     
     if ([self.delegate respondsToSelector:@selector(videoPlayerClose:)]) {
@@ -1367,9 +1373,6 @@ typedef enum : NSUInteger {
             make.width.mas_equalTo(155);
             make.height.mas_equalTo(155);
         }];
-        
-        //
-        
         return;
     }
     
