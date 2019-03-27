@@ -19,10 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,assign) BOOL  isSupportMraid_01;
 @property (nonatomic,assign) BOOL  isSupportATag_01;
 @property (nonatomic,assign) BOOL  isPreRender_01;
+@property (nonatomic ,assign) BOOL isLoadHTMLorURL_01;
 
 // function 02
 @property (nonatomic,assign) BOOL  isPreRender_02;
-
+@property (nonatomic ,assign) BOOL isLoadHTMLorURL_02;
 
 + (instancetype)sharedManager;
 

@@ -207,6 +207,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="requestBtn" destination="ZMo-dN-dSN" id="9Rw-pS-r45"/>
                         <outlet property="requestTextView" destination="IEs-Xi-sEF" id="t2b-Ha-vwj"/>
                         <outlet property="resultTextView" destination="Z6s-Ms-rkc" id="nl0-oX-qx7"/>
                     </connections>

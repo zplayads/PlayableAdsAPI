@@ -26,5 +26,7 @@ typedef enum : NSUInteger {
     SettingValueIdentify_SupportMraid_01,
     SettingValueIdentify_SupportATag_01,
     SettingValueIdentify_PreRender_01,
-    SettingValueIdentify_PreRender_02
+    SettingValueIdentify_LoadHTMLorURL_01,
+    SettingValueIdentify_PreRender_02,
+    SettingValueIdentify_LoadHTMLorURL_02,
 } SettingValueIdentify;

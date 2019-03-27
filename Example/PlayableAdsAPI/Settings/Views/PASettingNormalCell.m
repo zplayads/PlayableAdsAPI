@@ -49,8 +49,14 @@
         case SettingValueIdentify_PreRender_01:
             [PASettingsManager sharedManager].isPreRender_01 = sender.on;
             break;
+        case SettingValueIdentify_LoadHTMLorURL_01:
+            [PASettingsManager sharedManager].isLoadHTMLorURL_01 = sender.on;
+            break;
         case SettingValueIdentify_PreRender_02:
             [PASettingsManager sharedManager].isPreRender_02 = sender.on;
+            break;
+        case SettingValueIdentify_LoadHTMLorURL_02:
+            [PASettingsManager sharedManager].isLoadHTMLorURL_02 = sender.on;
             break;
             
         default:

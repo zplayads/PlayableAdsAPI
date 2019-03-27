@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *requestTextView;
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (nonatomic) UIViewController<PAUnifiedRenderWebView>  *renderVc;
+@property (weak, nonatomic) IBOutlet UIButton *requestBtn;
 
 @end
 
@@ -31,6 +32,20 @@
     
     [self setupDefault];
     
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self updateButtonTitle];
+}
+
+- (void)updateButtonTitle{
+    if (([PASettingsManager sharedManager].isLoadHTMLorURL_01 && self.functionType == kSupportFunctionType_01) || ([PASettingsManager sharedManager].isLoadHTMLorURL_02 && self.functionType == kSupportFunctionType_02)) {
+        [self.requestBtn setTitle:@"Load" forState:UIControlStateNormal];
+    }else{
+        [self.requestBtn setTitle:@"Request" forState:UIControlStateNormal];
+    }
 }
 
 - (void)setupDefault{
