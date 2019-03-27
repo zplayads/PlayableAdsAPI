@@ -14,7 +14,7 @@
 #import "UIViewController+PACloseView.h"
 #import "UIView+Toast.h"
 
-@interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
+@interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
 @property (nonatomic) ZplayAppStore  *appStore;
 
@@ -38,10 +38,6 @@
 
 - (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {
     [self dismissAd];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
 }
 
 - (void)setAdModel:(PAAdsModel *)adModel{
