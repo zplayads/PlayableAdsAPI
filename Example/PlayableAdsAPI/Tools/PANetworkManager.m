@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <YYModel/NSObject+YYModel.h>
 #import "PAAPIModel.h"
+#import "PASettingsManager.h"
 
 @interface PANetworkManager ()
 
@@ -32,23 +33,10 @@
                      success:(void (^)(PAAPIModel *apiModel))success
                      failure:(void (^)(NSError *error))failure {
     
-//    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction1" ofType:@"json"];
-//    if (supportType == 2) {
-//        dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction2" ofType:@"json"];
-//    }
-//    NSData *objectData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:dataPath]];
-//    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
-//                                                         options:NSJSONReadingMutableContainers
-//                                                           error:nil];
-    
-//    [self.httpManager POST:@"http://pa-engine.zplayads.com/v1/api/ads" parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
-//
-//    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"responseObject = %@",responseObject);
-//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//        NSLog(@"rrr= %@",error);
-//    }];
     NSString *httpUrl = @"https://pa-engine.zplayads.com/v1/api/ads";
+    if ([PASettingsManager sharedManager].isTestModel_Overall) {
+        httpUrl = @"http://101.201.78.229:8999/v1/api/ads";
+    }
     AFURLSessionManager *manager = [[AFURLSessionManager alloc]
                                     initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *request =
@@ -78,14 +66,13 @@
       }] resume];
 }
 
-- (void)requestVastDataCompleted:(void (^)(NSData *vastData))completed{
+- (void)requestVastData:(NSDictionary *)parameters completed:(void (^)(NSData *vastData))completed{
     
-    NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"vastRequest" ofType:@"json"];
-    NSData *objectData = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:dataPath]];
-    NSDictionary *parameters = [NSJSONSerialization JSONObjectWithData:objectData
-                                                               options:NSJSONReadingMutableContainers
-                                                                 error:nil];
-    NSString *httpUrl = @"http://101.201.78.229:8999/v1/api/ads";
+    NSString *httpUrl = @"https://pa-engine.zplayads.com/v1/api/ads";
+    
+    if ([PASettingsManager sharedManager].isTestModel_Overall) {
+        httpUrl = @"http://101.201.78.229:8999/v1/api/ads";
+    }
     AFURLSessionManager *manager = [[AFURLSessionManager alloc]
                                     initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     NSMutableURLRequest *request =

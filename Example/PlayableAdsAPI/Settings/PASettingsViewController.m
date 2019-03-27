@@ -72,9 +72,15 @@ static NSString *cellID = @"PASettingNormalCellID";
         item3.isOn = manager.isPreRender_01;
         item3.valueIdentify = SettingValueIdentify_PreRender_01;
         
+        PASettingItem *item4 = [[PASettingItem alloc] init];
+        item4.title = @"LoadHTMLorURL";
+        item4.isOn = manager.isLoadHTMLorURL_01;
+        item4.valueIdentify = SettingValueIdentify_LoadHTMLorURL_01;
+        
         [self.settingLists addObject:item1];
         [self.settingLists addObject:item2];
         [self.settingLists addObject:item3];
+        [self.settingLists addObject:item4];
         return;
     }
     if (self.settingType == kSettingType_Function02) {
@@ -83,8 +89,13 @@ static NSString *cellID = @"PASettingNormalCellID";
         item1.isOn = manager.isPreRender_02;
         item1.valueIdentify = SettingValueIdentify_PreRender_02;
         
-        [self.settingLists addObject:item1];
+        PASettingItem *item2 = [[PASettingItem alloc] init];
+        item2.title = @"LoadHTMLorURL";
+        item2.isOn = manager.isLoadHTMLorURL_02;
+        item2.valueIdentify = SettingValueIdentify_LoadHTMLorURL_02;
         
+        [self.settingLists addObject:item1];
+        [self.settingLists addObject:item2];
         return;
     }
 }

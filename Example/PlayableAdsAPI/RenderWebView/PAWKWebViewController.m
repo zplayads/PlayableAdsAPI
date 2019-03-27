@@ -11,8 +11,10 @@
 #import "ZplayAppStore.h"
 #import "NSString+YumiURLEncodedString.h"
 #import "PASettingsManager.h"
+#import "UIViewController+PACloseView.h"
+#import "UIView+Toast.h"
 
-@interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate, UIGestureRecognizerDelegate>
+@interface PAWKWebViewController () <WKScriptMessageHandler, WKNavigationDelegate>
 @property (nonatomic) WKWebView *wkAdRender;
 @property (nonatomic) ZplayAppStore  *appStore;
 
@@ -30,21 +32,12 @@
                       initWithItunesID:itunesId
                       itunesLink:@"https://itunes.apple.com/cn/app/"
                       @"%E5%B0%8F%E7%8B%90%E7%8B%B8-%E5%BE%8B%E5%8A%A8%E8%B7%B3%E8%B7%83/id1167885749"];
-    // add tap
-    UITapGestureRecognizer *tap =
-    [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickViewTapped:)];
-    tap.numberOfTapsRequired = 5;
-    tap.delegate = self;
     [self.view addSubview:self.wkAdRender];
-    [self.wkAdRender addGestureRecognizer:tap];
+    [self showCloseView];
 }
 
 - (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {
     [self dismissAd];
-}
-
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer{
-    return YES;
 }
 
 - (void)setAdModel:(PAAdsModel *)adModel{
@@ -90,6 +83,7 @@
 
 #pragma mark: JS call back
 - (void)handlePlayablePageMessage:(NSString *)msg {
+    [self.view makeToast:msg duration:2.0 position:CSToastPositionCenter];
     if ([msg isEqualToString:@"user_did_tap_install"]) {
         NSURL  *openUrl = [NSURL URLWithString:self.adModel.target_url];
         [self openAppstore:openUrl];
@@ -143,6 +137,13 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
+        
+        // 2 默认不支持A 标签
+        if (self.functionType == kSupportFunctionType_02) {
+            decisionHandler(WKNavigationActionPolicyAllow);
+            return;
+        }
+        // 1 不支持A标签的情况
         if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
@@ -158,6 +159,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }else if ([rUrl hasPrefix:@"mraid://"]){
+        decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
     decisionHandler(WKNavigationActionPolicyAllow);

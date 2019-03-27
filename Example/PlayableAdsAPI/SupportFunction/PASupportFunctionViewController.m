@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *requestTextView;
 @property (weak, nonatomic) IBOutlet UITextView *resultTextView;
 @property (nonatomic) UIViewController<PAUnifiedRenderWebView>  *renderVc;
+@property (weak, nonatomic) IBOutlet UIButton *requestBtn;
 
 @end
 
@@ -29,30 +30,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupTitle];
+    [self setupDefault];
     
 }
 
-- (void)setupTitle{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self updateButtonTitle];
+}
+
+- (void)updateButtonTitle{
+    if ([self isSupportHtml]) {
+        [self.requestBtn setTitle:@"Load Html" forState:UIControlStateNormal];
+    }else{
+        [self.requestBtn setTitle:@"Request Json" forState:UIControlStateNormal];
+    }
+}
+
+- (void)setupDefault{
+    
+    NSString *dataPath = nil;
     switch (self.functionType) {
         case kSupportFunctionType_01:
             self.title = @"Supprt Function = 1";
+            dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction1" ofType:@"json"];
             break;
         case kSupportFunctionType_02:
             self.title = @"Supprt Function = 2";
+             dataPath = [[NSBundle mainBundle] pathForResource:@"supportFunction2" ofType:@"json"];
             break;
             
         default:
             break;
     }
+    
+    if (dataPath.length == 0) {
+        return;
+    }
+    
+    NSString *defaultText = [NSString stringWithContentsOfURL:[NSURL fileURLWithPath:dataPath] encoding:NSUTF8StringEncoding error:nil];
+    self.requestTextView.text = defaultText;
+}
+
+- (NSString *)removeSpaceOrLine:(NSString *)text{
+    // 去除首尾空格和换行
+    NSString *tempText = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    tempText = [tempText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    return tempText;
 }
 
 - (NSDictionary *)handleRequestParams{
-    NSString *requestText = self.requestTextView.text;
-    // 去除首尾空格和换行
-    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
+    NSString *requestText = [self removeSpaceOrLine:self.requestTextView.text];
     if (requestText.length == 0) {
         [self showResultLog:@"request params is nil !!!"];
         return nil;
@@ -77,13 +108,31 @@
     
 }
 
+- (BOOL)isSupportHtml{
+    
+    return  ([PASettingsManager sharedManager].isLoadHTMLorURL_01 && self.functionType == kSupportFunctionType_01) || ([PASettingsManager sharedManager].isLoadHTMLorURL_02 && self.functionType == kSupportFunctionType_02);
+}
+
 #pragma mark: IBAction
 
 - (IBAction)requestAPIAction:(UIButton *)sender {
     [self hideKeyBoard];
     
-    NSString *requestLog = [NSString stringWithFormat:@"request Supprt Function = %zd .",self.functionType];
+    if ([self isSupportHtml]) {
+        [self showResultLog:[NSString stringWithFormat:@"load html with Supprt Function = %zd .",self.functionType]];
+        NSString *htmlString = [self removeSpaceOrLine:self.requestTextView.text];
+        if (htmlString.length == 0) {
+            [self showResultLog:@"htmlString is nil !!!"];
+            return;
+        }
+        PAAdsModel *model = [[PAAdsModel alloc] init];
+        model.support_function = self.functionType;
+        model.playable_ads_html = htmlString;
+        [self loadHtml:model isReplace:YES];
+        return;
+    }
     
+    NSString *requestLog = [NSString stringWithFormat:@"request Supprt Function = %zd .",self.functionType];
     [self showResultLog:requestLog];
     
     NSDictionary *param =  [self handleRequestParams];
@@ -103,7 +152,7 @@
         }
         PAAdsModel *model = apiModel.ads[0];
         model.support_function = weakSelf.functionType;
-        [weakSelf loadHtml:model];
+        [weakSelf loadHtml:model isReplace:NO];
     } failure:^(NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
@@ -125,7 +174,16 @@
     [self showResultLog:presentLog];
     
    
-     [self presentViewController:self.renderVc animated:YES completion:nil];
+    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        
+        [self.renderVc.view removeFromSuperview];
+        self.renderVc.view.hidden = NO;
+    }
+    if (([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02)) {
+        [self.renderVc.view removeFromSuperview];
+        self.renderVc.view.hidden = NO;
+    }
+    [self presentViewController:self.renderVc animated:YES completion:nil];
 }
 
 //prepareForSegue
@@ -146,8 +204,8 @@
 }
 
 #pragma mark: render
-- (void)loadHtml:(PAAdsModel *)adModel {
-    [self showResultLog:@"load html with response html"];
+- (void)loadHtml:(PAAdsModel *)adModel isReplace:(BOOL)isReplace{
+    [self showResultLog:@"load html..."];
     UIViewController<PAUnifiedRenderWebView> *renderVc = nil;
     if ([PASettingsManager sharedManager].isUIWebView_Overall) {
         renderVc = [[PAUIWebViewController alloc] init];
@@ -159,17 +217,23 @@
     [renderVc setFunctionType:self.functionType];
    
     self.renderVc = renderVc;
-    if (![adModel.playable_ads_html hasPrefix:@"http://"] && ![adModel.playable_ads_html hasPrefix:@"https://"]) {
-        [renderVc loadHTMLString:adModel.playable_ads_html isReplace:NO];
-    }else{
+    
+    if ([adModel.playable_ads_html hasPrefix:@"http://"] || [adModel.playable_ads_html hasPrefix:@"https://"]) {  // load html url
         [renderVc setLoadUrl:adModel.playable_ads_html];
+    }else{
+        [renderVc loadHTMLString:adModel.playable_ads_html isReplace:isReplace];
     }
     
     // 预加载
     if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        
+        self.renderVc.view.hidden = YES;
+        [self.view addSubview:self.renderVc.view];
         return;
     }
     if (([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02)) {
+        self.renderVc.view.hidden = YES;
+        [self.view addSubview:self.renderVc.view];
         return;
     }
     

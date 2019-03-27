@@ -10,6 +10,8 @@
 #import <Masonry/Masonry.h>
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "PASettingsManager.h"
+#import "UIViewController+PACloseView.h"
+#import "UIView+Toast.h"
 
 @interface PAUIWebViewController ()<UIWebViewDelegate>
 
@@ -33,6 +35,8 @@
     [self.webView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    [self showCloseView];
 }
 
 #pragma mark: public method
@@ -63,6 +67,7 @@
 }
 
 - (void)handleCustomAction:(NSString *)msg{
+    [self.view makeToast:msg duration:2.0 position:CSToastPositionCenter];
     NSLog(@"actionUrl = %@",msg);
     if ([msg isEqualToString:@"user_did_tap_install"]) {
         NSURL  *openUrl = [NSURL URLWithString:self.adModel.target_url];
@@ -96,12 +101,23 @@
         }
         return NO;
     }else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
+        // 2 默认不支持A 标签
+        if (self.functionType == kSupportFunctionType_02) {
+            return YES;
+        }
+        // 1 不支持A标签的情况
         if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
             
             return YES;
         }
+        
         NSURL *openUrl = [NSURL URLWithString:rUrl];
         [self openAppstore:openUrl];
+        return NO;
+    }if ([rUrl hasPrefix:@"mraid://open"]){
+        NSArray *arr = [rUrl componentsSeparatedByString:@"="];
+        NSString *str = [arr.lastObject stringByRemovingPercentEncoding];
+        [self openAppstore:[NSURL URLWithString:str]];
         return NO;
     }
     return YES;
@@ -123,6 +139,14 @@
         _webView.delegate = self;
         _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _webView.backgroundColor = [UIColor blackColor];
+        //mraid
+        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
+            NSData *data= [[NSData alloc] initWithContentsOfFile:path];
+            NSString *mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            [_webView stringByEvaluatingJavaScriptFromString:mraidJs];
+        }
+        
     }
     return _webView;
 }

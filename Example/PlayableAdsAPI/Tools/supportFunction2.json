@@ -2,7 +2,7 @@
     "version": "1.0",
     "developer_token": "D0C85086-DC66-433E-9304-49EAB171D008",
     "need_https": 1,
-    "support_function": 2,
+    "support_function":2,
     "app": {
         "app_id": "A650AB0D-7BFC-2A81-3066-D3170947C3DA",
         "app_name": "iOS-demo",
@@ -11,34 +11,48 @@
         "cat": ""
     },
     "device": {
-        "model": "x86_64",
+        "model": "iPhone8,1",
         "manufacturer": "Apple",
-        "brand": "Apple",
+        "brand": "apple",
         "plmn": "46001",
         "device_type": "phone",
-        "connection_type": "cell_unknown",
-        "carrier": "unknown",
-        "orientation": 1,
-        "idfa": "5FF71D13-B291-4A2E-9009-4AC318F61C8B",
-        "language": "en",
+        "dnt": 1,
+        "connection_type": "wifi",
+        "carrier": "China Mobile",
+        "orientation": 0,
+        "mac": "",
+        "imei": "",
+        "android_id": "",
+        "android_adid": "",
+        "idfa": "ADC65FAE-2FF8-423F-B3C8-244C4F2099E7",
+        "idfv": "",
+        "openudid": "",
+        "language": "zh-Hans-CN",
         "os_type": "iOS",
-        "os_version": "11.4",
+        "os_version": "11.3",
         "screen": {
-            "width": 750,
-            "height": 1334
+            "width": 667,
+            "height": 375,
+            "dpi": 219,
+            "pxratio": 2
         },
         "geo": {
-            "lat": 33.5429,
-            "lon": -117.7813
+            "lat": 34.567,
+            "lon": 107.67,
+            "horizontal_accu": 45,
+            "vertical_accu": 56
         }
     },
     "user": {
-        "id": "5FF71D13-B291-4A2E-9009-4AC318F61C8B",
-        "gender": "O",
-        "keywords": ["mwadslot:1"]
+        "id": "34ddd",
+        "gender": "M",
+        "age": 34,
+        "keywords": ["auto", "cosmetics", "perfume"]
     },
-    "ads": [{
-        "unit_type": 1,
-        "ad_unit_id": "0868EBC0-7768-40CA-4226-F9924221C8EB"
-    }]
+    "ads": [
+        {
+            "unit_type": 1,
+            "ad_unit_id": "0868EBC0-7768-40CA-4226-F9924221C8EB"
+        }
+    ]
 }
