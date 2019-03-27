@@ -41,10 +41,10 @@
 }
 
 - (void)updateButtonTitle{
-    if (([PASettingsManager sharedManager].isLoadHTMLorURL_01 && self.functionType == kSupportFunctionType_01) || ([PASettingsManager sharedManager].isLoadHTMLorURL_02 && self.functionType == kSupportFunctionType_02)) {
-        [self.requestBtn setTitle:@"Load" forState:UIControlStateNormal];
+    if ([self isSupportHtml]) {
+        [self.requestBtn setTitle:@"Load Html" forState:UIControlStateNormal];
     }else{
-        [self.requestBtn setTitle:@"Request" forState:UIControlStateNormal];
+        [self.requestBtn setTitle:@"Request Json" forState:UIControlStateNormal];
     }
 }
 
@@ -73,12 +73,17 @@
     self.requestTextView.text = defaultText;
 }
 
-- (NSDictionary *)handleRequestParams{
-    NSString *requestText = self.requestTextView.text;
+- (NSString *)removeSpaceOrLine:(NSString *)text{
     // 去除首尾空格和换行
-    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    requestText = [requestText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *tempText = [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    tempText = [tempText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
+    return tempText;
+}
+
+- (NSDictionary *)handleRequestParams{
+    
+    NSString *requestText = [self removeSpaceOrLine:self.requestTextView.text];
     if (requestText.length == 0) {
         [self showResultLog:@"request params is nil !!!"];
         return nil;
@@ -103,13 +108,31 @@
     
 }
 
+- (BOOL)isSupportHtml{
+    
+    return  ([PASettingsManager sharedManager].isLoadHTMLorURL_01 && self.functionType == kSupportFunctionType_01) || ([PASettingsManager sharedManager].isLoadHTMLorURL_02 && self.functionType == kSupportFunctionType_02);
+}
+
 #pragma mark: IBAction
 
 - (IBAction)requestAPIAction:(UIButton *)sender {
     [self hideKeyBoard];
     
-    NSString *requestLog = [NSString stringWithFormat:@"request Supprt Function = %zd .",self.functionType];
+    if ([self isSupportHtml]) {
+        [self showResultLog:[NSString stringWithFormat:@"load html with Supprt Function = %zd .",self.functionType]];
+        NSString *htmlString = [self removeSpaceOrLine:self.requestTextView.text];
+        if (htmlString.length == 0) {
+            [self showResultLog:@"htmlString is nil !!!"];
+            return;
+        }
+        PAAdsModel *model = [[PAAdsModel alloc] init];
+        model.support_function = self.functionType;
+        model.playable_ads_html = htmlString;
+        [self loadHtml:model isReplace:YES];
+        return;
+    }
     
+    NSString *requestLog = [NSString stringWithFormat:@"request Supprt Function = %zd .",self.functionType];
     [self showResultLog:requestLog];
     
     NSDictionary *param =  [self handleRequestParams];
@@ -129,7 +152,7 @@
         }
         PAAdsModel *model = apiModel.ads[0];
         model.support_function = weakSelf.functionType;
-        [weakSelf loadHtml:model];
+        [weakSelf loadHtml:model isReplace:NO];
     } failure:^(NSError * _Nonnull error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
@@ -181,8 +204,8 @@
 }
 
 #pragma mark: render
-- (void)loadHtml:(PAAdsModel *)adModel {
-    [self showResultLog:@"load html with response html"];
+- (void)loadHtml:(PAAdsModel *)adModel isReplace:(BOOL)isReplace{
+    [self showResultLog:@"load html..."];
     UIViewController<PAUnifiedRenderWebView> *renderVc = nil;
     if ([PASettingsManager sharedManager].isUIWebView_Overall) {
         renderVc = [[PAUIWebViewController alloc] init];
@@ -194,10 +217,11 @@
     [renderVc setFunctionType:self.functionType];
    
     self.renderVc = renderVc;
-    if (![adModel.playable_ads_html hasPrefix:@"http://"] && ![adModel.playable_ads_html hasPrefix:@"https://"]) {
-        [renderVc loadHTMLString:adModel.playable_ads_html isReplace:NO];
-    }else{
+    
+    if ([adModel.playable_ads_html hasPrefix:@"http://"] || [adModel.playable_ads_html hasPrefix:@"https://"]) {  // load html url
         [renderVc setLoadUrl:adModel.playable_ads_html];
+    }else{
+        [renderVc loadHTMLString:adModel.playable_ads_html isReplace:isReplace];
     }
     
     // 预加载
