@@ -101,10 +101,16 @@
         }
         return NO;
     }else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
+        // 2 默认不支持A 标签
+        if (self.functionType == kSupportFunctionType_02) {
+            return YES;
+        }
+        // 1 不支持A标签的情况
         if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
             
             return YES;
         }
+        
         NSURL *openUrl = [NSURL URLWithString:rUrl];
         [self openAppstore:openUrl];
         return NO;

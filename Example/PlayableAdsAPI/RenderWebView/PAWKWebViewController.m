@@ -137,6 +137,13 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
+        
+        // 2 默认不支持A 标签
+        if (self.functionType == kSupportFunctionType_02) {
+            decisionHandler(WKNavigationActionPolicyAllow);
+            return;
+        }
+        // 1 不支持A标签的情况
         if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
