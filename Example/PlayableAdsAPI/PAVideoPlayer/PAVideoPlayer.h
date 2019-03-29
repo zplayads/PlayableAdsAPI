@@ -30,7 +30,7 @@ typedef NS_ENUM(NSInteger, PAPlayerState) {
 -(void)videoPlayerPause:(PAVideoPlayer *)player;
 -(void)videoPlayerResume:(PAVideoPlayer *)player;
 -(void)videoPlayerClick:(PAVideoPlayer *)player;
--(void)videoPlayerClose:(PAVideoPlayer *)player;
+-(void)videoPlayerClose:(PAVideoPlayer *)player isFinished:(BOOL)isFinished;
 
 @end
 

@@ -1293,12 +1293,12 @@ typedef enum : NSUInteger {
 - (void)handleColseVideo{
    
     [self.showView removeFromSuperview];
-   
-    [self stop];
     
-    if ([self.delegate respondsToSelector:@selector(videoPlayerClose:)]) {
-        [self.delegate videoPlayerClose:self];
+    if ([self.delegate respondsToSelector:@selector(videoPlayerClose:isFinished:)]) {
+       
+        [self.delegate videoPlayerClose:self isFinished:self.state == PAPlayerStateFinish];
     }
+    [self stop];
 }
 
 - (void)handleDownload{
