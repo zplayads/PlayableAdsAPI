@@ -179,7 +179,9 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
             [config.userContentController addScriptMessageHandler:self name:@"zplayads"];
         }
         config.allowsInlineMediaPlayback = YES;
-
+        //lowest 10.0
+        config.mediaTypesRequiringUserActionForPlayback = NO;
+        
         CGRect frame =
         CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         _wkAdRender = [[WKWebView alloc] initWithFrame:frame configuration:config];
