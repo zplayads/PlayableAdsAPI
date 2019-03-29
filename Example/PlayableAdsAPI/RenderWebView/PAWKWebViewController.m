@@ -174,7 +174,15 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 
 - (WKWebView *)wkAdRender {
     if (!_wkAdRender) {
+        NSString *mraidJs = nil;
+        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
+            NSData *data= [[NSData alloc] initWithContentsOfFile:path];
+            mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        }
+        WKUserScript *script = [[WKUserScript alloc] initWithSource:mraidJs injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
         WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+        [config.userContentController addUserScript:script];
         if (self.adModel.support_function == 2) {
             [config.userContentController addScriptMessageHandler:self name:@"zplayads"];
         }

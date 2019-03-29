@@ -146,7 +146,15 @@
         _webView.allowsInlineMediaPlayback = YES;
         _webView.delegate = self;
         _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        _webView.backgroundColor = [UIColor blackColor]; 
+        _webView.backgroundColor = [UIColor blackColor];
+        //mraid
+        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
+            NSData *data= [[NSData alloc] initWithContentsOfFile:path];
+            NSString *mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            [_webView stringByEvaluatingJavaScriptFromString:mraidJs];
+        }
+        
     }
     return _webView;
 }
