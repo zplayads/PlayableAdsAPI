@@ -448,12 +448,21 @@
     
     [self showText:@"double click open App Store"];
 }
--(void)videoPlayerClose:(PAVideoPlayer *)player{
+-(void)videoPlayerClose:(PAVideoPlayer *)player isFinished:(BOOL)isFinished{
    
 //    self.view.backgroundColor = [UIColor whiteColor];
-    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
-    [self showText:@"close video"];
     self.videoTipLabel.hidden = YES;
+    if (isFinished) {
+        [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.closeLinearTracking];
+        
+        [self showText:@"close finish video"];
+        return ;
+    }
+    
+    [[PAStatisticsReportManager shareManager] sendTrackingUrl:self.vastModel.trackingEvents.skipTracking];
+   [self showText:@"close skip video"];
+    
+    
 }
 
 

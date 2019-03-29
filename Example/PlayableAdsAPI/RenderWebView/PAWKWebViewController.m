@@ -138,28 +138,35 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         return;
     } else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
         
-        // 2 默认不支持A 标签
-        if (self.functionType == kSupportFunctionType_02) {
+        if (!([PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01)) {
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
-        // 1 不支持A标签的情况
-        if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
-            decisionHandler(WKNavigationActionPolicyAllow);
-            return;
-        }
+        // 只有 01 并且支持 A 标签才会执行
         NSURL *openUrl = [NSURL URLWithString:rUrl];
         [self openAppstore:openUrl];
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     } else if ([rUrl hasPrefix:@"mraid://open"]){
+        
+        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+            decisionHandler(WKNavigationActionPolicyAllow);
+            return;
+        }
+        // 只有 01 并且支持 Mraida才会执行
         NSArray *arr = [rUrl componentsSeparatedByString:@"="];
         NSString *str = [arr.lastObject stringByRemovingPercentEncoding];
         [self openAppstore:[NSURL URLWithString:str]];
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
-    }else if ([rUrl hasPrefix:@"mraid://"]){
-        decisionHandler(WKNavigationActionPolicyAllow);
+    }else if ([rUrl hasPrefix:@"mraid://close"]){
+        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+            decisionHandler(WKNavigationActionPolicyAllow);
+            return;
+        }
+        
+        [self dismissAd];
+        decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }
     decisionHandler(WKNavigationActionPolicyAllow);
@@ -180,7 +187,9 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
             [config.userContentController addScriptMessageHandler:self name:@"zplayads"];
         }
         config.allowsInlineMediaPlayback = YES;
-
+        //lowest 10.0
+        config.mediaTypesRequiringUserActionForPlayback = NO;
+        
         CGRect frame =
         CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
         _wkAdRender = [[WKWebView alloc] initWithFrame:frame configuration:config];
