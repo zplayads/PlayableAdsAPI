@@ -90,6 +90,7 @@
     }];
     [self.delegate PARenderVcDidClosed];
 }
+
 #pragma mark:- UIWebViewDelegate
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
 
@@ -101,23 +102,30 @@
         }
         return NO;
     }else if ([rUrl hasPrefix:@"https://"] || [rUrl hasPrefix:@"http://"]) {
-        // 2 默认不支持A 标签
-        if (self.functionType == kSupportFunctionType_02) {
+       
+        if (!([PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01)) {
             return YES;
         }
-        // 1 不支持A标签的情况
-        if (![PASettingsManager sharedManager].isSupportATag_01 && self.functionType == kSupportFunctionType_01) {
-            
-            return YES;
-        }
-        
+        // 只有 01 并且支持 A 标签才会执行
         NSURL *openUrl = [NSURL URLWithString:rUrl];
         [self openAppstore:openUrl];
         return NO;
     }if ([rUrl hasPrefix:@"mraid://open"]){
+        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+            return YES;
+        }
+        // 只有 01 并且支持 Mraida才会执行
         NSArray *arr = [rUrl componentsSeparatedByString:@"="];
         NSString *str = [arr.lastObject stringByRemovingPercentEncoding];
         [self openAppstore:[NSURL URLWithString:str]];
+        return NO;
+    }if ([rUrl hasPrefix:@"mraid://close"]){
+        
+        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+            return YES;
+        }
+        // 只有 01 并且支持 Mraida才会执行
+        [self dismissAd];
         return NO;
     }
     return YES;
