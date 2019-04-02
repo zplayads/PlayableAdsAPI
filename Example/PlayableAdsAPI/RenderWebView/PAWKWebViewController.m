@@ -36,8 +36,11 @@
     [self showCloseView];
 }
 
-- (void)clickViewTapped:(UITapGestureRecognizer *)grconizer {
-    [self dismissAd];
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        [self viewableEvent];
+    }
 }
 
 - (void)setAdModel:(PAAdsModel *)adModel{
@@ -71,7 +74,6 @@
     }
    
     [self.wkAdRender loadHTMLString:htmlStr baseURL:nil];
-    [self changeState:@"loading"];
 }
 
 - (void)openAppstore:(NSURL *)openUrl{
@@ -114,9 +116,18 @@
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
 }
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    
+    if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        return;
+    }
+    // send  mraid action
     [self changeState:@"default"];
     [self readyEvent];
-    [self viewableEvent];
+    // not pre render
+    if (![PASettingsManager sharedManager].isPreRender_01) {
+        [self viewableEvent];
+    }
+    
 }
 - (void)webView:(WKWebView *)webView
 didFailNavigation:(null_unspecified WKNavigation *)navigation
