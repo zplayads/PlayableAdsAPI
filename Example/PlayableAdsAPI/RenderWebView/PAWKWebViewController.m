@@ -38,7 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+    if ([self isSupportPreRender]) {
         [self viewableEvent];
     }
 }
@@ -104,6 +104,26 @@
     [self.delegate PARenderVcDidClosed];
 }
 
+- (BOOL)isSupportMraid{
+    if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isSupportMraid_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isSupportPreRender{
+    if ([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
@@ -117,14 +137,14 @@
 }
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     
-    if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+    if (![self isSupportMraid]){
         return;
     }
     // send  mraid action
     [self changeState:@"default"];
     [self readyEvent];
     // not pre render
-    if (![PASettingsManager sharedManager].isPreRender_01) {
+    if (![self isSupportPreRender]) {
         [self viewableEvent];
     }
     
@@ -164,7 +184,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         return;
     } else if ([rUrl hasPrefix:@"mraid://open"]){
         
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
@@ -175,7 +195,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }else if ([rUrl hasPrefix:@"mraid://close"]){
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
@@ -190,7 +210,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 - (WKWebView *)wkAdRender {
     if (!_wkAdRender) {
         NSString *mraidJs = nil;
-        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        if ([self isSupportMraid]) {
             NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
             NSData *data= [[NSData alloc] initWithContentsOfFile:path];
             mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
