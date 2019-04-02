@@ -165,6 +165,7 @@
     }
     // send  mraid action
     [self changeState:@"default"];
+    [self interstitialEvent];
     [self readyEvent];
     // not pre render
     if (![self isSupportPreRender]) {
@@ -210,5 +211,8 @@
     NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
     [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
 }
-
+- (void)interstitialEvent{
+    NSString *javaScriptString = @"mraid.setPlacementType('interstitial');";
+   [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
+}
 @end

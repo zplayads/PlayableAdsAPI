@@ -142,6 +142,7 @@
     }
     // send  mraid action
     [self changeState:@"default"];
+    [self interstitialEvent];
     [self readyEvent];
     // not pre render
     if (![self isSupportPreRender]) {
@@ -261,6 +262,17 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 
 - (void)viewableEvent {
     NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
+    [self.wkAdRender evaluateJavaScript:javaScriptString
+                      completionHandler:^(id _Nullable object, NSError *_Nullable error) {
+                          if (error) {
+                              
+                          }
+                      }];
+}
+
+//interstitial
+- (void)interstitialEvent{
+    NSString *javaScriptString = @"mraid.setPlacementType('interstitial');";
     [self.wkAdRender evaluateJavaScript:javaScriptString
                       completionHandler:^(id _Nullable object, NSError *_Nullable error) {
                           if (error) {
