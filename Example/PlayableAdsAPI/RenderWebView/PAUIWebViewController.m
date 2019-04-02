@@ -29,6 +29,12 @@
     
     [self layoutSubViewUI];
 }
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+        [self viewableEvent];
+    }
+}
 
 - (void)layoutSubViewUI{
     [self.view addSubview:self.webView];
@@ -134,6 +140,16 @@
     
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        return;
+    }
+    // send  mraid action
+    [self changeState:@"default"];
+    [self readyEvent];
+    // not pre render
+    if (![PASettingsManager sharedManager].isPreRender_01) {
+        [self viewableEvent];
+    }
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
@@ -157,6 +173,22 @@
         
     }
     return _webView;
+}
+
+#pragma mark: mraid event
+- (void)changeState:(NSString *)state {
+    NSString *javaScriptString = [NSString stringWithFormat:@"mraid.fireStateChangeEvent('%@');",state];
+    [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
+}
+
+- (void)readyEvent {
+    NSString *javaScriptString = @"mraid.fireReadyEvent()";
+    [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
+}
+
+- (void)viewableEvent {
+    NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
+    [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
 }
 
 @end

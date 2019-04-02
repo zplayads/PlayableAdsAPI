@@ -23,6 +23,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setLoadUrl:(NSString *)urlString;
 - (void)loadHTMLString:(NSString *)htmlStr isReplace:(BOOL)isReplace;
 
+#pragma mark: mraid JavaScript events
+- (void)changeState:(NSString *)state;
+- (void)readyEvent;
+- (void)viewableEvent;
+
 @end
 
 NS_ASSUME_NONNULL_END
