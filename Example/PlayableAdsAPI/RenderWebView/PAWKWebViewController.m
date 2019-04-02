@@ -71,6 +71,7 @@
     }
    
     [self.wkAdRender loadHTMLString:htmlStr baseURL:nil];
+    [self changeState:@"loading"];
 }
 
 - (void)openAppstore:(NSURL *)openUrl{
@@ -113,6 +114,9 @@
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(null_unspecified WKNavigation *)navigation {
 }
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [self changeState:@"default"];
+    [self readyEvent];
+    [self viewableEvent];
 }
 - (void)webView:(WKWebView *)webView
 didFailNavigation:(null_unspecified WKNavigation *)navigation
@@ -202,6 +206,36 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         }
     }
     return _wkAdRender;
+}
+
+- (void)changeState:(NSString *)state {
+    NSString *javaScriptString = [NSString stringWithFormat:@"mraid.fireStateChangeEvent('%@');",state];
+    [self.wkAdRender evaluateJavaScript:javaScriptString
+           completionHandler:^(id _Nullable object, NSError *_Nullable error) {
+               if (error) {
+                   
+               }
+           }];
+}
+
+- (void)readyEvent {
+    NSString *javaScriptString = @"mraid.fireReadyEvent()";
+    [self.wkAdRender evaluateJavaScript:javaScriptString
+                      completionHandler:^(id _Nullable object, NSError *_Nullable error) {
+                          if (error) {
+                              
+                          }
+                      }];
+}
+
+- (void)viewableEvent {
+    NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
+    [self.wkAdRender evaluateJavaScript:javaScriptString
+                      completionHandler:^(id _Nullable object, NSError *_Nullable error) {
+                          if (error) {
+                              
+                          }
+                      }];
 }
 
 @end
