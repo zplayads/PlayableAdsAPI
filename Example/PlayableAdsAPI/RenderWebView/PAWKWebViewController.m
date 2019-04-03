@@ -236,7 +236,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         _wkAdRender.navigationDelegate = self;
         _wkAdRender.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-        if (@available(iOS 11.0, *)) {
+        if (!(SYSTEM_VERSION_LESS_THAN(@"11.0"))) {
             [_wkAdRender.scrollView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         }
     }
