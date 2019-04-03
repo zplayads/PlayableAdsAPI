@@ -103,10 +103,13 @@
     }
 }
 - (void)openAppstore:(NSURL *)openUrl{
-    if (@available(iOS 10, *)) {
-        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
-    } else {
+    if (!openUrl) {
+        return;
+    }
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
         [[UIApplication sharedApplication] openURL:openUrl];
+    } else {
+        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
     }
 }
 - (void)dismissAd {
