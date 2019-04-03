@@ -224,7 +224,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         }
         config.allowsInlineMediaPlayback = YES;
         //lowest 10.0
-        config.mediaTypesRequiringUserActionForPlayback = NO;
+//        config.mediaTypesRequiringUserActionForPlayback = NO;
         
         CGRect frame =
         CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
