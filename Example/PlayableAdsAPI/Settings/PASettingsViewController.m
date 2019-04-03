@@ -27,6 +27,7 @@ static NSString *cellID = @"PASettingNormalCellID";
     
     [self setupTableView];
     [self handleSettingData];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)setupTableView{
@@ -94,8 +95,14 @@ static NSString *cellID = @"PASettingNormalCellID";
         item2.isOn = manager.isLoadHTMLorURL_02;
         item2.valueIdentify = SettingValueIdentify_LoadHTMLorURL_02;
         
+        PASettingItem *item3 = [[PASettingItem alloc] init];
+        item3.title = @"Support Mraid";
+        item3.isOn = manager.isSupportMraid_02;
+        item3.valueIdentify = SettingValueIdentify_SupportMraid_02;
+        
         [self.settingLists addObject:item1];
         [self.settingLists addObject:item2];
+        [self.settingLists addObject:item3];
         return;
     }
 }

@@ -38,7 +38,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+    if ([self isSupportPreRender]) {
         [self viewableEvent];
     }
 }
@@ -77,10 +77,13 @@
 }
 
 - (void)openAppstore:(NSURL *)openUrl{
-    if (@available(iOS 10, *)) {
-        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
-    } else {
+    if (!openUrl) {
+        return;
+    }
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
         [[UIApplication sharedApplication] openURL:openUrl];
+    } else {
+        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
     }
 }
 
@@ -104,6 +107,26 @@
     [self.delegate PARenderVcDidClosed];
 }
 
+- (BOOL)isSupportMraid{
+    if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isSupportMraid_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isSupportPreRender{
+    if ([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - WKScriptMessageHandler
 - (void)userContentController:(WKUserContentController *)userContentController
       didReceiveScriptMessage:(WKScriptMessage *)message {
@@ -117,14 +140,15 @@
 }
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
     
-    if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+    if (![self isSupportMraid]){
         return;
     }
     // send  mraid action
     [self changeState:@"default"];
+    [self interstitialEvent];
     [self readyEvent];
     // not pre render
-    if (![PASettingsManager sharedManager].isPreRender_01) {
+    if (![self isSupportPreRender]) {
         [self viewableEvent];
     }
     
@@ -164,7 +188,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         return;
     } else if ([rUrl hasPrefix:@"mraid://open"]){
         
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
@@ -175,7 +199,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         decisionHandler(WKNavigationActionPolicyCancel);
         return;
     }else if ([rUrl hasPrefix:@"mraid://close"]){
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             decisionHandler(WKNavigationActionPolicyAllow);
             return;
         }
@@ -190,7 +214,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 - (WKWebView *)wkAdRender {
     if (!_wkAdRender) {
         NSString *mraidJs = nil;
-        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        if ([self isSupportMraid]) {
             NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
             NSData *data= [[NSData alloc] initWithContentsOfFile:path];
             mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -203,7 +227,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         }
         config.allowsInlineMediaPlayback = YES;
         //lowest 10.0
-        config.mediaTypesRequiringUserActionForPlayback = NO;
+//        config.mediaTypesRequiringUserActionForPlayback = NO;
         
         CGRect frame =
         CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
@@ -212,7 +236,7 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
         _wkAdRender.navigationDelegate = self;
         _wkAdRender.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
-        if (@available(iOS 11.0, *)) {
+        if (!(SYSTEM_VERSION_LESS_THAN(@"11.0"))) {
             [_wkAdRender.scrollView setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
         }
     }
@@ -241,6 +265,17 @@ decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
 
 - (void)viewableEvent {
     NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
+    [self.wkAdRender evaluateJavaScript:javaScriptString
+                      completionHandler:^(id _Nullable object, NSError *_Nullable error) {
+                          if (error) {
+                              
+                          }
+                      }];
+}
+
+//interstitial
+- (void)interstitialEvent{
+    NSString *javaScriptString = @"mraid.setPlacementType('interstitial');";
     [self.wkAdRender evaluateJavaScript:javaScriptString
                       completionHandler:^(id _Nullable object, NSError *_Nullable error) {
                           if (error) {

@@ -442,9 +442,11 @@
     
     [[PAStatisticsReportManager shareManager] sendTrackers:self.vastModel.clickTrackers];
     
-    [[UIApplication sharedApplication] openURL:targetUrl options:nil completionHandler:^(BOOL success) {
-        
-    }];
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
+        [[UIApplication sharedApplication] openURL:targetUrl];
+    } else {
+        [[UIApplication sharedApplication] openURL:targetUrl options:@{} completionHandler:nil];
+    }
     
     [self showText:@"double click open App Store"];
 }

@@ -27,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)changeState:(NSString *)state;
 - (void)readyEvent;
 - (void)viewableEvent;
+- (void)interstitialEvent;
 
 @end
 

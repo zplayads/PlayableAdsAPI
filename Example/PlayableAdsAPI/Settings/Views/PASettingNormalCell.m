@@ -58,6 +58,9 @@
         case SettingValueIdentify_LoadHTMLorURL_02:
             [PASettingsManager sharedManager].isLoadHTMLorURL_02 = sender.on;
             break;
+        case SettingValueIdentify_SupportMraid_02:
+            [PASettingsManager sharedManager].isSupportMraid_02 = sender.on;
+            break;
             
         default:
             break;

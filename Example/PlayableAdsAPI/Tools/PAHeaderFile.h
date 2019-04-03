@@ -29,4 +29,8 @@ typedef enum : NSUInteger {
     SettingValueIdentify_LoadHTMLorURL_01,
     SettingValueIdentify_PreRender_02,
     SettingValueIdentify_LoadHTMLorURL_02,
+    SettingValueIdentify_SupportMraid_02,
 } SettingValueIdentify;
+
+#define SYSTEM_VERSION_LESS_THAN(v)                                                                                    \
+([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)

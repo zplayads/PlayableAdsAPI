@@ -31,7 +31,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    if (([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01)) {
+    if ([self isSupportPreRender]) {
         [self viewableEvent];
     }
 }
@@ -43,6 +43,26 @@
     }];
     
     [self showCloseView];
+}
+
+- (BOOL)isSupportMraid{
+    if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isSupportMraid_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isSupportPreRender{
+    if ([PASettingsManager sharedManager].isPreRender_01 && self.functionType == kSupportFunctionType_01) {
+        return YES;
+    }
+    if ([PASettingsManager sharedManager].isPreRender_02 && self.functionType == kSupportFunctionType_02) {
+        return YES;
+    }
+    return NO;
 }
 
 #pragma mark: public method
@@ -83,10 +103,13 @@
     }
 }
 - (void)openAppstore:(NSURL *)openUrl{
-    if (@available(iOS 10, *)) {
-        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
-    } else {
+    if (!openUrl) {
+        return;
+    }
+    if (SYSTEM_VERSION_LESS_THAN(@"10.0")) {
         [[UIApplication sharedApplication] openURL:openUrl];
+    } else {
+        [[UIApplication sharedApplication] openURL:openUrl options:@{} completionHandler:nil];
     }
 }
 - (void)dismissAd {
@@ -117,7 +140,7 @@
         [self openAppstore:openUrl];
         return NO;
     }if ([rUrl hasPrefix:@"mraid://open"]){
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             return YES;
         }
         // 只有 01 并且支持 Mraida才会执行
@@ -127,7 +150,7 @@
         return NO;
     }if ([rUrl hasPrefix:@"mraid://close"]){
         
-        if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+        if (![self isSupportMraid]){
             return YES;
         }
         // 只有 01 并且支持 Mraida才会执行
@@ -140,14 +163,15 @@
     
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    if (!([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01)){
+    if (![self isSupportMraid]){
         return;
     }
     // send  mraid action
     [self changeState:@"default"];
+    [self interstitialEvent];
     [self readyEvent];
     // not pre render
-    if (![PASettingsManager sharedManager].isPreRender_01) {
+    if (![self isSupportPreRender]) {
         [self viewableEvent];
     }
 }
@@ -164,7 +188,7 @@
         _webView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _webView.backgroundColor = [UIColor blackColor];
         //mraid
-        if ([PASettingsManager sharedManager].isSupportMraid_01 && self.functionType == kSupportFunctionType_01) {
+        if ([self isSupportMraid]) {
             NSString *path = [[NSBundle mainBundle] pathForResource:@"mraid" ofType:@"js"];
             NSData *data= [[NSData alloc] initWithContentsOfFile:path];
             NSString *mraidJs = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
@@ -190,5 +214,8 @@
     NSString *javaScriptString = @"mraid.fireViewableChangeEvent(true);";
     [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
 }
-
+- (void)interstitialEvent{
+    NSString *javaScriptString = @"mraid.setPlacementType('interstitial');";
+   [self.webView stringByEvaluatingJavaScriptFromString:javaScriptString];
+}
 @end
