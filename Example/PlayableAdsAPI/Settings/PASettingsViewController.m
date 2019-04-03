@@ -27,6 +27,7 @@ static NSString *cellID = @"PASettingNormalCellID";
     
     [self setupTableView];
     [self handleSettingData];
+    self.automaticallyAdjustsScrollViewInsets = NO;
 }
 
 - (void)setupTableView{
